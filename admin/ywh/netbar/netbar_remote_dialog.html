@@ -1,0 +1,64 @@
+<style type="text/css">
+	.item-remote {
+	    float: left;
+	    padding: 5px;
+	    text-align: center;
+	    width: 150px;
+	    margin-top: 30px;
+	}
+	.item-remote img{
+		width:85px;
+		height: 58px;
+	}
+	.label {
+	    background-color: #3a87ad !important;
+	    border-radius: 0;
+	    display: inline-block;
+	    font-weight: normal;
+	    text-shadow: none;
+	}
+	.block {
+	    display: block !important;
+	    margin-top: 5px;
+	    color: #000000;
+	}
+	.label-info, .badge-info {
+      background-color: #3a87ad !important;
+    }
+</style>
+<div class="netbar_remote_dl gpage_clsf">
+	<div id="netbarRemoteSelectLs_div" class="mg-lf-10">
+		<!--<div class="item-remote">
+			<a href="javascript:;">
+				<img src="images/mstsc.png">
+			    <span class="label label-info  block">fgz</span>
+		    </a>
+	    </div>
+	    <div class="item-remote">
+			<a href="javascript:;">
+				<img src="images/mstsc.png">
+			    <span class="label label-info block">fgz</span>
+		    </a>
+	   </div> -->
+	</div>
+</div>
+
+<script id="netbarRemoteSelectLs-tpl" type="text/html">
+	<div class="item-remote">
+		<a href="FKWH://<%:=rowdata.remoteinfo%>" cmd="remote">
+			<img src="images/mstsc.png">
+		    <span class="block"><%:=rowdata.remotename%></span>
+		    <span class="block" style="margin-top: 0px !important;"><%:=rowdata.innerip%></span>
+	    </a>
+    </div>
+</script>
+
+<script type="text/javascript">
+   $(function(){
+	  loadScript("lib/ligerUI/js/ligerui.all-min.js" ,function(){
+		   loadScript("admin/ywh/netbar/netbar_remote_dialog.js",function(){
+			    $netbar_remote_dialog.netbar_remote_dialogAction();
+	       } ,false);
+      });
+	});
+</script>

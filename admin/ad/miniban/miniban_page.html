@@ -1,0 +1,48 @@
+<style type="text/css"> 
+ 	  
+</style>
+<section class="ad_page_clsf" id="widget-grid"> 
+	<div>  
+		<article class="col-xs-12 sortable-grid ui-sortable">
+				<div class="jarviswidget" id="wid-id-sr" data-widget-deleteButton="false" data-widget-colorbutton="false" data-widget-fullscreenButton ="false" 	data-widget-editbutton="false">
+				    <header>
+							<span class="widget-icon"> <i class="fa fa-search txt-color-green"></i> </span>
+							<span class="myfindtitle">迷你版栏条-快速过滤</span>	 
+						</header>
+				    <div class="widget-body">
+				        <div class="row">
+				            <div class="col-sm-12"> 
+							    <form id="ad_page_frm_a"></form> 
+				            </div> 
+					        <div class="col-md-12 mg-tp-10"> 
+					        	<a class="btn btn-success ft-rt" href="javascript:void(0);"  data-action="ad_page_new">
+					        		<i class="fa fa-shopping-cart"></i>创建新广告包
+					        	</a>
+					        	<a class="btn btn-primary" data-action="ad_page_querybt"  href="javascript:void(0);">
+					        		<i class="glyphicon glyphicon-search"></i>查询
+					        	</a>
+					        	<a class="btn btn-default" href="javascript:void(0);"  data-action="ad_page_clearbt">
+					        		<i class="fa  fa-rotate-right"></i>清空查询
+					        	</a> 
+					        </div> 
+				        </div> 
+				    </div>
+				</div> 
+	  	</article>
+	    <div class="col-xs-12 ab_miniban_page_clsf">
+	        <div id="ad_page_grid_a"></div>
+	    </div>    
+	</div>  
+</section>  
+
+<script type="text/javascript">  
+   $(function(){ 
+		  loadScript("lib/ligerUI/js/ligerui.all-min.js" ,function(){ 
+		  	  loadScript("admin/ad/ad_page.js",function(){  
+		         loadScript("admin/ad/miniban/miniban_page.js",function(){  
+			          ab_miniban_page_c();
+	           } ,false); 
+           } ,false);   
+      }); 
+	});
+</script>

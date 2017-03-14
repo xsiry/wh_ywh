@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8" http-equiv="Access-Control-Allow-Origin" content="*">
+  <title>方格子网吧云维护平台 </title>
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+  <!-- #CSS Links -->
+  <!-- Basic Styles -min -->
+  <link rel="stylesheet" type="text/css" href="css/ssoftschool-min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/right.min.css">
+  <!--pluag-->
+  <link rel="stylesheet" type="text/css" href="css/bootstrapdl.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/icheck/square/orange.css" />
+  <!--ssoftschool-->
+  <link rel="stylesheet" type="text/css" href="css/bsbar.css" />
+  <!-- #FAVICONS -->
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <!-- #GOOGLE FONT -->
+  <link rel="stylesheet" href="css/fonts.googleapis.css">
+  <link href="js/fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style type="text/css">
+  .agent-notshow-li {
+    display: none !important;
+  }
+
+  .smart-style-3 #header {
+    background-color: rgb(30, 140, 235) !important;
+    background-image: linear-gradient(to bottom, rgb(30, 140, 235), rgb(29, 140, 232)) !important;
+  }
+
+  .smart-style-3 #logo-group span#activity,
+  .smart-style-3 .btn-header > *:first-child > a {
+    background-color: rgb(30, 140, 235) !important;
+    background-image: linear-gradient(to bottom, rgb(30, 140, 235), rgb(29, 140, 232)) !important;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    text-shadow: 0 -1px rgb(30, 140, 235) !important;
+  }
+
+  .smart-style-3 #logo-group span#activity,
+  .smart-style-3 .btn-header > *:first-child > a:hover {
+    background-color: rgb(30, 140, 235) !important;
+    background-image: linear-gradient(to bottom, rgb(30, 140, 235), rgb(29, 140, 232)) !important;
+    border: 1px solid #fff !important;
+    color: #fff !important;
+    text-shadow: 0 -1px rgb(30, 140, 235) !important;
+  }
+
+  .smart-style-3 nav>ul ul li::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8px;
+    left: 23px;
+    top: 16px;
+    border-top: 1px solid #7A7A7A;
+    z-index: 1;
+  }
+
+  .smart-style-3 nav>ul>li>ul::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 23px;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #7A7A7A;
+  }
+
+  .l-dialog {
+    border: 1px solid #3276b1 !important;
+  }
+
+  .l-dialog-tc {
+    /*background:#3276b1 !important;*/
+    border-bottom: 1px solid #3276b1 !important;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from( rgb(30, 140, 235)), to(rgb(29, 140, 232)));
+  }
+
+  .l-grid-row-cell-inner a:hover {
+    color: #e27e37 !important;
+  }
+
+  .smart-style-3 nav>ul>li>a>i {
+    color: #d2d2d2;
+    padding-right: 20px;
+    font-size: 20px;
+  }
+
+  .smart-style-3 nav ul li.active>a {
+    color: #1e8cea!important;
+    font-weight: initial;
+  }
+
+  .smart-style-3 #ribbon .breadcrumb li:last-child,
+  .smart-style-3 #ribbon .breadcrumb>.active {
+    color: #1e8cea;
+    font-weight: initial;
+  }
+
+  a {
+    color: #1e8cea;
+    text-decoration: none;
+  }
+
+  .btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #3385ff;
+    border-color: #3385ff;
+  }
+
+  .btn-primary.active,
+  .btn-primary.focus,
+  .btn-primary:active,
+  .btn-primary:focus,
+  .btn-primary:hover,
+  .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #3075dc;
+    border-color: #3075dc;
+  }
+
+  .btn-success {
+    color: #fff;
+    background-color: #44b549;
+    border-color: #44b549;
+  }
+
+  .btn-success.active,
+  .btn-success.focus,
+  .btn-success:active,
+  .btn-success:focus,
+  .btn-success:hover,
+  .open>.dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #2f9833;
+    border-color: #2f9833;
+  }
+
+  .btn-danger {
+    color: #fff;
+    background-color: #f13535;
+    border-color: #f13535;
+  }
+
+  .btn-danger.active,
+  .btn-danger.focus,
+  .btn-danger:active,
+  .btn-danger:focus,
+  .btn-danger:hover,
+  .open>.dropdown-toggle.btn-danger {
+    color: #fff;
+    background-color: #bd294b;
+    border-color: #bd294b;
+  }
+
+  .l-grid-row-over .l-grid-row-cell,
+  .l-grid-row-over {
+    background: #cbe8ff;
+  }
+
+  .l-selected .l-grid-row-cell,
+  .l-selected {
+    background: #cbe8ff;
+  }
+
+  .tools {
+    font-size: 15px;
+    color: #fff;
+    height: 35px;
+  }
+
+  .tools label:hover {
+    color: #214e75;
+  }
+
+  .modal-dialog {
+    top: 15%;
+  }
+
+  .l-grid-hd-cell {
+    border-right: 0px;
+  }
+
+  .l-grid-row-cell {
+    border-right: 0px;
+  }
+
+  .l-grid-row-cell-inner {
+    line-height: 35px;
+  }
+
+  .l-grid td div {
+    font-size: 15px;
+  }
+  </style>
+</head>
+
+<body class="smart-style-3 fixed-header   fixed-ribbon" style="overflow-y: auto;overflow-x: hidden;">
+  <!-- Modal -->
+  <div class="windowmodal modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      </div>
+    </div>
+  </div>
+  <!-- #HEADER -->
+  <header id="header" style="height: auto !important;">
+    <div id="logo-group" class="col-xs-12 col-sm-6" style="width:600px !important;">
+      <!-- PLACE YOUR LOGO HERE -->
+      <span style=" margin-left: 2px;margin-top: 10px;">
+        <h1 style="color: #eee">方格子网吧云维护系统</h1>
+        </span>
+      <span style=" margin-left: 20px;margin-top: 15px;display: block; color: white; font-size:12pt;"> 尊敬的
+          <span id="show-shortcut" style="color: #eee;">马化腾</span> 欢迎使用方格子网吧云维护 </span>
+      <!-- END LOGO PLACEHOLDER -->
+    </div>
+    <!-- #TOGGLE LAYOUT BUTTONS -->
+    <!-- pulled right: nav area -->
+    <div class="pull-right  col-sm-6">
+      <!--
+         <div id="login-info" class="btn-header transparent pull-right hidden-xs btn-group">
+            <span type="button" class="btn dropdown-toggle mg-tp-10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="img/avatars/male.png" alt="me"   style="height: 25px;"/>
+                <span style="color: #FFFFFF;" id="show-shortcut">
+                  用户
+                </span>
+              <i class="caret" style="color: #FFFFFF;"></i>
+            </span>
+              <ul class="dropdown-menu">
+                    <li class="with-image">
+                        <div class="avatar">
+                           <img id="mainpagePicId" src="img/superbox/superbox-full-20.jpg"  >
+                        </div>
+                        <div class="ng-binding" id="show-shortcut-2">用户</div>
+                        <div style="color:#ff9600" class="ng-binding"></div>
+                    </li>
+                    <li class="divider"></li>
+                    <!--<li><a href="#"><i class="fa label label-info pull-right" style="margin-top: 5px;">0</i><i class="fa fa-envelope"></i> <span>信息</span></a></li>->
+                    <li><a data-action="system-editUserPasswd" ><i class="fa fa-key"></i> <span>修改密码</span></a></li>
+                    <li><a data-action="system-ShowAdmin" id="system-ShowAdmin-contal"><span>切换管理员</span></a></li>
+            </ul>
+          </div>
+          -->
+      <!-- logout button -->
+      <div id="logout" class="pull-right mg-tp-10" style="padding: 7px;">
+        <span>
+          <a class="tools" href="ywhrelogin.html" title="退出系统界面" data-action="userLogout" data-logout-msg="你真的要退出系统吗？"><i class="fa fa-sign-out"></i>安全退出</a>
+        </span>
+      </div>
+      <div class="pull-right mg-tp-10 tools" style="padding: 7px;">
+        <input type="checkbox" id="keepOnline">
+        <label for="keepOnline"> 保持在线</label>
+      </div>
+      <!-- end logout button -->
+      <!-- fullscreen button -->
+      <div class="pull-right mg-tp-10" style="padding: 7px;">
+        <a href="resources/FgzClentAuto.exe" class="tools"><i class="fa fa-cloud-download"></i> 下载远程工具</a>
+      </div>
+      <!-- end collapse menu -->
+      <!-- multiple lang dropdown : find all flags in the flags page -->
+      <!-- end multiple lang -->
+    </div>
+    <!-- end pulled right: nav area -->
+  </header>
+  <aside id="left-panel">
+    <nav>
+      <ul id="user_authority_menu">
+      </ul>
+      <!------------------  menu end----------------------->
+    </nav>
+    <span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i></span>
+  </aside>
+  <!-- END NAVIGATION -->
+  <!-- #MAIN PANEL -->
+  <div id="main" role="main" style="padding: 0 !important;">
+    <!-- RIBBON -->
+    <div id="ribbon" style="background-color: #F5F5F5;">
+      <!--<span class="ribbon-button-alignment">
+          <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> 点击将会刷新页面！" data-html="true" data-reset-msg="确认是否要刷新本页面?"><i class="fa fa-refresh"></i></span>
+        </span>-->
+      <span class="ribbon-button-alignment">
+        <i class="fa fa-home"></i>
+        </span>
+      <!-- breadcrumb -->
+      <ol class="breadcrumb"></ol>
+      <!-- end breadcrumb -->
+    </div>
+    <!-- END RIBBON -->
+    <!-- #MAIN CONTENT -->
+    <div id="content" class="contentcs">
+    </div>
+    <!-- END #MAIN CONTENT -->
+  </div>
+  <!-- END #MAIN PANEL -->
+  <script id="user_authority_menu_tpl" type="text/html">
+    <li>
+      <a href="#">
+        <i class="fa fa-lg fa-bank"></i>
+        <span class="menu-item-parent">网吧列表</span>
+      </a>
+      <ul id="user_sys_group_ul" style="display: block;">
+        <li>
+          <a href="ywh/netbar/netbar_info?groupid=all">所有网吧</a>
+        </li>
+      </ul>
+    </li>
+    <%
+      if (userAuthority=='ALL') {
+     %>
+      <li>
+        <a href="ywh/sysgroup/sysgroup">
+          <i class="fa fa-lg fa-group "></i>
+          <span class="menu-item-parent">分组管理</span>
+        </a>
+      </li>
+      <%
+  }
+  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Download_Game')>-1)) {
+  %>
+        <li>
+          <a href="ywh/netbar/download_game">
+            <i class="fa fa-lg  fa-cloud-download"></i>
+            <span class="menu-item-parent">游戏下载</span>
+          </a>
+        </li>
+        <%
+  }
+  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Boot_Task')>-1)) {
+  %>
+          <li>
+            <a href="ywh/task/boot_task">
+              <i class="fa fa-lg  fa-tasks "></i>
+              <span class="menu-item-parent">开机任务</span>
+            </a>
+          </li>
+          <%
+  }
+  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Security_Policy')>-1)) {
+  %>
+            <li>
+              <a href="ywh/task/security_policy">
+                <i class="fa fa-jsfiddle fa-lg"></i>
+                <span class="menu-item-parent">安全策略</span>
+              </a>
+            </li>
+            <%
+  }
+  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Information_Delivery')>-1)) {
+  %>
+              <li>
+                <a href="#">
+                  <i class="fa fa-lg fa-hacker-news "></i>
+                  <span class="menu-item-parent">信息发布</span>
+                </a>
+                <ul>
+                  <li>
+                    <a href="ywh/task/info_delivery">维护商发布信息</a>
+                  </li>
+                  <li>
+                    <a href="ywh/task/info_delivery?admin=true">管理员发布信息</a>
+                  </li>
+                </ul>
+              </li>
+              <%
+  }
+  %>
+                <li>
+                  <a href="ywh/log/view_task_state">
+                    <i class="fa fa-lg fa-tags "></i>
+                    <span class="menu-item-parent">任务日志</span>
+                  </a>
+                </li>
+                <%
+    if (userAuthority=='ALL') {
+  %>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-lg  fa-windows "></i>
+                      <span class="menu-item-parent">账号管理</span>
+                    </a>
+                    <ul>
+                      <li>
+                        <a href="ywh/sysuser/sys_user">员工账号</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <%
+  }
+  %>
+  </script>
+  <div id="var_ssschool_userimg_cache" style="display: none;">
+    <span data-userid="sfdsf"> img </span>
+  </div>
+</body>
+<script src="js/appall.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/jquery-2.1.1.min.js"></script>
+<script src="js/libs/jquery-ui-1.10.3.min.js"></script>
+<!-- IMPORTANT: APP CONFIG  -min-->
+<script src="js/app.config-min.js"></script>
+<!-- BOOTSTRAP JS -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- JARVIS WIDGETS -->
+<script src="js/notification/SmartNotification.min.js"></script>
+<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+<!-- JQUERY VALIDATE -->
+<script src="js/libs/jquery.ui.datepicker-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+<!--        <script src="js/template.js"></script>-->
+<script src="lib/jquery-validation/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/jquery-validation/jquery.metadata.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/jquery-validation/messages_cn.js" type="text/javascript" charset="utf-8"></script>
+<!-- MAIN APP JS FILE  -min -->
+<script src="js/app-min.js"></script>
+<script src="lib/ligerUI/js/core/base.js"></script>
+<script src="js/ywh_publicfunc.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/fileinput/js/fileinput.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/fileinput/js/fileinput_locale_zh.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/wu.tmpl.js" type="text/javascript"></script>
+<script type="text/javascript">
+var _interval;
+
+$('#keepOnline').change(function(o) {
+
+  if ($(o.currentTarget)[0].checked) {
+    _interval = window.setInterval(keepOnline, 120000);
+  } else {
+    window.clearInterval(_interval);
+  }
+
+  function keepOnline() {
+    $.ajax({
+      url: _hostaddr + 'ywh_queryTableList/',
+      type: 'post',
+      data: {
+        "Access-Control-Allow-Origin": '*',
+        source: "sys_user",
+        qtype: "online"
+      },
+      cache: false,
+      dataType: 'json',
+      success: function(json) {}
+    });
+  }
+})
+</script>
+
+</html>

@@ -1,0 +1,178 @@
+<style type="text/css">
+	.netbar_remote_save_clsf {
+		padding: 20px;
+	}
+	.widget-main {
+	    padding-top: 10px;
+	}
+	.widget-body .table {
+  	  border-top: 1px solid #e5e5e5;
+	}
+	th, td, .table-bordered {
+	    border-radius: 0 !important;
+	}
+	.table { 
+	    max-width: 100%;
+	    width: 100%;
+	}
+</style>
+<div class="netbar_remote_save_clsf">
+	 <div class="row"> 
+	 	<div class="col-sm-12" 	wu-tmpl="{name:'netBarYCPZshow'}">
+	 		<div class="col-sm-4">
+	 			<span class="badge bg-color-greenLight">网吧账号</span><span class="mg-lf-10">{{netbaracc}}</span> 
+	 		</div>
+	 		<div class="col-sm-4">
+	 			<span class="badge bg-color-greenLight">网吧名称</span><span class="mg-lf-10">{{netbarname}}</span>  
+	 		</div>
+	 		<div class="col-sm-4">
+	 			<span class="badge bg-color-greenLight">所属分组</span><span class="mg-lf-10">{{groupname}}</span>  
+	 		</div>
+	 	</div>  
+	 	<div class="col-sm-12 mg-tp-20">
+	 		  <section  id="widget-grid"> 
+			    <div class="row">  
+			    	<article class="col-xs-12 sortable-grid ui-sortable">
+						<div class="jarviswidget" id="wid-id-sr" data-widget-deleteButton="false" data-widget-colorbutton="false" data-widget-fullscreenButton ="false" 	data-widget-editbutton="false">
+						     <header> 
+									<h2>网吧远程信息</h2>	   
+							 </header>
+						    <div class="widget-body">
+						       <div class="widget-body-inner" style="display: block;">
+                                <div class="widget-main">
+                                    <table class="table table-striped table-bordered table-hover" id="netbaryc-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th>名称</th>
+                                                <th>外网IP</th> 
+                                                <th>外端口</th>
+                                                <th>内网IP</th>
+                                                <th>内端口</th>
+                                                <th>帐号</th>
+                                                <th>密码</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead> 
+                                        <tbody> 
+                                            <tr> 
+										        <td> 
+										            <input type="text" class="form-control table-td-rowone" name="netbarRemoteLs[1].remotename" id="remotename_1">
+										        </td> 
+										        <td>
+										            <input class="form-control" type="text" name="netbarRemoteLs[1].outip">
+										        </td>
+										        <td>
+										            <input class="form-control" type="text" name="netbarRemoteLs[1].outport">
+										        </td>
+										        <td>
+										            <input class="form-control" type="text" name="netbarRemoteLs[1].innerport">
+										        </td>
+										        <td>
+										            <input class="form-control" type="text" name="netbarRemoteLs[1].account">
+										        </td>
+										        <td>
+										            <input class="form-control" type="text" name="netbarRemoteLs[1].pwd">
+										        </td>
+										        <td>
+										            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this);"><i class="fa fa-trash-o"></i></a>
+										        </td> 
+                                            </tr> 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+						   </div>
+						</div> 
+				  	</article> 
+			    </div>  
+			</section>  
+	 	</div>
+	 	
+	 	<div class="col-sm-12">
+	 		<section> 
+			    <div class="row">  
+			    	<article class="col-xs-12 sortable-grid ui-sortable">
+						<div class="jarviswidget" id="wid-id-sr" data-widget-deletebutton="false" data-widget-colorbutton="false" data-widget-fullscreenbutton="false" data-widget-editbutton="false">
+						    <header><h2>备注信息</h2></header>
+						    <div class="widget-body">
+						        <div class="row">
+						          <div class="col-sm-12 mg-tp-10"> 
+						             <textarea cols="100" rows="3" class="l-textarea" id="netbarremarks" style="width:750px"></textarea>
+						          </div>
+						        </div> 
+						    </div>
+						</div> 
+				  	</article> 
+			    </div>  
+			</section>  
+	 	</div> 
+	 </div>
+</div>
+<script id="netbarRemoteLs-tpl" type="text/html">  
+    <%
+     var remotename='';
+     var outip='';
+     var outport='';
+     var innerport='';
+     var innerip='';
+     var account='';
+     var pwd='';
+     if (rowdata){
+     	 remotename=rowdata.remotename;
+	     outip=rowdata.outip;
+	     outport=rowdata.outport;
+	     innerport=rowdata.innerport;
+	     innerip=rowdata.innerip;
+	     account=rowdata.account;
+	     pwd=rowdata.pwd;
+     }
+     for(var i = (0+start); i < list.length; i++) {  
+    	var workindex = i+startrow ;  ;
+     %>
+     <tr>
+        <td style="width: 15%;"> 
+            <input type="text" class="form-control table-td-rowone" name="netbarRemoteLs[<%:=workindex%>].remotename" id="remotename_<%:=workindex%>" value="<%:=remotename%>">
+        </td> 
+        <td style="width: 17%;">
+            <input class="form-control" type="text" name="netbarRemoteLs[<%:=workindex%>].outip" value="<%:=outip%>">
+        </td>
+        <td>
+            <input class="form-control" type="text" name="netbarRemoteLs[<%:=workindex%>].outport" value="<%:=outport%>">
+        </td>
+        <td style="width: 17%;">
+            <input class="form-control" type="text" name="netbarRemoteLs[<%:=workindex%>].innerip" value="<%:=innerip%>">
+        </td>
+        <td>
+            <input class="form-control" type="text" name="netbarRemoteLs[<%:=workindex%>].innerport" value="<%:=innerport%>">
+        </td>
+        <td  style="width: 15%;">
+            <input class="form-control" type="text" name="netbarRemoteLs[<%:=workindex%>].account" value="<%:=account%>">
+        </td>
+        <td  style="width: 15%;">
+            <input class="form-control" type="text" name="netbarRemoteLs[<%:=workindex%>].pwd" value="<%:=pwd%>">
+        </td>
+        <td>
+            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this);"><i class="fa fa-trash-o"></i></a>
+        </td>
+     </tr>  
+	<%}%> 					  
+</script>
+
+<script type="text/javascript">  
+   $(function(){ 
+	  loadScript("lib/ligerUI/js/ligerui.all-min.js" ,function(){ 
+		   loadScript("admin/ywh/netbar/netbar_remote_save.js",function(){  
+			    netbar_remote_save_action();
+	       } ,false); 	    
+      }); 
+	}); 
+	function delRow(obj){ 
+		if ($("#netbaryc-table-1 > tbody").children('tr').length>1) 
+	       obj.parentNode.parentNode.remove(); 
+ 
+	}
+	$(document).ready(function(){  
+		  wu.tmpl.render('netBarYCPZshow', $ssoftDialog.dialog.getData("paramjson"));
+	}) ;
+	
+</script>

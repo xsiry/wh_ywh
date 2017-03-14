@@ -1,0 +1,31 @@
+
+<div class="row view_task_statepage_clsf">
+	<div class="col-xs-12">
+	<div class="col-xs-8">
+		 <form id="view_task_query_frm_a"></form>
+	</div>
+	<div class="col-xs-4">
+		<div class="fr" style="margin: 10px">
+        	<a class="btn btn-primary query_bt"  href="javascript:;">
+        		<i class="glyphicon glyphicon-search"></i>查询
+        	</a>
+        	<a class="btn btn-default query_clearbt" href="javascript:;" >
+        		<i class="fa  fa-rotate-right"></i>清空查询
+        	</a>
+		</div>
+	</div>
+	</div>
+	<div class="col-xs-12 mg-tp-10">
+        <div id="view_task_state_grid_a"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+   $(function(){
+	  loadScript("lib/ligerUI/js/ligerui.all-min.js" ,function(){
+		   loadScript("admin/ywh/log/view_task_state.js",function(){
+			    view_task_state_action();
+	       } ,false);
+      });
+	});
+</script>

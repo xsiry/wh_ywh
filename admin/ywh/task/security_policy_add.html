@@ -1,0 +1,291 @@
+<style type="text/css">
+	.security_policy_add_clsf input:hover   {
+		border-color: #5D98CC !important;
+    }
+    
+    .widget-body-inner {
+    	margin-top: 10px;
+    }
+    
+</style>
+<div class="security_policy_add_clsf" id="security_policy_addrowdata"> 
+	 	<div class="col-sm-12">
+	 		<div class="fl mg-tp-10 mg-lf-10">策略名称：</div>
+	 		 <div class="fl  margin-top-5">
+	 		 	<input id="security_policy_name_add" name="spname" class="form-control"  type="text">
+	 		</div>
+	 	</div>  
+	 	<div class="col-sm-12 mg-tp-10">
+	 		  <section  id="widget-grid">  
+			    	<article class="col-xs-12 sortable-grid ui-sortable">
+						<div class="jarviswidget" data-widget-deleteButton="false" data-widget-colorbutton="false" data-widget-fullscreenButton ="false" 	data-widget-editbutton="false">
+						    <header><h2>进程查杀</h2></header>
+						    <div class="widget-body">
+						       <div class="widget-body-inner" style="display: block;">
+                                <div class="widget-main">
+                                    <table class="table table-striped table-bordered table-hover" id="ProcKilList_table">
+                                        <thead>
+                                            <tr>
+                                                <th>进程名称</th><th>特征码</th><th>描述</th><th></th>
+                                            </tr> 
+                                        </thead> 
+                                        <tbody> 
+                                            <tr> 
+										        <td> 
+										            <input type="text" class="form-control ProcKilList_RowOne" name="ProcKilList[1].pkname">
+										        </td> 
+										        <td>
+										            <input class="form-control" type="text" name="ProcKilList[1].pkcode">
+										        </td>
+										        <td>
+										            <input class="form-control" type="text" name="ProcKilList[1].pkremarks">
+										        </td> 										        
+										        <td>
+										            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'ProcKilList_table');"><i class="fa fa-trash-o"></i></a>
+										        </td> 
+                                            </tr> 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+						   </div>
+						</div> 
+				  	</article>  
+			</section>  
+	 	</div>  
+	 	<!-- 驱动拦截 -->
+	 	<div class="col-sm-12">
+	 		  <section  id="widget-grid">  
+			    	<article class="col-xs-12 sortable-grid ui-sortable">
+						<div class="jarviswidget" data-widget-deleteButton="false" data-widget-colorbutton="false" data-widget-fullscreenButton ="false" 	data-widget-editbutton="false">
+						    <header><h2>驱动拦截</h2></header>
+						    <div class="widget-body">
+						       <div class="widget-body-inner" style="display: block;">
+                                <div class="widget-main">
+                                    <table class="table table-striped table-bordered table-hover" id="DrvipList_table">
+                                        <thead>
+                                            <tr>
+                                                <th>进程名称</th><th>特征码</th><th>描述</th><th></th>
+                                            </tr> 
+                                        </thead> 
+                                        <tbody> 
+                                            <tr> 
+										        <td> 
+										            <input type="text" class="form-control DrvipList_RowOne" name="DrvipList[1].drname">
+										        </td> 
+										        <td>
+										            <input class="form-control" type="text" name="DrvipList[1].drcode">
+										        </td>
+										        <td>
+										            <input class="form-control" type="text" name="DrvipList[1].drremarks">
+										        </td> 										        
+										        <td>
+										            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'DrvipList_table');"><i class="fa fa-trash-o"></i></a>
+										        </td> 
+                                            </tr> 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+						   </div>
+						</div> 
+				  	</article>  
+			</section>  
+	 	</div> 
+	 	<!-- 窗口查杀 -->
+	 	<div class="col-sm-12">
+	 		  <section  id="widget-grid">  
+			    	<article class="col-xs-12 sortable-grid ui-sortable">
+						<div class="jarviswidget" data-widget-deleteButton="false" data-widget-colorbutton="false" data-widget-fullscreenButton ="false" 	data-widget-editbutton="false">
+						    <header><h2>窗口查杀</h2></header>
+						    <div class="widget-body">
+						       <div class="widget-body-inner" style="display: block;">
+                                <div class="widget-main">
+                                    <table class="table table-striped table-bordered table-hover" id="KillWdsList_table">
+                                        <thead>
+                                            <tr>
+                                                <th>窗口名称</th><th></th>
+                                            </tr> 
+                                        </thead> 
+                                        <tbody> 
+                                            <tr> 
+										        <td> 
+										            <input type="text" class="form-control KillWdsList_RowOne" name="KillWdsList[1].kwname">
+										        </td>  	
+										        <td> 
+										            <input type="text" class="form-control" name="KillWdsList[1].kwremarks">
+										        </td>
+										        <td>
+										            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'KillWdsList_table');"><i class="fa fa-trash-o"></i></a>
+										        </td> 
+                                            </tr> 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+						   </div>
+						</div> 
+				  	</article>  
+			</section>  
+	 	</div> 
+	 	<!-- 进程守护 -->
+	 	<div class="col-sm-12">
+	 		  <section  id="widget-grid">  
+			    	<article class="col-xs-12 sortable-grid ui-sortable">
+						<div class="jarviswidget" data-widget-deleteButton="false" data-widget-colorbutton="false" data-widget-fullscreenButton ="false" 	data-widget-editbutton="false">
+						    <header><h2>进程守护</h2></header>
+						    <div class="widget-body">
+						       <div class="widget-body-inner" style="display: block;">
+                                <div class="widget-main">
+                                    <table class="table table-striped table-bordered table-hover" id="PrgdList_table">
+                                        <thead>
+                                            <tr>
+                                                <th>进程名称</th><th>描述</th><th></th>
+                                            </tr> 
+                                        </thead>  
+                                        <tbody> 
+                                            <tr> 
+										        <td> 
+										            <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[1].pgname">
+										        </td>  	
+										        <td> 
+										            <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[1].pgremarks">
+										        </td>
+										        <td>
+										            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'PrgdList_table');"><i class="fa fa-trash-o"></i></a>
+										        </td> 
+                                            </tr> 
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+						   </div>
+						</div> 
+				  	</article>  
+			</section>  
+	 	</div> 
+	 	
+</div>
+
+<script id="ProcKilList-tpl" type="text/html">  
+    <%
+     var pkname=''; 
+     var pkcode=''; 
+     var pkremarks=''; 
+     if (rowdata){
+     	 pkname=rowdata.pkname;  
+     	 pkcode=rowdata.pkcode;  
+     	 pkremarks=rowdata.pkremarks;  
+     }
+     for(var i = (0+start); i < list.length; i++) {  
+    	var workindex = i+startrow ;  ;
+     %><tr>
+	    <td> 
+            <input type="text" class="form-control ProcKilList_RowOne" name="ProcKilList[1].pkname" value="<%:=pkname%>">
+        </td> 
+        <td>
+            <input class="form-control" type="text" name="ProcKilList[1].pkcode" value="<%:=pkcode%>">
+        </td>
+        <td>
+            <input class="form-control" type="text" name="ProcKilList[1].pkremarks" value="<%:=pkremarks%>">
+        </td> 										        
+        <td>
+            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'ProcKilList_table');"><i class="fa fa-trash-o"></i></a>
+        </td></tr> 					        
+	<%}%> 					  
+</script>
+
+<script id="DrvipList-tpl" type="text/html">  
+    <%
+     var drname=''; 
+     var drcode=''; 
+     var drremarks=''; 
+     if (rowdata){
+     	 drname=rowdata.drname;  
+     	 drcode=rowdata.drcode;  
+     	 drremarks=rowdata.drremarks;  
+     }
+     for(var i = (0+start); i < list.length; i++) {  
+    	var workindex = i+startrow ;  ;
+     %><tr>
+	    <td> 
+            <input type="text" class="form-control DrvipList_RowOne" name="DrvipList[1].drname" value="<%:=drname%>">
+        </td> 
+        <td>
+            <input class="form-control" type="text" name="DrvipList[1].drcode" value="<%:=drcode%>">
+        </td>
+        <td>
+            <input class="form-control" type="text" name="DrvipList[1].drremarks" value="<%:=drremarks%>">
+        </td> 										        
+        <td>
+            <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'DrvipList_table');"><i class="fa fa-trash-o"></i></a>
+        </td>
+        </tr>
+	<%}%> 					  
+</script>
+
+<script id="KillWdsList-tpl" type="text/html">  
+    <%
+     var kwname=''; 
+     var kwremarks='';
+     if (rowdata){
+     	 kwname=rowdata.kwname;
+     	 kwremarks=rowdata.kwname;
+     }
+     for(var i = (0+start); i < list.length; i++) {  
+    	var workindex = i+startrow ;  ;
+     %>
+        <tr>
+	    <td> 
+	        <input type="text" class="form-control KillWdsList_RowOne" name="KillWdsList[1].kwname" value="<%:=kwname%>">
+	    </td> 
+	    <td> 
+			<input type="text" class="form-control" name="KillWdsList[1].kwremarks" value="<%:=kwremarks%>">
+		</td>
+	    <td>
+	        <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'KillWdsList_table');"><i class="fa fa-trash-o"></i></a>
+	    </td>
+	    </tr>
+	<%}%> 					  
+</script>
+
+<script id="PrgdList-tpl" type="text/html">  
+    <%
+     var pgname='';
+     var pgremarks=''; 
+     if (rowdata){
+     	 pgname=rowdata.pgname;
+	     pgremarks=rowdata.pgremarks; 
+     }
+     for(var i = (0+start); i < list.length; i++) {  
+    	var workindex = i+startrow ;  ;
+     %>
+     <tr>
+     <td> 
+        <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[1].pgname" value="<%:=pgname%>">
+    </td>  	
+    <td> 
+        <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[1].pgremarks" value="<%:=pgremarks%>">
+    </td>
+    <td>
+        <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'PrgdList_table');"><i class="fa fa-trash-o"></i></a>
+    </td> 
+    </tr>
+	<%}%> 					  
+</script>
+
+<script type="text/javascript">  
+   $(function(){ 
+	  loadScript("lib/ligerUI/js/ligerui.all-min.js" ,function(){ 
+		   loadScript("admin/ywh/task/security_policy_add.js",function(){  
+			    security_policy_add_action();
+	       } ,false); 	    
+      }); 
+	}); 
+	function delRow(obj,tableid){ 
+		if ($("#"+tableid+" > tbody").children('tr').length>1) 
+	       obj.parentNode.parentNode.remove(); 
+   
+	}
+ 
+</script>
