@@ -25,6 +25,18 @@
         return false;
       };
 
+      if ($('input.client_checkbox').prop('checked')) {
+          console.log()
+          if (!param.timevalidity) {
+            $.ligerDialog.error('请选择客户端有效期！');
+            return false;
+          }
+          if (param.timevalidity < param.idfixedtime) {
+            $.ligerDialog.error('有效期必须大于定时发送时间！');
+            return false;
+          }
+      }
+
       var idcontent = $('.summernote').code();
       param.idcontent = idcontent;
 
@@ -33,6 +45,7 @@
       if (type == 1) {
         param.send_netbarlist = liger.get("send_netbar_lstid").data;
         bool = !param.send_netbarlist;
+        if (_admin) {param.idselname = 1};
       } else if (type == 2) {
         param.idselname = $('select.route').val();
         bool = !param.idselname;
@@ -40,8 +53,9 @@
         param.idselname = $("input.city").ligerComboBox().getValue();
         bool = !param.idselname;
       }
+
       console.log(JSON.stringify(param));
-      if ((!param.idtitle) || (!param.idcontent) || (!param.timevalidity) ||
+      if ((!param.idtitle) || (!param.idcontent) ||
         (!param.idfixedtime) || bool) {
         $.ligerDialog.error('所有添加不能有为空的项？');
         return false;
@@ -50,12 +64,13 @@
       console.log(JSON.stringify(param_data));
       var actionparam = { "actionname": _qsource };
       actionparam.datajson = JSON.stringify(param_data);
-      $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction", actionparam, '', function(message) {
-        dialogRef.close();
-        if (callback) {
-          callback(message);
-        }
-      });
+
+      // $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction", actionparam, '', function(message) {
+      //   dialogRef.close();
+      //   if (callback) {
+      //     callback(message);
+      //   }
+      // });
     });
     $root.on("click", '.infodv_addnetbar', function(actionobj) {
       var rowobj = $(this);
@@ -239,18 +254,20 @@
       height: 100,
       focus: false,
       tabsize: 2,
+      disableDragAndDrop: true,
+      placeholder: '请输入..',
       toolbar: [
         ['style', ['style']],
-        ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'removeFormat', 'clear']],
+        ['font', ['bold', 'italic', 'underline', 'strikethrough', 'removeFormat', 'clear']],
 
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
         ['font', ['height']],
         ['table', ['table']],
-        ['fontname', ['fontname']],
         ['insert', ['hr']], //'link', 'video', 'picture'
-        ['view', ['fullscreen', 'codeview']]
-      ],
+        ['view', ['fullscreen', 'codeview']],
+        ['fontname', ['fontname']]
+      ]
     });
   };
 
