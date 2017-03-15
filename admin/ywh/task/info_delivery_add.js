@@ -65,12 +65,12 @@
       var actionparam = { "actionname": _qsource };
       actionparam.datajson = JSON.stringify(param_data);
 
-      // $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction", actionparam, '', function(message) {
-      //   dialogRef.close();
-      //   if (callback) {
-      //     callback(message);
-      //   }
-      // });
+      $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction", actionparam, '', function(message) {
+        dialogRef.close();
+        if (callback) {
+          callback(message);
+        }
+      });
     });
     $root.on("click", '.infodv_addnetbar', function(actionobj) {
       var rowobj = $(this);
