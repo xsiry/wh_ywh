@@ -40,7 +40,6 @@
         param.idselname = $("input.city").ligerComboBox().getValue();
         bool = !param.idselname;
       }
-      console.log(bool)
       console.log(JSON.stringify(param));
       if ((!param.idtitle) || (!param.idcontent) || (!param.timevalidity) ||
         (!param.idfixedtime) || bool) {
@@ -186,7 +185,15 @@
     if (!dialog_param.infoid) return;
     $.getJSON(_hostaddr + 'ywh_queryTableList', { "source": _qsource, "qtype": "one", "sourceid": dialog_param.infoid },
       function(jsondata) {
-        var _idtypes = jsondata.idtype.split(";");
+
+        var _idtypes;
+        var _idtypesStr = jsondata.idtype;
+        if (_idtypesStr.indexOf(';') > 0) {
+          _idtypes = _idtypesStr.split(";");
+        } else {
+          _idtypes = _idtypesStr.split(',');
+        }
+
         var param_data = $.extend(true, { "idtypes": _idtypes }, jsondata);
         console.log(JSON.stringify(param_data));
         js2form(document.getElementById('info_deliveryaddpage_clsfid'), param_data);
@@ -199,10 +206,19 @@
         if (type == 1) {
           var netbarlistbox = liger.get("send_netbar_lstid");
           netbarlistbox.addItems(jsondata.send_netbar_list);
-        }else if (type == 2) {
+        } else if (type == 2) {
           $('select.route').val(param_data.idselname);
-        }else if (type == 3) {
+        } else if (type == 3) {
+          var options = {
+            'source': 'dictcity',
+            'qtype': 'select',
+            'qhstr': JSON.stringify({ 'qjson': [{ 'dict_city_id': param_data.idselname }] })
+          }
+          $.getJSON(_hostaddr + 'ywh_queryTableList', options, function(jsondata) {
+            $("input.province").ligerComboBox().selectValue(jsondata[0].dict_city_parentid);
+          });
           $("input.city").ligerComboBox().selectValue(param_data.idselname);
+
         }
         console.log("---end----");
 
@@ -250,7 +266,7 @@
       textField: 'dict_city',
       emptyText: '选择省..',
       onSelected: function(value) {
-        if ($sHelper.trim(value) != '') {
+        if (value != '') {
           cityOptions.url = _hostaddr + 'ywh_queryTableList/?source=dictcity&qtype=select&qhstr={qjson:[{dict_city_parentid:' + value + '}]}';
         }
         $("input.city").ligerComboBox(cityOptions).reload()
