@@ -184,8 +184,7 @@
   .tools label:hover {
     color: #214e75;
   }
-
-/*  .modal-dialog {
+  /*  .modal-dialog {
     top: 15%;
   }*/
 
@@ -197,12 +196,21 @@
     border-right: 0px;
   }
 
+  .l-selected .l-grid-row-cell {
+    border-right: 0px;
+  }
+
   .l-grid-row-cell-inner {
     line-height: 35px;
   }
 
   .l-grid td div {
     font-size: 15px;
+  }
+
+  label input[type=checkbox].checkbox+span:before{
+    background-color: #fff;
+    margin-top: -3px;
   }
   </style>
 </head>
@@ -259,9 +267,13 @@
           <a class="tools" href="ywhrelogin.html" title="退出系统界面" data-action="userLogout" data-logout-msg="你真的要退出系统吗？"><i class="fa fa-sign-out"></i>安全退出</a>
         </span>
       </div>
-      <div class="pull-right mg-tp-10 tools" style="padding: 7px;">
-        <input type="checkbox" id="keepOnline">
-        <label for="keepOnline"> 保持在线</label>
+      <div class="pull-right tools" style="margin-top: 5px;">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" class="checkbox style-0" id="keepOnline">
+            <span>保持在线</span>
+          </label>
+        </div>
       </div>
       <!-- end logout button -->
       <!-- fullscreen button -->
