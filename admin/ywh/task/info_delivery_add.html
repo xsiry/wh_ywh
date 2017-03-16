@@ -1,183 +1,129 @@
-<style type="text/css">
-#info_deliveryaddpage_clsfid {
-  font-size: 14px;
-  padding-bottom: 10px;
-}
+ <style type="text/css">
+    #info_deliveryaddpage_clsfid{
+    	font-size: 14px;
+    } 
+    .divspanrow {
+    	margin-top: 10px;
+    }
+    .divspanrow .form-control {
+		width: 200px !important;
+		display :inline-block !important;
+	}
+	
+	.divspanrow input:focus {
+		border-color:  #09f;
+	}
+	 
+	.mpw-form-text {
+	    border: 1px solid #bbb;
+	    font-size: 12px;
+	    height: 16px;
+	    line-height: 16px;
+	    padding: 6px 0 6px 5px;
+	    width: 105px;
+	}
+	.mpw-form-text:focus {
+	    border-color: #09f;
+	    outline: 0 none;
+	}
+	.mpw-form-textarea {
+	    height: 80px;
+	    resize: none;
+	    vertical-align: top;
+	    width: 500px;
+	}
+	.l-form {
+		margin: 0px !important; 
+	}
+ </style>
 
-.divspanrow {
-  margin-top: 10px;
-}
-
-.divspanrow .form-control {
-  width: 200px !important;
-  display: inline-block !important;
-}
-
-.divspanrow input:focus {
-  border-color: #09f;
-}
-
-.mpw-form-text {
-  border: 1px solid #bbb;
-  font-size: 12px;
-  height: 16px;
-  line-height: 16px;
-  padding: 6px 0 6px 5px;
-  width: 105px;
-}
-
-.mpw-form-text:focus {
-  border-color: #09f;
-  outline: 0 none;
-}
-
-.mpw-form-textarea {
-  height: 80px;
-  resize: none;
-  vertical-align: top;
-  width: 500px;
-}
-
-.l-form {
-  margin: 0px !important;
-}
-</style>
 <div class="col-sm-12 " id="info_deliveryaddpage_clsfid">
-  <div class="col-sm-12 divspanrow">
-    <div class="col-sm-2">
-      公告标题：
-      <input type="hidden" name="infoid" />
-    </div>
-    <div class="col-sm-10">
-      <input type="text" name="idtitle" class="form-control" />
-      <span class="l-star">*</span>
-    </div>
-  </div>
-  <div class="col-sm-12 divspanrow">
-    <div class="col-sm-2">
-      公告内容：
-    </div>
-    <div class="col-sm-10">
-      <div class="summernote">
-      </div>
-      <span class="l-star">*</span>
-    </div>
-  </div>
-  <div class="col-sm-12 divspanrow idseltype_radios" style="display: none;">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-10">
-      <label class="radio-inline">
-        <input type="radio" name="idseltype" class="" value="1" checked="checked"> 按网吧投递
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="idseltype" class="" value="2"> 按线路投递
-      </label>
-      <label class="radio-inline">
-        <input type="radio" name="idseltype" class="" value="3"> 按区域投递
-      </label>
-    </div>
-  </div>
-  <div class="idseltype_div">
-    <div>
-      <div class="col-sm-12 divspanrow">
-        <div class="col-sm-2">
-          投递网吧：
-        </div>
-        <div class="col-sm-7">
-          <div class="fl mg-lf-5">
-            <form id="infodv_netbar_selectfm"></form>
-          </div>
-          <div class="fl" style="margin-top: 3px; margin-left: 10;"><a class="btn btn-primary btn-sm infodv_addnetbar" href="javascript:;">添加网吧</a> </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="fl" style="margin-top: 3px;"><a class="btn btn-danger btn-sm infodv_delnetbar" href="javascript:;">删除网吧</a> </div>
-        </div>
-      </div>
-      <div class="col-sm-12 divspanrow">
-        <div class="col-sm-2">
-        </div>
-        <div class="col-sm-10">
-          <div id="send_netbar_lstid"></div>
-          <span class="l-star">*</span>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-12 divspanrow" style="display: none;">
-      <div class="col-sm-2">
-        投递路线：
-      </div>
-      <div class="col-sm-10">
-        <select class="form-control route">
-          <option value="">路线选择</option>
-          <option value=1>电信</option>
-          <option value=2>联通</option>
-          <option value=3>移动</option>
-          <option value=9>其他</option>
-        </select>
-        <span class="l-star">*</span>
-      </div>
-    </div>
-    <div class="col-sm-12 divspanrow" style="display: none;">
-      <div class="col-sm-2">
-        投递区域：
-      </div>
-      <div class="col-sm-5">
-        <input type="text" class="province" style="display: none;" />
-      </div>
-      <div class="col-sm-5">
-        <input type="text" class="city" style="display: none;" />
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12 divspanrow">
-    <div class="col-sm-2">
-      发送至：
-    </div>
-    <div class="col-sm-2">
-      <input type="checkbox" name="idtypes[]" value="1" class="client_checkbox" />网吧客户机
-    </div>
-    <div class="col-sm-8">
-      有效期至：
-      <input type="text" name="timevalidity" id="f_timevalidity_id" class="form-control" />
-    </div>
-  </div>
-  <div class="col-sm-12 divspanrow">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-4">
-      <span style="color: rgba(51, 51, 51, 0.498039215686275);">
-        注：有效期截止前，每次开机都会显示
-      </span>
-    </div>
-  </div>
-  <div class="col-sm-12 divspanrow">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-4">
-      <input type="checkbox" name="idtypes[]" value="2" class="wechat_checkbox" />网吧微信端
-    </div>
-  </div>
-  <div class="col-sm-12 divspanrow">
-    <div class="col-sm-2">
-      定时发送：
-    </div>
-    <div class="col-sm-10">
-      <input type="text" name="idfixedtime" id="f_idfixedtime_id" class="form-control" /><span class="l-star">*</span>
-    </div>
-  </div>
+	<div class="col-sm-12 divspanrow">
+		<div class="col-sm-2">
+			公告标题：
+			<input type="hidden" name="infoid"/>
+		</div>
+		<div class="col-sm-10">
+			<input type="text" name="idtitle" class="form-control"/>
+			<span class="l-star">*</span>
+	    </div>
+	</div>
+	<div class="col-sm-12 divspanrow">
+		<div class="col-sm-2">
+			公告内容：
+		</div>
+		<div class="col-sm-10">
+			<textarea name="idcontent"  class="mpw-form-text mpw-form-textarea"></textarea>
+			<span class="l-star">*</span>
+		</div>
+	</div>
+	<div class="col-sm-12 divspanrow">
+		<div class="col-sm-2">
+			投递网吧：
+		</div>
+		<div class="col-sm-7">
+			<div class="fl mg-lf-5"> 
+		        <form id="infodv_netbar_selectfm"></form>  
+			</div>
+			<div class="fl" style="margin-top: 3px; margin-left: 10px;">
+				<a class="btn btn-primary btn-sm infodv_addnetbar" href="javascript:;">添加网吧</a>	
+			</div> 
+			<!--<div class="fl" style="margin-top: 3px; margin-left: 10px;">
+				<a class="btn btn-primary btn-sm infodv_addgroup" href="javascript:;">添加分组</a>	
+			</div> -->
+		</div> 
+		<div class="col-sm-3">
+			<div class="fl" style="margin-top: 3px;"><a class="btn btn-danger btn-sm infodv_delnetbar" href="javascript:;">删除网吧</a>	</div>
+	    </div>
+	</div>
+	<div class="col-sm-12 divspanrow">
+		<div class="col-sm-2"> 
+		</div>
+		<div class="col-sm-10">
+			<div id="send_netbar_lstid"></div> 
+			<span class="l-star">*</span>
+		</div>
+	</div>
+	<div class="col-sm-12 divspanrow">
+		<div class="col-sm-2">
+			发送至：
+		</div>
+		<div class="col-sm-2">
+			 <input type="checkbox" name="idtypes[]" value="1"/>网吧客户机  
+		</div>
+		<div class="col-sm-8">
+			有效期至： <input type="text" name="timevalidity" id="f_timevalidity_id" class="form-control"/>
+		</div>
+		<div class="col-sm-12 mg-tp-10" > 
+			<span style="color: rgba(51, 51, 51, 0.498039215686275);margin-left: 125px;">
+				注：有效期截止前，每次开机都会显示
+			</span>
+		</div>
+		<div class="col-sm-12 mg-tp-10" > 
+			<div style="margin-left: 125px;">
+				 <input type="checkbox" name="idtypes[]" value="2"/>网吧微信端
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 divspanrow">
+		<div class="col-sm-2"> 
+			定时发送：
+		</div>
+		<div class="col-sm-10">
+			<input type="text" name="idfixedtime" id="f_idfixedtime_id" class="form-control"/><span class="l-star">*</span>
+		</div>
+	</div>
+	 
 </div>
-<script type="text/javascript">
-$(function() {
-  loadScript("js/plugin/summernote/summernote.min.js", function() {
-    loadScript("lib/ligerUI/js/ligerui.all-min.js", function() {
-      loadScript("js/third-party/timepicker/jquery-ui-timepicker-addon.js", function() {
-        loadScript("admin/ywh/task/info_delivery_add.js", function() {
-          info_delivery_add_action();
-          pagefunction();
-        }, false);
-      });
-    });
-  });
-});
+
+<script type="text/javascript">  
+   $(function(){ 
+	    loadScript("lib/ligerUI/js/ligerui.all-min.js" ,function(){ 
+	    	loadScript("js/third-party/timepicker/jquery-ui-timepicker-addon.js",function(){ 
+	    		loadScript("admin/ywh/task/info_delivery_add.js",function(){  
+				     info_delivery_add_action();
+		        } ,false); 	 
+	    	}); 
+        }); 
+	}); 
 </script>

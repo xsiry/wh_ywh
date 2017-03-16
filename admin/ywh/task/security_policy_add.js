@@ -18,7 +18,7 @@
     		var actionparam = {"actionname":_qsource} ; 
             actionparam.datajson = JSON.stringify(param) ;
             actionparam.operjson = JSON.stringify({opertype:["saveSecurityPolicy"]}) ; 			
-		    $sHelper.AjaxSendData("ywh_saveAction",actionparam,'',function(message){
+		    $sHelper.AjaxSendData(_hostaddr+"ywh_saveAction",actionparam,'',function(message){
 		  	   dialogRef.close();
 		  	   if (callback)
 		  	       callback(message);
@@ -77,25 +77,25 @@
     	if (dialog_param.spname!=undefined)
     	  $("#security_policy_name_add").val(decodeURIComponent(dialog_param.spname));
     	if (!dialog_param.spid) return false ;
-    	$.getJSON('ywh_queryTableList',{"source" :"security_policy_prockil","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
+    	$.getJSON(_hostaddr+'ywh_queryTableList',{"source" :"security_policy_prockil","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
 			 function (jsondata) {  
 		 	 	 addTableNewRow(jsondata,'ProcKilList_table','ProcKilList-tpl');
 			 }
 		);  
 		
-		$.getJSON('ywh_queryTableList',{"source" :"security_policy_drvip","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
+		$.getJSON(_hostaddr+'ywh_queryTableList',{"source" :"security_policy_drvip","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
 			 function (jsondata) {  
 		 	 	 addTableNewRow(jsondata,'DrvipList_table','DrvipList-tpl');
 			 }
 		);
 		
-		$.getJSON('ywh_queryTableList',{"source" :"security_policy_killwds","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
+		$.getJSON(_hostaddr+'ywh_queryTableList',{"source" :"security_policy_killwds","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
 			 function (jsondata) {  
 		 	 	 addTableNewRow(jsondata,'KillWdsList_table','KillWdsList-tpl' );
 			 }
 		);
 		
-		$.getJSON('ywh_queryTableList',{"source" :"security_policy_prgd","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
+		$.getJSON(_hostaddr+'ywh_queryTableList',{"source" :"security_policy_prgd","qtype":"select","qhstr":JSON.stringify({qjson:[{"spid":dialog_param.spid}]})},
 			 function (jsondata) { 
 		 	 	 addTableNewRow(jsondata,'PrgdList_table','PrgdList-tpl' );
 			 }

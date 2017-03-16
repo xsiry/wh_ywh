@@ -1,103 +1,131 @@
 <style type="text/css">
-	.gtspantitle {
-		color: #000000;
-		font-size: 18px;
-		font-family: "微软雅黑";
-		text-align: center;
-	}
-	.gturlcontent ,.gturlcontent li{
-		list-style:none; /* 将默认的列表符号去掉 */
-		padding:0; /* 将默认的内边距去掉 */
-		margin:0px; /* 将默认的外边距去掉 */
-	}
-	
-	.gturlcontent li {
-		float: left;
-		color: #4E90FF;
-		margin:5px 10px ;
-		font-size: 18px;
-	}
-	
-	.gtdivrow {
-		margin-bottom: 20px; 
-		margin-top: 10px;
-	}
-	.gtrow {
-		border-top: groove #ada9a9 1px;
-	}
+.gtspantitle {
+  color: #000000;
+  font-size: 18px;
+  font-family: "微软雅黑";
+  text-align: center;
+}
+
+.gturlcontent,
+.gturlcontent li {
+  list-style: none;
+  /* 将默认的列表符号去掉 */
+  padding: 0;
+  /* 将默认的内边距去掉 */
+  margin: 0px;
+  /* 将默认的外边距去掉 */
+}
+
+.gturlcontent li {
+  float: left;
+  color: #4E90FF;
+  margin: 5px 10px;
+  font-size: 18px;
+}
+
+.gtdivrow {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.gtrow {
+  border-top: groove #ada9a9 1px;
+}
+
+.total {
+  margin-left: 270px;
+  font-size: 24px;
+}
 </style>
-<div class="groupTaskpage_clsf"> 
-	<div class="col-sm-12 gtdivrow">
-		<div class="col-sm-2">
-		   <div class="gtspantitle">
-		      开机任务：
-		   </div>
-		</div>
-		<div class="col-sm-10">
-			<ul class="gturlcontent" id="gt_boot_task_lid">
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-			</ul>
-		</div> 
-	</div>
-	<div class="col-sm-12 gtrow"></div>
-	<div class="col-sm-12 gtdivrow">
-		<div class="col-sm-2">
-		    <div class="gtspantitle">
-		       安全策略：
-		    </div>
-		</div>
-		<div class="col-sm-10">
-			<ul class="gturlcontent" id="gt_security_policy_lid">
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-				<li>运行领</li>
-			</ul>
-		</div>  	
-	</div>   
-	<div class="col-sm-12 gtrow"></div>
-	<div class="col-sm-12 gtdivrow">
-	       <div class="col-sm-2">
-	         	<div class="gtspantitle">
-	       	        所属网吧：
-	            </div> 
-	       </div>
-			<div class="col-sm-10">
-				 <div class="col-sm-12">
-				 	 <div class="fl"><input id="gt_GroupComboBoxId"/> </div>
-		 	         <div class="fl mg-lf-10"><a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a></div> 
-				 </div>
-				 <div class="col-sm-12 mg-tp-10">
-				 	 <div id="gt_netbarlistid"></div> 
-				 </div>
-			</div> 
-	</div> 
+<div class="groupTaskpage_clsf">
+  <div class="col-sm-12 gtdivrow">
+    <div class="col-sm-2">
+      <div class="gtspantitle">
+        开机任务：
+      </div>
+    </div>
+    <div class="col-sm-10">
+      <ul class="gturlcontent" id="gt_boot_task_lid">
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+      </ul>
+      <div class="col-sm-5 fr">
+        <div class="fl">
+          <input id="setTaskComboBoxId" />
+        </div>
+        <div class="fl mg-lf-10">
+          <a class="btn btn-primary group_set_task" href="javascript:void(0);">添加任务</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 gtrow"></div>
+  <div class="col-sm-12 gtdivrow">
+    <div class="col-sm-2">
+      <div class="gtspantitle">
+        安全策略：
+      </div>
+    </div>
+    <div class="col-sm-10">
+      <ul class="gturlcontent" id="gt_security_policy_lid">
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+        <li>运行领</li>
+      </ul>
+      <!-- <select multiple style="width:50%" class="select2">
+
+      </select> -->
+      <div class="col-sm-5 fr">
+        <div class="fl">
+          <input id="setSecurityComboBoxId" />
+        </div>
+        <div class="fl mg-lf-10">
+          <a class="btn btn-primary group_set_security_policy" href="javascript:void(0);">应用策略</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 gtrow"></div>
+  <div class="col-sm-12 gtdivrow">
+    <div class="col-sm-2">
+      <div class="gtspantitle">
+        所属网吧：
+      </div>
+    </div>
+    <div class="col-sm-10">
+      <div class="col-sm-12">
+        <div class="fl">
+          <input id="gt_GroupComboBoxId" /> </div>
+        <div class="fl mg-lf-10"><a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a></div>
+        <div class="fl mg-lf-10 total">本分组共有<span class="number"></span>个网吧</div>
+      </div>
+      <div class="col-sm-12 mg-tp-10">
+        <div id="gt_netbarlistid"></div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<script type="text/javascript">  
-   $(function(){ 
-	  loadScript("lib/ligerUI/js/ligerui.all-min.js" ,function(){ 
-		   loadScript("admin/ywh/sysgroup/groupTask.js",function(){  
-			    groupTask_action();
-	       } ,false); 	    
-      }); 
-	}); 
+<script type="text/javascript">
+$(function() {
+  loadScript("lib/ligerUI/js/ligerui.all-min.js", function() {
+    loadScript("admin/ywh/sysgroup/groupTask.js", function() {
+      groupTask_action();
+    }, false);
+  });
+});
 </script>
-
-
- 

@@ -156,9 +156,9 @@ var showUserAccinfo = function(){
                userAccInfo = json ; 
 			   userAccInfo_authority =  (userAccInfo.authority)?userAccInfo.authority:'';
 			   $("#show-shortcut").html(userAccInfo.sysname); 	 
-			   var html=template(document.getElementById('user_authority_menu_tpl').innerHTML
-						 	     , {userAuthority:userAccInfo_authority}); 
-			   $("#user_authority_menu").append(html); 
+//			   var html=template(document.getElementById('user_authority_menu_tpl').innerHTML
+//						 	     , {userAuthority:userAccInfo_authority}); 
+			   $("#user_authority_menu").append(userAccInfo.authorityHtml); 
 			   $.each(userAccInfo.sys_user_group_ls, function(i, data) { 
 			   	     $("#user_sys_group_ul").append('<li><a href="ywh/sysgroup/groupTask?groupid='+data.groupid+'">'+data.groupname+'</a></li>') ; 
 			   });  

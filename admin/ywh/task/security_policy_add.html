@@ -181,13 +181,13 @@
     	var workindex = i+startrow ;  ;
      %><tr>
 	    <td> 
-            <input type="text" class="form-control ProcKilList_RowOne" name="ProcKilList[1].pkname" value="<%:=pkname%>">
+            <input type="text" class="form-control ProcKilList_RowOne" name="ProcKilList[<%:=workindex%>].pkname" value="<%:=pkname%>">
         </td> 
         <td>
-            <input class="form-control" type="text" name="ProcKilList[1].pkcode" value="<%:=pkcode%>">
+            <input class="form-control" type="text" name="ProcKilList[<%:=workindex%>].pkcode" value="<%:=pkcode%>">
         </td>
         <td>
-            <input class="form-control" type="text" name="ProcKilList[1].pkremarks" value="<%:=pkremarks%>">
+            <input class="form-control" type="text" name="ProcKilList[<%:=workindex%>].pkremarks" value="<%:=pkremarks%>">
         </td> 										        
         <td>
             <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'ProcKilList_table');"><i class="fa fa-trash-o"></i></a>
@@ -209,13 +209,13 @@
     	var workindex = i+startrow ;  ;
      %><tr>
 	    <td> 
-            <input type="text" class="form-control DrvipList_RowOne" name="DrvipList[1].drname" value="<%:=drname%>">
+            <input type="text" class="form-control DrvipList_RowOne" name="DrvipList[<%:=workindex%>].drname" value="<%:=drname%>">
         </td> 
         <td>
-            <input class="form-control" type="text" name="DrvipList[1].drcode" value="<%:=drcode%>">
+            <input class="form-control" type="text" name="DrvipList[<%:=workindex%>].drcode" value="<%:=drcode%>">
         </td>
         <td>
-            <input class="form-control" type="text" name="DrvipList[1].drremarks" value="<%:=drremarks%>">
+            <input class="form-control" type="text" name="DrvipList[<%:=workindex%>].drremarks" value="<%:=drremarks%>">
         </td> 										        
         <td>
             <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'DrvipList_table');"><i class="fa fa-trash-o"></i></a>
@@ -237,10 +237,10 @@
      %>
         <tr>
 	    <td> 
-	        <input type="text" class="form-control KillWdsList_RowOne" name="KillWdsList[1].kwname" value="<%:=kwname%>">
+	        <input type="text" class="form-control KillWdsList_RowOne" name="KillWdsList[<%:=workindex%>].kwname" value="<%:=kwname%>">
 	    </td> 
 	    <td> 
-			<input type="text" class="form-control" name="KillWdsList[1].kwremarks" value="<%:=kwremarks%>">
+			<input type="text" class="form-control" name="KillWdsList[<%:=workindex%>].kwremarks" value="<%:=kwremarks%>">
 		</td>
 	    <td>
 	        <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'KillWdsList_table');"><i class="fa fa-trash-o"></i></a>
@@ -262,10 +262,10 @@
      %>
      <tr>
      <td> 
-        <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[1].pgname" value="<%:=pgname%>">
+        <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[<%:=workindex%>].pgname" value="<%:=pgname%>">
     </td>  	
     <td> 
-        <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[1].pgremarks" value="<%:=pgremarks%>">
+        <input type="text" class="form-control PrgdList_RowOne" name="PrgdList[<%:=workindex%>].pgremarks" value="<%:=pgremarks%>">
     </td>
     <td>
         <a href="javascript:;" class="btn btn-xs btn-danger " title="删除" onclick="delRow(this,'PrgdList_table');"><i class="fa fa-trash-o"></i></a>

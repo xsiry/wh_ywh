@@ -21,11 +21,15 @@
       var _groupidsText = $("#btSecurityComboBoxId").ligerGetComboBoxManager().getText();
 
       if (!_groupidsStr) {
-        $.ligerDialog.error('请选择分组！');
+        $.ligerDialog.error('请选择需要设置的分组！');
         return;
       }
       var _groupids = _groupidsStr.split(';');
       var row = pageListGrid.grid.getSelectedRow();
+      if (!row) {
+        $.ligerDialog.error('请选择一个策略！');
+        return;
+      }
 
       $.each(_groupids, function(index, groupid) {
         _JsonArr.push({ "groupid": groupid, "spid": row.spid });
@@ -135,7 +139,7 @@
       onBeforeSelect: function(value, text) {
         if (value) {
           if (pageListGrid.grid.getSelectedRows().length == 0) {
-            $.ligerDialog.error('请先选择要分组的任务！');
+            $.ligerDialog.error('请先选择一个策略！');
             return false;
           }
         }
@@ -198,7 +202,7 @@
         onSuccess: function(data, grid) {
 
         },
-        detail: { onShowDetail: f_showGroups },
+        detail: { onShowDetail: f_showGroups }
       });
     },
     reload: function() {
@@ -213,24 +217,23 @@
       columns: [
         { display: '分组名称', name: 'groupname', width: 200, align: 'left' }, {
           display: '操作',
-          width: 200,
+          width: 100,
           render: function(rowdata, rowindex, value) {
             var h = "";
-            h += '<a href="javascript:void(0);" class="btn btn-labeled btn-danger" ';
+            h += '<a href="javascript:void(0);" class="btn btn-labeled btn-danger" style="margin-top: -8px;" ';
             h += 'data-action="security_policy_detail_pgdel" data-gtid="' + rowdata.gtid + '" data-groupid="' + rowdata.groupid + '"> ';
-            h += '<span class="btn-label"><i class="glyphicon glyphicon-trash"></i></span>删除</a>';
+            h += '<i class="glyphicon glyphicon-trash"></i></a>';
             return h;
           }
         }                         
       ],
       isScroll: false,
       showToggleColBtn: false,
-      width: '38%',
-      toolbarShowInLeft: true,
+      width: '29%',
       rownumbers: true,
       showTitle: false,
       rowSelectable: false,
-      onAfterShowData: callback,
+      usePager: false,
       frozen: false,
       url: _hostaddr + 'ywh_queryTableList',
       type: "get",
@@ -239,31 +242,29 @@
         source: 'group_task',
         qhstr: JSON.stringify({ 'qjson': [{ 'spid': row.spid }] })
       },
-      onAfterShowData: function(data, grid)  {
-        $root.on("click", '[data-action="security_policy_detail_pgdel"]', function(actionobj) {
-          var rowobj = $(this);
-          var detailGrid = $('div.detailGrid');
-          var gtid = rowobj.data("gtid");
-          var groupid = rowobj.data("groupid");
-          var delParam = {};
-          delParam.tid = gtid;
-          delParam.tname = _qsource_detail;
-            //是否删除
-          $sHelper.deleteData(_hostaddr + "ywh_delAction/", delParam, girdObj, function(message) {
-            if (message.success) {
-              $.ligerDialog.success(message.msg);
-            }
-            else
-              $.ligerDialog.error(message.msg);
-          }, "是否确认删除该分组？");
-          actionobj.preventDefault();
-          rowobj = null;
-        });
-      },
       reload: function() {
         this.grid.loadData();
       }      
-    });         
+    });
+
+    $(grid).on("click", '[data-action="security_policy_detail_pgdel"]', function(actionobj) {
+      var rowobj = $(this);
+      var detailGrid = $('div.detailGrid');
+      var gtid = rowobj.data("gtid");
+      var groupid = rowobj.data("groupid");
+      var delParam = {};
+      delParam.tid = gtid;
+      delParam.tname = _qsource_detail;
+      //是否删除
+      $sHelper.deleteData(_hostaddr + "ywh_delAction/", delParam, girdObj, function(message) {
+        if (message.success) {
+          $.ligerDialog.success(message.msg);
+        } else
+          $.ligerDialog.error(message.msg);
+      }, "是否确认删除该分组？");
+      actionobj.preventDefault();
+      rowobj = null;
+    });
   };
 
   security_policy_action = function() {
