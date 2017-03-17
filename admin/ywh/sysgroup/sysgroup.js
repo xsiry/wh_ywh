@@ -119,7 +119,7 @@
           render: function(rowdata, rowindex, value) {
             var h = "";
             if (!rowdata._editing) {
-              h += '<a href="javascript:void(0);" class="mg-5 " data-action="sys_group_pgedit" data-rowid="' + rowindex + '">修改名称</a>';
+              h += '<a href="javascript:void(0);" class="mg-5 " data-action="sys_group_pgedit" data-rowid="' + rowindex + '">修改</a>';
               h += '<a href="javascript:void(0);" class=" mg-5"  data-action="sys_group_pgdel" data-rowid="' + rowindex + '" data-groupid="' + rowdata.groupid + '">删除</a>';
             } else {
               h += '<a href="javascript:void(0);" class="mg-5" data-action="sys_group_end_edit" data-groupname="' + rowdata.groupname + '" data-rowid="' + rowindex + '" data-groupid="' + rowdata.groupid + '">提交</a>';

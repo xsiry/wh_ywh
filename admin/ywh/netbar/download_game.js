@@ -204,7 +204,7 @@
 	 		   pageSize: 30,usePager:true, selectRowButtonOnly: true, showTitle: false,
 	           pageSizeOptions:[ 30,50,100], sortName: 'updatetime',sortOrder:'ASC',  enabledSort:true,
 	           url:  'ywh_queryTableList/?source=games',
-	           width: '98%', height: '98%',rownumbers:true ,
+	           width: '98%', height: '98%',
 	           onAfterShowData : function(currentData) {
 
 			   } , onSuccess : function(data, grid) {

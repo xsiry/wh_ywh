@@ -216,9 +216,9 @@
     $(detailPanel).append(grid);            
     var girdObj = $(grid).css('margin', 10).addClass('detailGrid').ligerGrid({                
       columns: [
-        { display: '已应用分组', name: 'groupname', width: 200, align: 'left' }, {
+        { display: '已应用分组', name: 'groupname', width: '70%', align: 'left' }, {
           display: '操作',
-          width: 100,
+          width: '30%',
           align: 'left',
           render: function(rowdata, rowindex, value) {
             var h = "";
@@ -231,7 +231,7 @@
       ],
       isScroll: false,
       showToggleColBtn: false,
-      width: '35%',
+      width: 400,
       showTitle: false,
       rowSelectable: false,
       usePager: false,
