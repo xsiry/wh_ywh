@@ -123,6 +123,7 @@ var _netbar_info_param = {};
       return {
         display: '远程管理',
         width: 100,
+        align: 'left' ,
         isSort: false,
         render: function(rowdata, rowindex, value) {
           return '	<div class="ycdesktopimg"><a href="javascript:;" class="ycdesktopimg_abtn"  data-netbarid="' + rowdata.netbarid + '"><i class="fa fa-lg fa-fw fa-desktop"></i></a></div>';
@@ -138,6 +139,7 @@ var _netbar_info_param = {};
         display: '详情',
         name: 'ucid_total',
         width: 100,
+        align: 'left',
         isSort: false,
         render: function(rowdata, rowindex, value) {
           return '<a href="javascript:;" class="grid_netbarremote_savebtn"  data-netbarid="' + rowdata.netbarid + '" data-groupname="' + rowdata.groupname + '" data-netbaracc="' + rowdata.netbaracc + '" data-netbarname="' + rowdata.netbarname + '" data-netbarremarks="' + encodeURIComponent(rowdata.netbarremarks) + '">详情</a>';
@@ -151,6 +153,7 @@ var _netbar_info_param = {};
       return {
         display: '游戏下载',
         width: 100,
+        align: 'left',
         isSort: false,
         render: function(rowdata, rowindex, value) {
           return '<a href="javascript:;" class="downloadgame_btn"  data-netbarid="' + rowdata.netbarid + '" data-netbarname="' + rowdata.netbarname + '">游戏下载</a>'
@@ -169,7 +172,7 @@ var _netbar_info_param = {};
           { display: '网吧账号', name: 'netbaracc', width: 160, align: 'left' },
           { display: '网吧名称', name: 'netbarname', align: 'left' },
           { display: '登录IP', name: 'netbarregip', width: 160, align: 'left' },
-          { display: '机器台数', name: 'netbaractivationterminal', width: 80, align: 'left' },
+          { display: '机器台数', name: 'netbaractivationterminal', width: 100, align: 'left' },
           { display: '所属分组', name: 'groupname', width: 120, isSort: false, align: 'left' },
           remoteNetbar(),
           downloadGame(),
@@ -184,6 +187,7 @@ var _netbar_info_param = {};
         dataAction: 'server',
         checkbox: true,
         allowUnSelectRow: true,
+        alternatingRow: false,
         pageSize: 30,
         usePager: true,
         selectRowButtonOnly: true,
@@ -193,9 +197,9 @@ var _netbar_info_param = {};
         sortOrder: 'ASC',
         enabledSort: true,
         url: _hostaddr + 'ywh_queryTableList/?source=' + _qsource,
+        alternatingRow: false,
         width: '98%',
         height: '98%',
-        rownumbers: true, // heightDiff:70,
         onAfterShowData: function(currentData) {
 
         },

@@ -26,7 +26,7 @@
  * email: info@myorange.ca
  * =======================================================================
  * INDEX:
- * 
+ *
  * 1. APP CONFIGURATION.......................................[line: 80  ]
  * 2. APP DOM REFERENCES......................................[line: 131 ]
  * 3. DETECT MOBILE DEVICES...................................[line: 149 ]
@@ -75,7 +75,7 @@
  * 24.LOAD AJAX PAGES.........................................[line: 1599]
  * 25.UPDATE BREADCRUMB (AJAX ONLY)...........................[line: 1691]
  * 26.PAGE SETUP..............................................[line: 1713]
- * 
+ *
  */
 
 /==========================================================================================================/
@@ -188,10 +188,10 @@ if ($('body').hasClass("menu-on-top") || localStorage.getItem('sm-setmenu')=='to
  * DOCUMENT LOADED EVENT
  * Description: Fire when DOM is ready
  */
-            
+
 jQuery(document).ready(function() {
-	
-//    $("#rightmenuid").pin(); 
+
+//    $("#rightmenuid").pin();
 
       //$("#rightmenuid").stickUp();
     /*
@@ -200,7 +200,7 @@ jQuery(document).ready(function() {
     var smartActions = {
 
         // LOGOUT MSG
-        userLogout: function($this){ 
+        userLogout: function($this){
             // ask verification
             $.SmartMessageBox({
                 title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
@@ -214,7 +214,7 @@ jQuery(document).ready(function() {
                 }
             });
             function logout() {
-                window.location =  $this.attr('href'); 
+                window.location =  $this.attr('href');
             }
 
         },
@@ -275,7 +275,7 @@ jQuery(document).ready(function() {
                 $.root_.toggleClass("minified");
                 $.root_.removeClass("hidden-menu");
                 $('html').removeClass("hidden-menu-mobile-lock");
-                $this.effect("highlight", {}, 500);               
+                $this.effect("highlight", {}, 500);
             }
         },
 
@@ -336,11 +336,11 @@ jQuery(document).ready(function() {
         }
 
     };
- 
-	
+
+
     $.root_.on('click','button[data-sstoggle]',function(e) {
-			var $target = $($(this).attr('data-sstoggle')); 
-			$target.toggle(); 
+			var $target = $($(this).attr('data-sstoggle'));
+			$target.toggle();
 			var $targetsstoggle =  $target.find('button[data-sstoggle]');
 			if ($targetsstoggle) {
 				//出下一级孩子跟踪隐藏，现象需要一个个点击
@@ -348,12 +348,12 @@ jQuery(document).ready(function() {
 //				 if ($target.is(':visible')) {
 //					$childtarget.toggle(true) ;
 //				 }
-//				 else 
+//				 else
 				 $childtarget.toggle(false) ;
-			} 
+			}
 			e.preventDefault();
 	});
-	
+
     $.root_.on('click', '[data-action="userLogout"]', function(e) {
         var $this = $(this);
         smartActions.userLogout($this);
@@ -386,10 +386,10 @@ jQuery(document).ready(function() {
         smartActions.toggleShortcut();
         e.preventDefault();
     });
-    // ssoft public aip 
+    // ssoft public aip
 	 $.root_.on("click", '[data-action="addNewStudentGz"]', function(actionobj) {
     	//data-stuid="stu12" 新建一个新的跟踪
-		var selbj = $(this); 	
+		var selbj = $(this);
 		$ssoftDialog.addNewStudentAdvisory(selbj),
 		actionobj.preventDefault(),
 		selbj = null ;
@@ -398,7 +398,7 @@ jQuery(document).ready(function() {
 	 $.root_.on('click', '[data-sstoggle="tab"]', function(e) {
 	 	debugPrint("---11111-----");
         var $this = $(this);
-        var panelid = $this.attr("href"); 
+        var panelid = $this.attr("href");
         var $panelid = $(panelid) ;
         if (!($panelid.hasClass("tab-active"))) {
         	var activetab = $panelid.parent().find(".tab-active") ;
@@ -406,14 +406,14 @@ jQuery(document).ready(function() {
         	activetab.addClass("tab-hidden") ;
         	debugPrint("---2222-----");
         	$panelid.removeClass("tab-hidden");
-	        $panelid.addClass("tab-active");	        
+	        $panelid.addClass("tab-active");
         }
         e.preventDefault();
         $this = null ;
     });
 
-	
-	
+
+
 
     /*
      * FIRE TOOLTIPS
@@ -1359,7 +1359,7 @@ function setup_widgets_desktop() {
 
     if ($.fn.jarvisWidgets && $.enableJarvisWidgets) {
 
-        $('#widget-grid').jarvisWidgets({ 
+        $('#widget-grid').jarvisWidgets({
             grid : 'article',
             widgets : '.jarviswidget',
             localStorage : true,
@@ -1481,16 +1481,16 @@ if ($.navAsAjax || $(".google_maps")){
  * iscache : false 表示不缓存，每次需要加装
  */
 var jsArray = {};
-function loadScript(scriptName,callback,iscache) {  
-	//先处理路径 
+function loadScript(scriptName,callback,iscache) {
+	//先处理路径
 	scriptName = scriptName.replace(/{jspage}/g,jsroot) ;
 	scriptName = scriptName.replace(/{jstype}/g,jstype) ;
-//	debugPrint("scriptName:="+scriptName) ; 
+//	debugPrint("scriptName:="+scriptName) ;
 	if (iscache!=false) {
-	    iscache = true ; 
-	}; 
-    if ( (!iscache) || (!jsArray[scriptName])) { 
-        jsArray[scriptName] = true; 
+	    iscache = true ;
+	};
+    if ( (!iscache) || (!jsArray[scriptName])) {
+        jsArray[scriptName] = true;
         // adding the script tag to the head as suggested before
         var body = document.getElementsByTagName('body')[0];
         var script = document.createElement('script');
@@ -1500,19 +1500,19 @@ function loadScript(scriptName,callback,iscache) {
         // then bind the event to the callback function
         // there are several events for cross browser compatibility
         //script.onreadystatechange = callback;
-        if (callback) { 
+        if (callback) {
            script.onload = callback;
-        } 
+        }
         // fire the loading
         body.appendChild(script);
 
-    } else  { 
+    } else  {
        debugState && root.console.log("This script was already loaded %c: " + scriptName, debugStyle_warning) ;
-       if (callback) { 
+       if (callback) {
           callback();
       }
     }
-     
+
 
 }
 
@@ -1592,7 +1592,7 @@ if($.navAsAjax)
         checkURL();
     });
 }
- 
+
 // CHECK TO SEE IF URL EXISTS
 function checkURL() {
 
@@ -1602,24 +1602,24 @@ function checkURL() {
         //console.log();
 //      debugState && root.console.log("backdrop removed", debugStyle) ;
     }
-    //get the url by removing the hash 
-//  debugState && root.console.log("---location.hash--- %c "+location.hash, debugStyle);  
+    //get the url by removing the hash
+//  debugState && root.console.log("---location.hash--- %c "+location.hash, debugStyle);
     var url = location.hash.replace(/^#/, '');
-//  debugState && root.console.log("---url--- %c "+url, debugStyle);  
+//  debugState && root.console.log("---url--- %c "+url, debugStyle);
     //BEGIN: IE11 Work Around
-    if (!url) {           
+    if (!url) {
         try {
-            var documentUrl = window.document.URL; 
-//          debugState && root.console.log("---documentUrl--- %c "+documentUrl, debugStyle);   
+            var documentUrl = window.document.URL;
+//          debugState && root.console.log("---documentUrl--- %c "+documentUrl, debugStyle);
             if (documentUrl) {
                 if (documentUrl.indexOf('#', 0) > 0 && documentUrl.indexOf('#', 0) < (documentUrl.length + 1)) {
-                    url = documentUrl.substring(documentUrl.indexOf('#', 0) + 1); 
-                } 
-            } 
+                    url = documentUrl.substring(documentUrl.indexOf('#', 0) + 1);
+                }
+            }
         } catch (err) {}
     }
     //END: IE11 Work Around
-//  debugState && root.console.log("---IE11 Work Around url--- %c "+url, debugStyle);   
+//  debugState && root.console.log("---IE11 Work Around url--- %c "+url, debugStyle);
     container = $('#content');
     // Do this if url exists (for page refresh, etc...)
     if (url) {
@@ -1632,20 +1632,20 @@ function checkURL() {
         // change page title from global var
         document.title = (title || document.title);
         //console.log("page title: " + document.title);
-        debugState && root.console.log("Page title: %c " + document.title, debugStyle_green);  
+        debugState && root.console.log("Page title: %c " + document.title, debugStyle_green);
         //加载的时候，处理后面的出生，解决 参数不能放全面的
 		var new_url ;
-	    if (url.indexOf("?")>0) 
-	      new_url= url.substr(0,url.indexOf("?")); 
-	    else 
-	      new_url = url ; 
+	    if (url.indexOf("?")>0)
+	      new_url= url.substr(0,url.indexOf("?"));
+	    else
+	      new_url = url ;
 	    new_url = pagepath + new_url + pagetype ;
         // parse url to jquery
         loadURL(new_url + location.search, container);
     } else {
 
         // grab the first URL from nav
-        var $this = $('nav > ul > li:first-child > a[href!="#"]'); 
+        var $this = $('nav > ul > li:first-child > a[href!="#"]');
         //update hash
         window.location.hash = $this.attr('href');
 
@@ -1654,7 +1654,7 @@ function checkURL() {
 }
 
 // LOAD AJAX PAGES
-function loadURL(url, container) { 
+function loadURL(url, container) {
    // debugState
     if (debugState) {
         root.console.log("Loading URL: %c" + url, debugStyle);
@@ -1755,7 +1755,7 @@ function drawBreadCrumb() {
 
     //console.log("breadcrumb")
     $.bread_crumb.empty();
-    $.bread_crumb.append($("<li>网恒科技</li>"));
+    $.bread_crumb.append($("<li>云维护</li>"));
     nav_elems.each(function() {
         $.bread_crumb.append($("<li></li>").html($.trim($(this).clone().children(".badge").remove().end().text())));
         // update title when breadcrumb is finished...
@@ -1822,7 +1822,7 @@ function pageSetUp() {
 }
 
 // Keep only 1 active popover per trigger - also check and hide active popover if user clicks on document
-$('body').on('click', function(e) { 
+$('body').on('click', function(e) {
     $('[rel="popover"]').each(function() {
         //the 'is' for buttons that trigger popups
         //the 'has' for icons within a button that triggers a popup
@@ -1830,12 +1830,12 @@ $('body').on('click', function(e) {
             $(this).popover('hide');
         }
     });
- 
-//  $('[role="tooltip"]').each(function(){ 
-//    var _type =$(e.target).data("tptype")    ;	 
+
+//  $('[role="tooltip"]').each(function(){
+//    var _type =$(e.target).data("tptype")    ;
 //    if (_type!="tooltip") {
-//          $(this).popover('hide'); 
-//      }  
-//  }); 
-    
-}); 
+//          $(this).popover('hide');
+//      }
+//  });
+
+});

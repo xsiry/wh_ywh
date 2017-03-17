@@ -134,22 +134,24 @@
       var self = this;
       this.grid = $(self.main).ligerGrid({
         columns: [
-          { display: '任务名称', name: 'btname' }, {
+          { display: '任务名称', name: 'btname', width: '10%', align: 'left' }, {
             display: '任务类型',
+            align: 'left',
             name: 'btype',
-            width: 80,
+            width: '10%',
             isSort: false,
             render: function(rowdata, rowindex, value) {
               return '<span>云端下发</span>';
             }
           },
-          { display: '上传文件', name: 'btupfile', width: 160 },
-          { display: '执行程序', name: 'btexec', width: 120 },
-          { display: '参数', name: 'btparam', width: 120, isSort: false },
-          { display: '延时', name: 'bttimeout', width: 60 },
-          { display: '执行系统', name: 'btsystem', width: 120, isSort: false }, {
+          { display: '上传文件', name: 'btupfile', width: '15%', align: 'left' },
+          { display: '执行程序', name: 'btexec', width: '15%', align: 'left' },
+          { display: '参数', name: 'btparam', width: '10%', isSort: false, align: 'left' },
+          { display: '延时', name: 'bttimeout', width: '15%', align: 'left' },
+          { display: '执行系统', name: 'btsystem', width: '10%', isSort: false, align: 'left' }, {
             display: '操作',
-            width: 120,
+            width: '15%',
+            align: 'left',
             render: function(rowdata, rowindex, value) {
               var h = "";
               h += '<a href="javascript:void(0);" class="mg-lr-5" data-action="boot_task_psedit" data-btid="' + rowdata.btid + '">修改</a>';
@@ -176,9 +178,9 @@
         sortOrder: 'DESC',
         enabledSort: true,
         url: _hostaddr + 'ywh_queryTableList/?source=' + _qsource,
+        alternatingRow: false,
         width: '98%',
         height: '98%',
-        rownumbers: true, // heightDiff:70,
         onAfterShowData: function(currentData) {
 
         },
@@ -198,9 +200,10 @@
     $(detailPanel).append(grid);            
     var girdObj = $(grid).css('margin', 10).addClass('detailGrid').ligerGrid({                
       columns: [
-        { display: '分组名称', name: 'groupname', width: 200, align: 'left' }, {
+        { display: '已应用分组', name: 'groupname', width: 200, align: 'left' }, {
           display: '操作',
           width: 100,
+          align: 'left',
           render: function(rowdata, rowindex, value) {
             var h = "";
             h += '<a href="javascript:void(0);" class="btn btn-labeled btn-danger" style="margin-top: -8px;" ';
@@ -212,9 +215,8 @@
       ],
       isScroll: false,
       showToggleColBtn: false,
-      width: '29%',
+      width: '35%',
       usePager: false,
-      rownumbers: true,
       showTitle: false,
       rowSelectable: false,
       onAfterShowData: callback,
@@ -268,7 +270,7 @@
         { name: "btdownfile", attr: { id: "btdownfile_id" }, type: "hidden" },
         { name: "filemd5", attr: { id: "filemd5_id" }, type: "hidden" },
         { display: "任务名称", name: "btname", validate: { required: true }, newline: true, type: "text" },
-        { display: "延时", name: "bttimeout", validate: { required: true, isInteger: true }, newline: true, type: "text", afterContent: "（秒）" }, {
+        { display: "延时", name: "bttimeout", validate: { required: false, isInteger: true }, value: 0, newline: true, type: "int", afterContent: "秒）" }, {
           label: "执行系统",
           name: "btsystem",
           newline: true,
@@ -282,7 +284,7 @@
           },
           width: 200
         },
-        { htmltx: '请将需要执行的文件打包后上传（限<span style="color: red;">ZIP</span>文件，10M以下）' },
+        { htmltx: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请将需要执行的文件打包后上传（限<span style="color: red;">ZIP</span>文件，10M以下）' },
         { htmltx: '<div   class="custom_btupfile"><div style="text-align: right;  width: 90px;float:left;margin-top:10px;">上传文件：</div><input id="btupfile_ftp"  type="file" multiple class="file-loading" data-max-file-count="1" data-min-file-count="1"> </div>' },
         { display: "执行程序", name: "btexec", validate: { required: true }, newline: false, type: "text" },
         { display: "执行参数", name: "btparam", validate: { required: false }, newline: false, type: "text" }

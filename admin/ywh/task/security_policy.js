@@ -130,7 +130,7 @@
 
   var createPageFunction = function() {
     $("#btSecurityComboBoxId").ligerComboBox({
-      width: 300,
+      width: 200,
       url: _hostaddr + 'ywh_queryTableList/?source=sys_group&qtype=select@online',
       valueField: 'groupid',
       textField: 'groupname',
@@ -160,13 +160,14 @@
       var self = this;
       this.grid = $(self.main).ligerGrid({
         columns: [
-          { display: '策略名称', name: 'spname', align: 'left' },
-          { display: '进程查杀', name: 'prockil', width: 120, isSort: false, align: 'left' },
-          { display: '可疑驱动拦截', name: 'drvip', width: 120, isSort: false, align: 'left' },
-          { display: '窗口查杀', name: 'killwds', width: 120, isSort: false, align: 'left' },
-          { display: '进程守护', name: 'prgd', width: 120, isSort: false, align: 'left' }, {
+          { display: '策略名称', name: 'spname', width: '20%', align: 'left' },
+          { display: '进程查杀', name: 'prockil', width: '20%', isSort: false, align: 'left' },
+          { display: '可疑驱动拦截', name: 'drvip', width: '15%', isSort: false, align: 'left' },
+          { display: '窗口查杀', name: 'killwds', width: '15%', isSort: false, align: 'left' },
+          { display: '进程守护', name: 'prgd', width: '15%', isSort: false, align: 'left' }, {
             display: '操作',
-            width: 120,
+            width: '15%',
+            align: 'left',
             render: function(rowdata, rowindex, value) {
               var h = "";
               h += '<a href="javascript:void(0);" class="mg-lr-5" data-action="security_policy_copy" data-spid="' + rowdata.spid + '" data-spname="' + encodeURIComponent(rowdata.spname) + '">复制</a>';
@@ -193,9 +194,9 @@
         sortOrder: 'DESC',
         enabledSort: true,
         url: _hostaddr + 'ywh_queryTableList/?source=' + _qsource,
+        alternatingRow: false,
         width: '98%',
         height: '98%',
-        rownumbers: true, // heightDiff:70,
         onAfterShowData: function(currentData) {
 
         },
@@ -215,9 +216,10 @@
     $(detailPanel).append(grid);            
     var girdObj = $(grid).css('margin', 10).addClass('detailGrid').ligerGrid({                
       columns: [
-        { display: '分组名称', name: 'groupname', width: 200, align: 'left' }, {
+        { display: '已应用分组', name: 'groupname', width: 200, align: 'left' }, {
           display: '操作',
           width: 100,
+          align: 'left',
           render: function(rowdata, rowindex, value) {
             var h = "";
             h += '<a href="javascript:void(0);" class="btn btn-labeled btn-danger" style="margin-top: -8px;" ';
@@ -229,8 +231,7 @@
       ],
       isScroll: false,
       showToggleColBtn: false,
-      width: '29%',
-      rownumbers: true,
+      width: '35%',
       showTitle: false,
       rowSelectable: false,
       usePager: false,

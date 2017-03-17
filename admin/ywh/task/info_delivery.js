@@ -100,7 +100,7 @@
     init: function() {
       var self = this;
 
-      var columns = [{ display: '公告名称', name: 'idtitle' }, {
+      var columns = [{ display: '公告名称', name: 'idtitle', align: 'left' }, {
           display: '发送至',
           name: 'idtype',
           width: 160,
@@ -116,10 +116,11 @@
             return title;
           }
         },
-        { display: '有效期', name: 'timevalidity', width: 160 },
-        { display: '定时发送', name: 'idfixedtime', width: 160 }, {
+        { display: '有效期', name: 'timevalidity',align: 'left', width: 160 },
+        { display: '定时发送', name: 'idfixedtime',align: 'left', width: 160 }, {
           display: '操作',
           width: 230,
+          align: 'left',
           render: function(rowdata, rowindex, value) {
             var h = "";
             h += '<a href="javascript:void(0);" class="mg-lr-5" data-action="info_delivery_psedit" data-infoid="' + rowdata.infoid + '">修改</a>';
@@ -160,9 +161,9 @@
         sortOrder: 'DESC',
         enabledSort: true,
         url: _hostaddr + 'ywh_queryTableList/?source=' + _qsource,
+        alternatingRow: false,
         width: '98%',
         height: '98%',
-        rownumbers: true, // heightDiff:70,
         onAfterShowData: function(currentData) {
 
         },
