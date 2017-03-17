@@ -46,7 +46,7 @@
     $root.on("click", '[data-action="sys_group_cancel_edit"]', function(actionobj) {
       var rowobj = $(this);
       var rowid = rowobj.data("rowid");
-      $('a.sys_group_pgedit').removeAttr("disabled");
+      pageListGrid.grid.cancelEdit(rowid);
       actionobj.preventDefault();
       rowobj = null;
     });
