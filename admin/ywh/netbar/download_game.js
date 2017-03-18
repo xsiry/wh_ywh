@@ -121,13 +121,13 @@
     	pageListGrid.init();
     	$("#netbarlistid").ligerListBox({
             isShowCheckBox: true, isMultiSelect: true,
-             width:300,height:100,
+             width:'98%',height:100,
             valueFieldID: 'netbarlistval',
             valueField:"netbarid",textField:"netbarname"
        });
     	$("#gamenamelistid").ligerListBox({
             isShowCheckBox: true, isMultiSelect: true,
-            width:300,height:150,
+            width:'98%',height:150,
             valueField:"gameid",textField:"gamename" ,
             valueFieldID: 'gamenamelistval'
         });
