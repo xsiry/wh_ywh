@@ -47,6 +47,7 @@
       var rowobj = $(this);
       var rowid = rowobj.data("rowid");
       pageListGrid.grid.cancelEdit(rowid);
+      pageListGrid.reload();
       actionobj.preventDefault();
       rowobj = null;
     });
@@ -62,9 +63,21 @@
       $sHelper.deleteData(_hostaddr + "ywh_delAction/", delParam, pageListGrid, function(message) {
         if (message.success) {
           $("#user_sys_group_ul li a[href='ywh/sysgroup/groupTask?groupid=" + groupid + "']").remove();
-          $.ligerDialog.success(message.msg);
+          $.smallBox({
+            title: "提示",
+            content: message.msg,
+            color: "#03a9f4",
+            iconSmall: "fa fa-thumbs-up bounce animated",
+            timeout: 3000
+          });
         } else {
-          $.ligerDialog.error(message.msg);
+          $.smallBox({
+            title: "提示",
+            content: message.msg,
+            color: "#f44336",
+            iconSmall: "fa fa-thumbs-up bounce animated",
+            timeout: 3000
+          });
         }
       }, "是否确认删除分组信息？");
       rowobj = null;
@@ -160,7 +173,11 @@
           var sysusid = dataparam.sysusid;
           var groupid = e.record.groupid;
           var groupname = e.record.groupname;
-          var savaparm = { "groupname": groupname};
+          var savaparm = { "groupname": groupname };
+          if (!groupname) {
+            pageListGrid.reload();
+            return false;
+          }
           if (groupid) {
             savaparm.groupid = groupid;
           }
@@ -177,9 +194,21 @@
                   }
                 )
               }
-              $.ligerDialog.success(message.msg);
+              $.smallBox({
+                title: "提示",
+                content: message.msg,
+                color: "#03a9f4",
+                iconSmall: "fa fa-thumbs-up bounce animated",
+                timeout: 3000
+              });
             } else {
-              $.ligerDialog.error(message.msg);
+              $.smallBox({
+                title: "提示",
+                content: message.msg,
+                color: "#f44336",
+                iconSmall: "fa fa-thumbs-down bounce animated",
+                timeout: 3000
+              });
             }
           });
 
