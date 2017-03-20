@@ -37,6 +37,15 @@
   margin-left: 270px;
   font-size: 24px;
 }
+
+.netbarlist_text {
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+tr td {
+  font-size: 14px;
+}
 </style>
 <div class="groupTaskpage_clsf">
   <div class="col-sm-12 gtdivrow">
@@ -108,10 +117,13 @@
         所属网吧：
       </div>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-10 netbar_detail">
+      <a class="fl netbarlist_text" href="javascript:void(0);"></a><div class="fl mg-lf-5" style="marging-left:10px;font-size: 18px;">共有<span class="number"></span>个网吧</div>
+    </div>
+    <div class="col-sm-10 netbar_list" style="display: none;">
       <div class="col-sm-12">
         <div class="fl">
-          <input id="gt_GroupComboBoxId" /> </div>
+          <input id="gt_GroupComboBoxId" style="display: none;" /> </div>
         <div class="fl mg-lf-10"><a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a></div>
         <div class="fl mg-lf-10 total">本分组共有<span class="number"></span>个网吧</div>
       </div>

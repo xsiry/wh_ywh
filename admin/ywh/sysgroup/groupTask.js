@@ -54,9 +54,12 @@
           });
         }
       });
+    });
 
+    $root.on("click", '.netbarlist_text', function(actionobj) {
+      $('.netbar_detail').hide();
+      $('.netbar_list').show();
       actionobj.preventDefault();
-      rowobj = null;
     });
 
     $root.on("click", '.group_set_task', function(actionobj) {
@@ -136,6 +139,7 @@
       $.each(jsondata, function(index, data) {
         netbarlistbox.addItems({ "netbarid": data.netbarid, "netbarname": data.netbarname });
       });
+      $('.netbarlist_text').text('查看列表');
     });
   }
 
