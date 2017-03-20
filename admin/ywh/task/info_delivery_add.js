@@ -251,6 +251,8 @@
       height: 100,
       focus: false,
       tabsize: 2,
+      lang: 'zh-CN',
+      dialogsInBody: true,
       disableDragAndDrop: true,
       placeholder: '请输入..',
       toolbar: [
@@ -261,7 +263,7 @@
         ['para', ['ul', 'ol', 'paragraph']],
         ['font', ['height']],
         ['table', ['table']],
-        ['insert', ['hr']], //'link', 'video', 'picture'
+        ['insert', ['hr', 'link']], //, 'video', 'picture'
         ['view', ['fullscreen', 'codeview']],
         ['fontname', ['fontname']]
       ]

@@ -1,18 +1,23 @@
+<link rel="stylesheet" type="text/css" href="js/plugin/summernote/summernote.css">
 <style type="text/css">
 #info_deliveryaddpage_clsfid {
   font-size: 14px;
   padding-bottom: 10px;
 }
+
 .divspanrow {
   margin-top: 10px;
 }
+
 .divspanrow .form-control {
   width: 200px !important;
   display: inline-block !important;
 }
+
 .divspanrow input:focus {
   border-color: #09f;
 }
+
 .mpw-form-text {
   border: 1px solid #bbb;
   font-size: 12px;
@@ -21,16 +26,19 @@
   padding: 6px 0 6px 5px;
   width: 105px;
 }
+
 .mpw-form-text:focus {
   border-color: #09f;
   outline: 0 none;
 }
+
 .mpw-form-textarea {
   height: 80px;
   resize: none;
   vertical-align: top;
   width: 500px;
 }
+
 .l-form {
   margin: 0px !important;
 }
@@ -161,12 +169,14 @@
 <script type="text/javascript">
 $(function() {
   loadScript("js/plugin/summernote/summernote.min.js", function() {
-    loadScript("lib/ligerUI/js/ligerui.all-min.js", function() {
-      loadScript("js/third-party/timepicker/jquery-ui-timepicker-addon.js", function() {
-        loadScript("admin/ywh/task/info_delivery_add.js", function() {
-          info_delivery_add_action();
-          pagefunction();
-        }, false);
+    loadScript("js/plugin/summernote/lang/summernote-zh-CN.js", function() {
+      loadScript("lib/ligerUI/js/ligerui.all-min.js", function() {
+        loadScript("js/third-party/timepicker/jquery-ui-timepicker-addon.js", function() {
+          loadScript("admin/ywh/task/info_delivery_add.js", function() {
+            info_delivery_add_action();
+            pagefunction();
+          }, false);
+        });
       });
     });
   });
