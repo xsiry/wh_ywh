@@ -15,10 +15,7 @@
     $ssoftDialog.setDialogAction(function(dialogRef, callback, paramjson) {
       var param = form2js(document.getElementById('info_deliveryaddpage_clsfid'));
       if (param.idtypes) {
-        var _idtypes = "";
-        $.each(param.idtypes, function(index, data) {
-          _idtypes = _idtypes + data + ";";
-        });
+        var _idtypes = param.idtypes.join(",");
         param.idtype = _idtypes;
       } else {
         $.ligerDialog.error('请选择发送至网吧或者微信端？');

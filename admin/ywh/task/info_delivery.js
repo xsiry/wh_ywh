@@ -108,10 +108,9 @@
           isSort: false,
           render: function(rowdata, rowindex, value) {
             var title = '';
-            if (value.length == 2) {
-              var v = value.substring(0, value.length-1);
-              title = v == 1 ? '客户机' : '微信端';
-            } else if (value.length == 4){
+            if (value.length == 1) {
+              title = value == 1 ? '客户机' : '微信端';
+            } else if (value.length == 3){
               title = '客户机、微信端';
             }
             return title;
