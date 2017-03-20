@@ -154,7 +154,7 @@
     $("#gt_netbarlistid").ligerListBox({
       isShowCheckBox: true,
       isMultiSelect: true,
-      width: 800,
+      width: '98%',
       height: 310,
       valueFieldID: 'gt_netbarlistval',
       valueField: "netbarid",

@@ -2,6 +2,7 @@
 .gtspantitle {
   color: #000000;
   font-size: 18px;
+  padding-top: 5px;
   font-family: "微软雅黑";
   text-align: center;
 }
@@ -24,18 +25,12 @@
 }
 
 .gtdivrow {
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-
-.gtrow {
-  /*border-top: groove red 5px;*/
-  border-bottom: groove #e7e7eb 5px;
+  border: solid #D9DADC 1px;
+  border-bottom: none;
 }
 
 .total {
-  margin-left: 270px;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .netbarlist_text {
@@ -47,88 +42,80 @@ tr td {
   font-size: 14px;
 }
 </style>
-<div class="groupTaskpage_clsf">
-  <div class="col-sm-12 gtdivrow">
+<div class="groupTaskpage_clsf" style="padding-top:10px;">
+  <div class="col-sm-12 gtdivrow" style="height:35px;background-color: #f4f5f9;font-size: 18px;text-align: center;">
+    <div class="col-sm-2" style="padding-top:4px;">
+    类别
+    </div>
+    <div class="col-sm-6" style="padding-top:4px;height:180px;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
+    内容
+    </div>
+    <div class="col-sm-4" style="padding-top:4px;height:180px;">
+    操作
+    </div>
+  </div>
+  <div class="col-sm-12 gtdivrow" style="height:180px;">
     <div class="col-sm-2">
       <div class="gtspantitle">
         开机任务：
       </div>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-6" style="height:180px;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
       <ul class="gturlcontent" id="gt_boot_task_lid">
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
       </ul>
-      <div class="col-sm-5 fr">
-        <div class="fl">
-          <input id="setTaskComboBoxId" />
-        </div>
-        <div class="fl mg-lf-10">
-          <a class="btn btn-primary group_set_task" href="javascript:void(0);">添加任务</a>
-        </div>
+    </div>
+    <div class="col-sm-4" style="height:180px;">
+      <div class="col-sm-8" style="padding-top:3px;">
+        <input id="setTaskComboBoxId" />
+      </div>
+      <div class="col-sm-4" style="padding-top:2px;">
+        <a class="btn btn-primary group_set_task" href="javascript:void(0);">添加新任务</a>
       </div>
     </div>
   </div>
-  <div class="col-sm-12 gtrow"></div>
   <div class="col-sm-12 gtdivrow">
     <div class="col-sm-2">
       <div class="gtspantitle">
         安全策略：
       </div>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-6" style="height:35px; border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
       <ul class="gturlcontent" id="gt_security_policy_lid">
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
-        <li>运行领</li>
       </ul>
-      <!-- <select multiple style="width:50%" class="select2">
-
-      </select> -->
-      <div class="col-sm-5 fr">
-        <div class="fl">
-          <input id="setSecurityComboBoxId" />
-        </div>
-        <div class="fl mg-lf-10">
-          <a class="btn btn-primary group_set_security_policy" href="javascript:void(0);">应用策略</a>
-        </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="col-sm-8" style="padding-top:3px;">
+        <input id="setSecurityComboBoxId" />
+      </div>
+      <div class="col-sm-4" style="padding-top:2px;">
+        <a class="btn btn-primary group_set_security_policy" href="javascript:void(0);">设置新策略</a>
       </div>
     </div>
   </div>
-  <div class="col-sm-12 gtrow"></div>
-  <div class="col-sm-12 gtdivrow">
+  <div class="col-sm-12 gtdivrow" style="border: solid #D9DADC 1px;">
     <div class="col-sm-2">
       <div class="gtspantitle">
         所属网吧：
       </div>
     </div>
-    <div class="col-sm-10 netbar_detail">
-      <a class="fl netbarlist_text" href="javascript:void(0);"></a><div class="fl mg-lf-5" style="marging-left:10px;font-size: 18px;">共有<span class="number"></span>个网吧</div>
+    <div class="col-sm-6 netbar_detail" style="padding-top:3px;height:35px; border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
+      <a class="fl netbarlist_text" href="javascript:void(0);"></a>
+      <div class="fl mg-lf-5" style="marging-left:10px;font-size: 18px;">共有<span class="number"></span>个网吧</div>
     </div>
-    <div class="col-sm-10 netbar_list" style="display: none;">
+    <div class="col-sm-6 netbar_list" style="padding-top:3px;display: none;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
       <div class="col-sm-12">
-        <div class="fl">
-          <input id="gt_GroupComboBoxId" style="display: none;" /> </div>
-        <div class="fl mg-lf-10"><a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a></div>
-        <div class="fl mg-lf-10 total">本分组共有<span class="number"></span>个网吧</div>
+        <div class="fl total">本分组共有<span class="number"></span>个网吧</div>
       </div>
-      <div class="col-sm-12 mg-tp-10">
+      <div class="col-sm-12 mg-tp-5" style="padding-bottom:20px;">
         <div id="gt_netbarlistid"></div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="col-sm-8" style="padding-top:3px;">
+        <input id="gt_GroupComboBoxId" />
+      </div>
+      <div class="col-sm-4" style="padding-top:2px;">
+        <a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a>
       </div>
     </div>
   </div>
