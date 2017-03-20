@@ -107,7 +107,7 @@
           align: 'left',
           render: function(rowdata, rowindex, value) {
             var v = '';
-            if (value > 0) {
+            if (value) {
               v = value.substring(0, value.length - 1);
             }
             return v;
