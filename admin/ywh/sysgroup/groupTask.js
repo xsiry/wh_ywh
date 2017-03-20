@@ -74,19 +74,13 @@
       var rowobj = $(this);
       var _JsonArr = [];
       var _btidsStr = $("#setTaskComboBoxId").ligerGetComboBoxManager().getValue();
-      var _spText = $("#setTaskComboBoxId").ligerGetComboBoxManager().getText();
-
-      if (!_btidsStr) {
-        $.ligerDialog.error('请选择任务！');
-        return;
-      }
 
       var _btids = _btidsStr.split(';');
       $.each(_btids, function(index, btid) {
         _JsonArr.push({ "groupid": a_groupid, "btid": btid });
       });
 
-      $.ligerDialog.confirm('确认要添加替换任务</br>[' + _spText + ']</br>到分组吗？', function(yes) {
+      $.ligerDialog.confirm('确认修改任务配置？', function(yes) {
         if (yes) {
           var actionparam = { "actionname": _qsource_detail }
           actionparam.datajson = JSON.stringify(_JsonArr);
