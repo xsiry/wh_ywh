@@ -1,0 +1,999 @@
+.fgz_div_width {
+	width:1060px; 
+/*	margin-left: 10px;*/
+	/*margin-bottom: 5px;*/ 
+} 
+ul, ol {
+    list-style: outside none none;
+}
+
+ol, ul, li {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+ 
+.mg-lf-90 {
+	margin-left: 90px !important; 
+}
+ .mg-lf-20 {
+ 	margin-left: 20px !important;
+ }
+ 
+ .mg-bm-10{
+   margin-bottom: 10px !important;
+ }
+ .mg-tp-20 {
+ 	margin-top: 20px !important;
+ }
+ 
+ .mg-tp-10 {
+ 	margin-top: 10px !important;
+ }
+ 
+ .mg-tp-30 {
+ 	margin-top: 30px !important;
+ }
+ 
+ 
+ .mg-lf-5 {
+ 	margin-left: 5px !important;
+ }
+ 
+ .mg-lf-10 {
+ 	margin-left: 10px !important;
+ }
+ 
+ .mg-lf-rt-10 {
+  	margin-left: 10px;
+  	margin-right: 10px;
+ }
+  
+ .mg-rt-10{
+  	margin-right: 10px !important;
+ }
+		  
+ a {
+    text-decoration: none;
+    color: #333;
+}
+
+ /*------------- 版栏条模板 -----dashed---------------*/ 
+  
+.site-piclist .bntp {
+	height: 158px;
+	width: 124px;
+	float: left;
+	margin-right: 9.5px; 
+	
+}
+  
+.site-piclist .mn_bntp {
+	height: 200px;
+	width: 148px;
+	float: left;
+	margin-right: 10px;
+	/*margin-left: 5px;*/ 
+}
+  
+.site-piclist_pic {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+} 
+
+/*所有广告图片大小*/ 
+
+.bn_img  {
+	height: 158px;
+	width: 124px; 
+}
+
+.bn_min_img  {
+	height: 200px;
+	width: 148px; 
+}
+/*--图片焦点--*/
+.bnt_focus {
+	background: rgba(192, 192, 192, 0.6);
+	width: 124px;
+	height: 158px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: none;
+}
+
+.site-piclist .bntp:hover .bnt_focus {
+	display: block;
+}
+
+
+/*-
+ * -图片焦点  
+ * 迷你菜单下面的广告
+ *  --*/
+.mnbt_focus {
+	background: rgba(192, 192, 192, 0.6);
+	width: 148px;
+	height: 200px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: none;
+}
+
+.site-piclist .mn_bntp:hover  .mnbt_focus{
+	display: block;
+}
+
+.site-piclist_pic_link {
+    overflow: hidden;
+}
+.site-piclist_pic_link {
+    display: block;
+    height: 100%;
+    width: 100%;
+} 
+
+img {
+    border: 0 none;
+    vertical-align: middle;
+}
+
+.wrapper-listTitle {
+    cursor: pointer;
+    margin-top: -30px;
+    position: relative;
+}
+
+.wrapper-topTitle {
+    cursor: pointer;
+    margin-top: -156px;
+    position: relative;
+}
+
+.mod-listTitle {
+    color: #fff;
+    /*line-height: 24px;*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+ 
+.mod-listTitle_left {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
+ , .mod-listTitle_right, .mod-listTitle_describe
+*/
+.mod-listTitle_left {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    line-height: 30px;
+    padding: 0 5px;
+}
+ 
+.wrapper-piclist {
+    overflow: hidden;
+    width: 100%; 
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, body, div, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, legend, button, input, textarea, form, th, td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.site-piclist::before, .site-piclist::after {
+    content: " ";
+    display: table;
+}
+.site-piclist::after {
+    clear: both;
+}
+.site-piclist::before, .site-piclist::after {
+    content: " ";
+    display: table;
+}
+ 
+.site-piclist {
+    overflow: hidden;
+}
+ 
+.textOverflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+} 
+
+
+.icon-viedo-dianbo-pay, .icon-viedo-vip-new, .site-piclist_icons-lt {
+    font-size: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+
+
+/*定位位置*/ 
+.site-icons-mark {
+    /*background: rgba(0, 0, 0, 0) url("../img/banner/banner-label.png") no-repeat scroll 0 0;*/ 
+     background:url("../img/banner/banner-label.png");
+     background-repeat:no-repeat;
+    cursor: pointer;
+    display: inline-block;  
+    vertical-align: middle;
+} 
+
+/*移动的顺序必须在下面*/
+.icon-ban-hot{
+    background-position: -166px 0px ;
+    height: 26px;
+    width: 35px;
+    margin: 0px 0 0 20px; 
+}
+
+ /*-new-*/
+.icon-ban-new{
+    background-position: left 0px ;
+    height: 26px;
+    width: 40px;
+    margin: 0px 0 0 200px; 
+}
+ /*live*/
+.icon-ban-live{
+    background-position: -85px 0px ;
+    height: 27px;
+    width: 41px;
+    margin: 0px 0 0 150px; 
+}
+
+ /*-new-*/
+.icon-mr-new{
+    background-position: left 0px ;
+    height: 26px;
+    width: 40px;
+    margin: 0px 0 0 100px; 
+}
+
+ /*top1*/
+.icon-gt-top1{
+    background-position: -44px 0px ;
+    height: 26px;
+    width: 40px;
+    margin: 0px 0 0 10px; 
+}
+
+address, cite, dfn, em, var, i {
+    font-style: normal;
+}
+
+/*---------------音乐榜单-----------------------*/ 
+/*图片高宽*/
+
+ .baike369 {
+ 	width: 1060px; 
+ 	height: 1px;
+ 	border-bottom: 1px groove #C0C0C0;
+ }
+ 
+.music_lsit {
+	width: 1060px !important ;
+}
+.music_lsit .liimg { 
+	float: left;   
+	margin-top: 10px;   
+} 
+
+
+
+.music_lsit .music_table {
+	width: 259px  !important;
+	height: 257px !important;
+	border: 1px solid #C1C1C1; 
+}
+
+.liimg .divimg {
+	height: 140px;
+	width: 256px ;
+	position: relative;
+}
+
+.music_lsit_img {
+	width: 256px ;
+	height: 140px;
+}
+
+.ulthreegc {
+	margin-left: 5px;
+	margin-bottom: 10px;
+}
+
+.ulthreegc li {
+	margin-top: 10px;
+}
+
+.ulthreegc li span {
+	display:inline-block ;
+	height: 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+}
+.ulthreegc .gmnumber{
+	width: 15px; 
+	
+}
+
+.ulthreegc .gm {
+	width: 160px;
+}
+.ulthreegc .gx { 
+	width:65px;
+}
+						
+						
+li {
+    list-style-type: none;
+}
+
+/* ----电影 ---- */
+.mgzp {
+    background: rgba(0, 0, 0, 0) url("../img/banner/yybd-down.png") no-repeat scroll 0 0;
+    bottom: 0px;
+    height: 40px;
+    left: 0px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 256px; 
+    padding-left: 40px;
+  }
+
+
+.mgzp div {
+    color: #fff;
+    float: left;
+    font-family: "微软雅黑";
+    height: 31px;
+    line-height: 48px;
+    /*margin: 0 40px;*/
+    overflow: hidden;
+    width: 256px;
+}
+
+ .divimg:hover .mgzp {
+ 	text-align: center; 
+ 	padding-left: 0 !important;
+    background: none !important;
+}
+ 
+
+/*- 主播 -*/
+
+.ds_btn_hyp { 
+	padding-left: 80px; 
+	background-image: url(../images/mm_hyp.png);
+    background-position: center;
+    background-repeat: no-repeat; 
+} 
+
+.ds_btn_hyp:hover {
+	color: rgb(233,74,71); 
+} 
+
+.ds_mvplay {
+	width: 858px;
+	height: 510px;
+}
+
+.ds_mvlist {
+	width: 202px;
+	height: 510px;
+	background-color: #2F3239;
+	padding-left: 12px; 
+}
+
+.ds_mvlist ul li {
+	color: #fff;
+	margin-top: 8px;
+}
+
+.ds_mvlist ul li img {
+	height: 112px;
+	width: 177px; 
+}
+
+
+.ds_video_click { 
+	position: relative; 
+	height: 115px;
+	width: 180px; 
+}
+ 
+
+
+/*
+ position: absolute;
+	display:block;
+    background: rgba(0, 0, 0, 0) url("../images/playbck.png") no-repeat center center;
+    top: 0;
+    height: 115px;
+	width: 180px;  
+ * */
+
+.ds_video_click:hover {
+ 	border: groove 2px #1AA6FE;  
+}
+
+
+
+.ds_video_click:hover .videoImgPlay {
+    position: absolute;
+	display:block;
+	top: 0;
+	background: rgba(0, 0, 0, 0) url("../images/playbck.png") no-repeat center center; 
+	cursor: pointer;
+	height: 115px;
+	width: 180px; 
+}   
+
+
+.ds_lsit_img {
+	height: 214px;
+	width: 204px ;
+}
+
+.ds_divimg {
+	height: 214px;
+	width: 204px ;
+	position: relative;
+ 
+}
+
+.ds_divimg:hover .ds_lsit_img   {
+	border: groove 1px #1AA6FE;  
+} 
+
+.ds_divimg:hover a {
+    position: absolute;
+	display:block;
+	top: 0;
+	background: rgba(0, 0, 0, 0) url("../images/playbck.png") no-repeat center center; 
+	cursor: pointer;
+	height: 214px;
+	width: 204px ;
+} 
+ 
+
+
+/*-----------------*/
+.mgzp_ds {
+    background: rgba(0, 0, 0, 0) url("../images/makefriends.png") no-repeat scroll 0 0;
+    bottom: 0px;
+    height: 40px;
+    left: 0px;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 204px;
+}
+
+.mgzp_ds div {
+    color: #fff;
+    float: left;
+    font-family: "微软雅黑";
+    height: 31px;
+    line-height: 48px; 
+    overflow: hidden;  
+}
+
+.mgzp_ds .divtxt {
+	 width:160px;
+}
+
+  
+
+.mgzp_ds .onenumber {
+	margin-left: 15px;
+	margin-right: 12px;
+}
+
+.mgzp_ds .twonumber {
+	margin-left: 13px;
+	margin-right: 12px;
+}
+
+.mgzp_ds div span {
+	display:inline-block; 
+}
+
+
+/*----- 电影模板 -----*/
+
+.moveHeader {
+	margin-bottom: 10px;
+	margin-left: 2px;
+}
+
+.moveHeader div {
+	display:inline-block;
+	float: left;
+	font-size: 15px; 
+	line-height: 1;
+}
+
+.moveHeader span {
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.moveHeader span:hover
+{ 
+   background-color: #3E449A;
+   color: #fff !important;
+}
+/*菜单选择*/
+.mt_active {
+	 background-color: #3E449A;
+	 color: #fff !important;
+}
+
+ .divimg:hover .mv_a_sel {
+	position: absolute;
+	display:block;
+    background: rgba(0, 0, 0, 0) url("../images/playbck.png") no-repeat center center;
+    top: 0;
+    height: 140px;
+    width: 256px;
+    cursor: pointer;   
+} 
+ 
+.mt_title {
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+    color: #000;
+    display: inline;
+    font-size: 15px;
+    line-height: 1;
+    padding-bottom: 0.3em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    padding-top: 0.2em;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.mt_label {
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+    color: #000;
+    display: inline;
+    font-size: 15px; 
+    line-height: 1;
+    padding-bottom: 0.3em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    padding-top: 0.2em;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+/*
+ filter:alpha(opacity=50); 
+-moz-opacity:0.5; 
+opacity:0.5;
+background-color: #000;
+
+ * */
+
+ .divimg:hover .ms_aselect{
+	position: absolute;
+    background: rgba(0, 0, 0, 0) url("../images/playbck.png") no-repeat center center;
+    top: 0;
+    width: 256px ;
+	height: 140px;
+    cursor: pointer;   
+}
+  
+ 
+/*-音乐电台-*/
+
+.mr_liimg { 
+	float: left;  
+	margin-top: 12px;
+	/*margin-left: 6px;*/
+	overflow:hidden;   
+}
+
+.mr_liimg .divimg {
+	height: 140px;
+	width: 168px ;
+	position: relative;
+}
+
+/*-音乐电台  - 播放 -*/
+ .divimg:hover a {
+	position: absolute;
+	display:block;
+    background: rgba(0, 0, 0, 0) url("../images/playbck.png") no-repeat center center;
+    top: 0;
+    height: 140px; 
+    width: 168px;
+    cursor: pointer;   
+} 
+
+.mr_imgtxt { 
+	text-align: center;
+	width: 168px;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	color: #666;
+	font-family: "微软雅黑" 14pt;
+}
+
+
+.mr_lsit_img {
+	 height: 140px; 
+    width: 168px;
+}
+
+/*--今日开服 --*/
+
+.os_divul {
+	width: 1060px;
+}
+
+
+ 
+.os_divul .headul li {
+	border-top: 1px double #A19AD4; 
+	float: left; 
+	height: 44px;
+	color: #3f4a8d;
+	font-family: "微软雅黑" 14pt;
+	background-color: #E4E1F9;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.yxmc {
+	width:158px ;
+}
+
+.yxlx {
+	width:145px ;
+}
+
+.yxkfsj{
+	width:155px ;
+}
+
+.yxffqh{
+	width:145px ;
+}
+
+.yxkffl{
+	width:166px ;
+}
+
+.yxkjcz{
+	width:145px ;
+}
+
+.yxstat{
+	width:145px ;
+}
+
+.os_divul .txtul li {
+	float: left; 
+	height: 40px;
+	text-align: center;
+	font-family: "微软雅黑" 14pt;
+	color: #999999;
+	padding-top: 10px;
+} 
+
+.txtred {
+	color: #e64747 !important;
+}
+
+.rowodd li {
+	background-color:#FFF;
+}
+
+.roweven li {
+	background-color:#F7F5F5;
+}
+
+
+.fzgbtn {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    -moz-user-select: none;
+    background-image: none;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    cursor: pointer; 
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.fzgbtn-kf {
+    background-color: #fff;
+    border-bottom-color: #E64747;
+    border-left-color: #E64747;
+    border-right-color: #E64747;
+    border-top-color: #E64747;
+    color: #E64747;
+}
+
+.fzgbtn-kf:hover {
+	background-color: #E64747;
+	 color: #fff;
+}
+
+/*--人气排行 --*/
+
+.gt_listTitle { 
+    margin-top: -35px; 
+    position: relative;
+}
+
+.gt_mod_listTitle {
+    color: #fff;
+    line-height: 24px; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gt_mod_listTitle_left {
+    overflow: hidden;
+    text-overflow: ellipsis;
+     background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    line-height: 24px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+ 
+.gt_header {
+	text-align: center;
+	width: 215px;
+	height: 41px;
+	color: #fff;
+	padding-top: 11px;
+	padding-left: 25px;
+}
+ 
+.gt_top {
+	width: 250px;
+	height: 686px;
+	float: left;
+	background-color:#fff ;
+	padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px; 
+}
+
+.gt_top ul li {
+	height: 60px;
+	border-bottom: 1px double #C1BBBB ;
+	padding-top: 10px; 
+}
+
+.gt_top ul li div.divft-lf { 
+	margin-left: 10px;
+}
+
+.gt_top .toponeli {
+	height: 130px;
+}
+
+.toponeli img {
+	height: 120px;
+	width: 220px;
+}
+
+.toponeli div {
+	position: relative;
+}
+
+.gt_top ul li em {
+	color: #f9a521;
+}
+
+.gt_top .txtli {
+	width: 75px; 
+}
+ 
+.divft-lf {
+	float: left;
+}
+ 
+.divft-lf .txt-color-yh {
+	font-family: "微软雅黑" 14pt;
+	color: #333333;
+} 
+
+.divft-lf .txt-color-hs {
+	font-family: "微软雅黑" 14pt;
+	color: #999999;
+} 
+
+/*--------- 右下角升窗-----------*/
+
+.popup_div_width {
+	 height: 280px;
+	 width: 300px;
+	 padding: 5px 10px 10px 10px;
+	 background-color: rgb(48,48,48); 
+}
+
+.pp_topheader {
+  width: 280px;
+  height: 26px;
+  /*margin-bottom: 5px;*/
+  color: #fff;
+  font-family: "微软雅黑";
+  font-size: 12pt;
+}
+
+.pp_topheader div {
+	height: 26px;
+}
+
+.pp_img {
+	width: 280px;
+	height:230px;
+}
+
+.pp_close {
+	color: #fff;
+	float: right;  
+	width: 26px;  
+}
+
+.pp_close a {
+	background:url(../images/pp_close_1.png) no-repeat; 
+	padding-left: 26px;
+	font-size: 15pt;
+}
+
+.pp_tj {
+	float: left;
+	background:url(../images/pp_tj.png) no-repeat;
+	padding-left: 22px;
+	line-height: 15px;
+	margin-top: 10px;
+}
+
+#pp_Carousel {
+	width: 280px;
+	height:230px !important; 
+}
+
+ 
+ 
+ 
+.pp_showimg div img {
+	width: 280px;
+	height:230px !important; 
+}
+
+/*屏幕中间弹窗*/
+
+.topp_div_width {
+	 height: 220px;
+	 width: 532px; 
+	 background-color: rgb(48,48,48);  
+}
+ 
+.topp_img {
+	height: 220px;
+	 width: 532px; 
+}
+
+#topp_Carousel {
+	height: 220px !important;
+	 width: 532px; 
+}
+
+.topp_show_img div a img  {
+	height: 220px !important;
+	 width: 532px;   
+}
+
+/*
+ 游戏TOP10
+ * */
+
+.gt_small_img {
+  height: 40px;
+  width: 40px;
+}
+
+
+ 
+
+/*-------CSS 滚动条------*/
+::-webkit-scrollbar {
+	  width: 10px !important;
+	  height: 30px !important;
+ } /* 这是针对缺省样式 (必须的) */
+	
+::-webkit-scrollbar-track {
+	 -webkit-box-shadow: inset 0 0 6px  #fff; 
+    -webkit-border-radius: 10px !important;
+    border-radius: 10px !important;
+    background-color: #fff !important;
+} /* 滚动条的滑轨背景颜色 */
+
+/* * 滑块颜色 * */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px !important;
+    border-radius: 10px !important;
+    background: rgba(22,31,85,0.8) !important; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important; 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4) !important; 
+}
+/* 
+::-webkit-scrollbar-button {
+	  background-color: #fff;
+} 滑轨两头的监听按钮颜色 */
+/* 
+::-webkit-scrollbar-corner {
+	  background-color: blackr;
+} 横向滚动条和纵向滚动条相交处尖角的颜色 */
+
+ 
+ 
+
+ 

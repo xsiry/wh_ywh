@@ -1,0 +1,103 @@
+.ft-rt {
+ float: right;
+}
+
+.icon-ban-hot {
+    background-position-x: -166px;
+    background-position-y: 0;
+    height: 26px;
+    margin-bottom: 0; 
+    margin-right: 0;
+    margin-top: 0;
+    width: 35px;
+}
+.site-icons-mark {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../img/banner/banner-label.png");
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.jarviswidget > header > .myfindtitle {
+   float: left;
+   margin-left: 10px;
+}
+   
+.jarviswidget > header .myfindtitle {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    height: 100%;
+    letter-spacing: 0;
+    line-height: 34px;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 0;
+    position: relative;
+    width: auto;
+}
+
+ .btn-view {
+ 	 margin-top: 5px;
+ 	 margin-bottom: 5px;
+ }
+  .btn-view a {
+  	 margin-left: 15px;
+  	 margin-top: 10px;
+  } 
+  .detail-view a { 
+  	 margin: 5px;
+  }
+  .btn-view-list {
+  	width:  100% !important;
+  }
+ 	  
+   .myDipreviewClass {
+   	  width: 410px !important;
+   	  margin-left: 100px;
+   }
+   
+   .myDipreviewClass .file-drop-zone{
+	   	margin: 0px !important; 
+	    padding: 0px !important; 
+   }
+    
+   .myDipreviewClass .file-drop-zone-title {
+   	   padding-bottom: 5px !important; 
+	   padding-top: 5px !important;
+   }
+   .myDipreviewClass  .file-mydefault-image {
+   	  height: 100px !important;
+   }
+   .myDipreviewClass  .file-preview-image {
+   	  height: 50px !important;
+   }
+   .myDipreviewClass .file-preview-frame {
+   	  height: 50px !important;
+   }
+   
+   .myDipreviewClass .file-preview-other{
+   	  height: 50px !important;
+   }
+   
+   .file-input .input-group {
+   	  margin-left: 100px;
+   	  width: 400px;
+   }
+   
+   .file-input .kv-upload-progress{
+       display: none;
+     
+   }
+   
+   .myDipreviewClass  .file-actions { 
+   	   display: none;
+   	   
+   }
+	   

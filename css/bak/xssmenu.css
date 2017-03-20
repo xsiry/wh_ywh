@@ -1,0 +1,221 @@
+.topnav {
+	
+	font-size:14px;
+	line-height:20px;
+
+}
+.topnav  a.as{
+	background:#88bbd4;
+	padding:4px 6px 6px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	*background:transparent url("../img/ssoft/signin-nav-bg-ie.png") no-repeat 0 0;
+	*padding:4px 12px 6px;
+}
+.topnav a.menu-open {	
+    border-top: 1px solid #BBBBBB;
+    border-left: 1px solid #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+    border-bottom:none;
+    border-radius: 4px 4px 0 0 ;
+    box-shadow: 0 0 4px #8B99A8, 0 0 1px #8B99A8;
+}
+a.as.menu-open span {
+	background-image:url("../img/ssoft/toggle_up_dark.png");
+	color: #FFFFFF;
+}
+
+a.as {
+	position:relative;
+	margin-left:3px;
+}
+a.as span {
+	background-image:url("../img/ssoft/toggle_down_light.png");
+	background-repeat:no-repeat;
+	background-position:100% 50%;
+	padding:4px 16px 6px 0;
+	color:#ffffff;
+} 
+
+/**.disk-info .btn, .button,  ,*/
+.space-status, .space-status i, .file-list dt, .file-list dt a, .title-float, .title-float a, .file-more a, .file-more span, .file-pages, .pages, .page-index-list .box-con, .popup-space h3 {
+    background-image: url(../img/ssoft/spr_x.png);
+    background-repeat: repeat-x;
+}
+
+
+
+
+.select-info {
+	-moz-user-select:none;
+    border: 1px solid #CECECE;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 1px 1px #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);    
+    margin: 8px;
+    overflow: hidden;
+    /*padding: 14px 10px 14px 60px;*/
+     padding: 10px 1px 1px 10px;
+    position: relative;
+    min-height: 65px;
+}
+.select-info  .top-label {
+    left: 5px;
+    position: absolute;
+    font-size: 14px;
+    font-weight: bold;
+	color: #5893B7;
+}
+.select-info ul{
+	margin-left:10px;	
+}
+
+.select-info ul li {
+    float: left;
+  /*  height: 35px;*/
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 2px 15px;
+    text-align: center;
+	cursor: pointer;
+	list-style-type: none;
+}
+
+
+.select-info li:hover {
+	background-color: #DFECFF;
+}
+ 
+.select-info  li.current {
+    /*color: #F57900;*/
+	/*font-weight: bold;*/ 
+}
+
+.select-info  li.current span {
+    color: red;
+	/*font-weight: bold; */
+}
+  
+
+/*.wd-multi .checked {
+ 	* 绿色的钩
+    background: url(../img/wd/check/right.png) right 18px no-repeat;
+}*/
+
+ 
+
+/**xmenuæ ·å¼*/
+.xmenu {
+	/*-moz-user-select:none;*/
+	background: none repeat scroll 0 0 #FFFFFF;
+    /*border: 1px solid #BBBBBB;*/
+    /*border-top:none;*/
+    /*box-shadow: 0 0 4px #8B99A8, 0 0 1px #8B99A8;*/
+    border-radius: 0px 0px 4px 4px;
+    outline: medium none;
+	font-size: 15px;
+	
+}
+
+
+.mainselectbutton a {
+	width: 80px;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+.mainselectbutton .btnsel {
+	background-color: #E6E6E6;
+	border-color:#ADADAD ;
+}
+   
+
+.mainselectli { 
+	-moz-user-select:none;
+    overflow: hidden;
+    /*padding: 10px 1px 1px 10px;*/
+    margin-top: 20px; 
+}
+    
+.mainselectli li {
+	background-position: 6px 6px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: left;
+    height: 35px;
+    overflow: hidden;
+    padding: 2px 15px;
+    line-height: 30px;
+/*    width: 110px;*/
+	color:#666666;
+	/*text-indent: 20px;*/
+	font-size: 16px;
+
+}
+.mainselectli  li:hover {
+    background-color: #DFECFF;
+}
+
+
+.mainselectli  li.current {
+    /*color: #F57900;*/
+	font-weight: bold;
+		/*红色的钩*/
+	background: url(../img/ssoft/right.png) right -62px no-repeat;
+}
+
+.mainselectli  li span {
+     font-size: 15px;
+     display:inline !important ; 
+          /*margin: 10px;*/
+}
+
+
+/** cssåŠ¨ç”»æŒ‰é’®*/
+.a-btn {
+    -moz-transition: box-shadow 0.3s ease-in-out 0s;
+    background: -moz-linear-gradient(center top , #FFFFFF 0%, #F6F6F6 74%, #EDEDED 100%) repeat scroll 0 0 transparent;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(188, 188, 188, 0.1);
+    display: block;
+    float: right;
+    margin: 2px;
+    overflow: hidden;
+    position: relative;
+}
+.a-btn-text {
+    color: #D7565B;
+    display: block;
+    font-size: 12px;   
+    text-align:center;
+    line-height: 16px;
+    padding:5px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.a-btn:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(188, 188, 188, 0.1);
+}
+.a-btn:hover .a-btn-symbol {
+    opacity: 0;
+}
+ 
+.m-close{
+	background: url("../img/ssoft/controls.png") no-repeat scroll -25px 0 transparent;
+	bottom: 0;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    text-indent: -9999px;
+    width: 25px;
+	cursor: pointer;
+	margin: 5px;
+}
+.m-close:hover {
+    background-position: -25px -25px;
+}

@@ -1,0 +1,83 @@
+  .sshookcheck .tab-pane { 
+  	 overflow-x: hidden; 
+  	 overflow-y: auto;
+     height: 300px; 
+  } 
+  .sshookcheck ul li {
+     list-style: none;
+     vertical-align: top;
+     cursor: pointer;
+     float: left;  
+     /*margin-right: 15px;*/
+  }
+  
+  .sshookcheck ul li:hover {
+  	 background: #F1F8FF ;
+  } 
+  
+ 
+  .sshookcheck ul li:hover .li-span-del-hd {
+  	  visibility: visible;
+  } 
+  
+  
+ .li-span-del-hd {
+	    width: 16px;
+	    height: 16px;
+	    visibility: hidden;
+	    margin-top: 10px;
+	    background: url(../img/ssoft/del.png) no-repeat;
+	    cursor: pointer;
+	}
+   
+  
+  .sshookcheck ul li div {
+     padding-right: 15px;
+     padding-left: 5px;
+     padding-top: 5px;
+     height: 43px;
+     /*display: inline-block;*/
+  }
+  
+  
+  .tab-pane em {
+      margin-left:5px;;
+   }
+  
+  
+  .sshookcheck ul li .checked {
+    background: rgba(0, 0, 0, 0) url("../img/ssoft/right.png") no-repeat scroll right -62px;
+    font-weight: bold;
+  }
+  
+  .sshookcheck-select-info {
+	-moz-user-select:none;
+    border: 1px solid #CECECE;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 1px 1px #FFFFFF inset, 0 1px 5px rgba(0, 0, 0, 0.1);    
+    overflow: hidden;
+    padding: 10px 1px 1px 10px;
+    position: relative;
+    margin-right: 10px;
+  }
+  .sshookcheck-select-info label {
+     color: #5893b7;
+  }
+  
+  .sshookcheck-select-info ul   {
+     overflow-x: hidden;
+     overflow-y: auto;
+  }
+  
+  .sshookcheck-select-info ul li {
+     list-style: none;
+     vertical-align: top;
+     cursor: pointer;
+     float: left;
+     margin-left: 10px;
+     margin-top: 5px;
+  }
+  
+  .sshookcheck-select-info ul li span {
+     color: red;
+  }
