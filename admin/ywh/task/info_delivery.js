@@ -104,6 +104,7 @@
           display: '发送至',
           name: 'idtype',
           width: 160,
+          align: 'left',
           isSort: false,
           render: function(rowdata, rowindex, value) {
             var title = '';
@@ -116,8 +117,8 @@
             return title;
           }
         },
-        { display: '有效期', name: 'timevalidity',align: 'left', width: 160 },
-        { display: '定时发送', name: 'idfixedtime',align: 'left', width: 160 }, {
+        { display: '有效期', name: 'timevalidity',align: 'left', width: 200 },
+        { display: '定时发送', name: 'idfixedtime',align: 'left', width: 200 }, {
           display: '操作',
           width: 230,
           align: 'left',
@@ -134,6 +135,7 @@
         display: '投递类型',
         name: 'idseltype',
         width: 160,
+        align: 'left',
         type: 'int',
         render: function(rowdata, rowindex, value) {
           var idseltypeName = { 1: '网吧', 2: '线路', 3: '区域' };
