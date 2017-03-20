@@ -60,10 +60,12 @@
       delParam.tname = _qsource;
       //是否删除
       $sHelper.deleteData(_hostaddr + "ywh_delAction/", delParam, pageListGrid, function(message) {
-        if (message.success)
+        if (message.success) {
+          $("#user_sys_group_ul li a[href='ywh/sysgroup/groupTask?groupid=" + groupid + "']").remove();
           $.ligerDialog.success(message.msg);
-        else
+        } else {
           $.ligerDialog.error(message.msg);
+        }
       }, "是否确认删除分组信息？");
       rowobj = null;
     });
@@ -157,7 +159,8 @@
         onAfterEdit: function(e) {
           var sysusid = dataparam.sysusid;
           var groupid = e.record.groupid;
-          var savaparm = { "groupname": e.record.groupname };
+          var groupname = e.record.groupname;
+          var savaparm = { "groupname": groupname};
           if (groupid) {
             savaparm.groupid = groupid;
           }
@@ -165,6 +168,15 @@
           debugPrint("savaparm:=" + JSON.stringify(savaparm));
           $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction/?actionname=" + _qsource, { datajson: JSON.stringify(savaparm) }, pageListGrid, function(message) {
             if (message.success) {
+              if (groupid) {
+                $("#user_sys_group_ul li a[href='ywh/sysgroup/groupTask?groupid=" + groupid + "']").text(groupname);
+              } else {
+                $.getJSON(_hostaddr + 'ywh_queryTableList', { "source": _qsource, "qtype": "select", "qhstr": JSON.stringify({ qjson: [{ "groupname": groupname }] }) },
+                  function(jsondata) {
+                    $("#user_sys_group_ul").append('<li><a href="ywh/sysgroup/groupTask?groupid=' + jsondata[0].groupid + '">' + jsondata[0].groupname + '</a></li>');
+                  }
+                )
+              }
               $.ligerDialog.success(message.msg);
             } else {
               $.ligerDialog.error(message.msg);
