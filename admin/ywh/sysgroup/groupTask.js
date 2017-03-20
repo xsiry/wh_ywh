@@ -56,9 +56,17 @@
       });
     });
 
-    $root.on("click", '.netbarlist_text', function(actionobj) {
+    $root.on("click", '.netbar_list_show', function(actionobj) {
       $('.netbar_detail').hide();
       $('.netbar_list').show();
+      $('.netbar_list_btn').show();
+      actionobj.preventDefault();
+    });
+
+    $root.on("click", '.netbar_list_hide', function(actionobj) {
+      $('.netbar_list').hide();
+      $('.netbar_list_btn').hide();
+      $('.netbar_detail').show();
       actionobj.preventDefault();
     });
 
@@ -98,6 +106,7 @@
   }
 
   var showDbInfo = function() {
+    showTaskListBox();
     var queryParam = { "source": _qsource_detail, "qtype": "select@online" };
     var qhkeyjson = { qjson: [{ "groupid": a_groupid }] };
     queryParam.qhstr = JSON.stringify(qhkeyjson);
@@ -109,7 +118,8 @@
           if (data.btid) {
             $.getJSON(_hostaddr + 'ywh_queryTableList', { "source": 'boot_task', "qtype": "one", "sourceid": data.btid },
               function(jsondata) {
-                $("#gt_boot_task_lid").append("<li>" + jsondata.btname + "</li>");
+                $("#gt_boot_task_lid").append("<li style='padding-right:20px;'>" + jsondata.btname + "</li>");
+                $("#setTaskComboBoxId input[value=" + jsondata.btid + "]").click();
               });
           }
           if (data.spid) {
@@ -123,7 +133,6 @@
     );
 
     showNetbarListBox();
-
   }
 
   var showNetbarListBox = function() {
@@ -139,7 +148,20 @@
       $.each(jsondata, function(index, data) {
         netbarlistbox.addItems({ "netbarid": data.netbarid, "netbarname": data.netbarname });
       });
-      $('.netbarlist_text').text('查看列表');
+      $('.netbar_list_show').text('查看列表');
+    });
+  }
+
+  var showTaskListBox = function() {
+    var queryParam = { "source": "boot_task", "qtype": "select@online" };
+    var tasklistbox = liger.get("setTaskComboBoxId");
+    if (tasklistbox.data) {
+      tasklistbox.removeItems(tasklistbox.data);
+    }
+    $.getJSON(_hostaddr + 'ywh_queryTableList', queryParam, function(jsondata) {
+      $.each(jsondata, function(index, data) {
+        tasklistbox.addItems({ "btid": data.btid, "btname": data.btname });
+      });
     });
   }
 
@@ -167,13 +189,15 @@
       textField: 'spname',
       emptyText: '设置新策略'
     });
-    $("#setTaskComboBoxId").ligerComboBox({
-      width: 200,
-      url: _hostaddr + 'ywh_queryTableList/?source=boot_task&qtype=select@online',
-      valueField: 'btid',
-      textField: 'btname',
+
+    $("#setTaskComboBoxId").ligerListBox({
       isShowCheckBox: true,
-      isMultiSelect: true
+      isMultiSelect: true,
+      width: '98%',
+      height: 170,
+      valueFieldID: 'gt_netbarlistval',
+      valueField: "btid",
+      textField: "btname"
     });
   }
 
