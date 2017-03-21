@@ -1,6 +1,6 @@
 /*
  *  removeByJsonKey(qParam.qjson,"star") ;
-	qParam.qjson.push({"star":selvalue}) ;
+  qParam.qjson.push({"star":selvalue}) ;
  */
 var _netbar_info_param = {};
 (function($) {
@@ -31,6 +31,28 @@ var _netbar_info_param = {};
         "admin/ywh/netbar/netbar_remote_dialog.html",
         620, 160, 350,
         function() {}, { "netbarid": netbarid });
+      actionobj.preventDefault();
+      rowobj = null;
+    });
+
+    $root.on("click", '.move_netbar_group_btn', function(actionobj) {
+      var rowobj = $(this);
+      var groupid = $('#WbGroupComboBoxId').ligerGetComboBoxManager().getValue();
+      if (!_groupid) { _groupid = 0; };
+      if (pageListGrid.grid.getSelectedRows().length == 0) {
+        $.ligerDialog.error('请先选择要分组的网吧！');
+        return false;
+      }
+      var _JsonArr = [];
+      $.each(pageListGrid.grid.getSelectedRows(), function(index, data) {
+        _JsonArr.push({ "groupid": groupid, "netbarid": data.netbarid });
+      });
+      var actionparam = { actionname: "netbar_info" }
+      actionparam.datajson = JSON.stringify(_JsonArr);
+      actionparam.operjson = JSON.stringify({ opertype: ["updateGropup"] });
+      $sHelper.AjaxSendData("ywh_saveAction", actionparam, pageListGrid, function() {
+
+      });
       actionobj.preventDefault();
       rowobj = null;
     });
@@ -91,30 +113,7 @@ var _netbar_info_param = {};
       url: _hostaddr + 'ywh_queryTableList/?source=sys_group&qtype=select@online',
       valueField: 'groupid',
       textField: 'groupname',
-      emptyText: '请选择分组',
-      onBeforeSelect: function(value, text) {
-        if (value) {
-          if (pageListGrid.grid.getSelectedRows().length == 0) {
-            $.ligerDialog.error('请先选择要分组的网吧！');
-            return false;
-          }
-        }
-        return true;
-      },
-      onSelected: function(value, text) {
-        if (value) {
-          var _JsonArr = [];
-          $.each(pageListGrid.grid.getSelectedRows(), function(index, data) {
-            _JsonArr.push({ "groupid": value, "netbarid": data.netbarid });
-          });
-          var actionparam = { actionname: "netbar_info" }
-          actionparam.datajson = JSON.stringify(_JsonArr);
-          actionparam.operjson = JSON.stringify({ opertype: ["updateGropup"] });
-          $sHelper.AjaxSendData("ywh_saveAction", actionparam, pageListGrid, function() {
-
-          });
-        }
-      }
+      emptyText: '未分组'
     });
   }
   var remoteNetbar = function() {
@@ -123,10 +122,10 @@ var _netbar_info_param = {};
       return {
         display: '远程管理',
         width: 100,
-        align: 'left' ,
+        align: 'left',
         isSort: false,
         render: function(rowdata, rowindex, value) {
-          return '	<div class="ycdesktopimg"><a href="javascript:;" class="ycdesktopimg_abtn"  data-netbarid="' + rowdata.netbarid + '"><i class="fa fa-lg fa-fw fa-desktop"></i></a></div>';
+          return '  <div class="ycdesktopimg"><a href="javascript:;" class="ycdesktopimg_abtn"  data-netbarid="' + rowdata.netbarid + '"><i class="fa fa-lg fa-fw fa-desktop"></i></a></div>';
         }
       };
     }
@@ -172,8 +171,17 @@ var _netbar_info_param = {};
           { display: '网吧账号', name: 'netbaracc', width: 160, align: 'left' },
           { display: '网吧名称', name: 'netbarname', align: 'left' },
           { display: '登录IP', name: 'netbarregip', width: 160, align: 'left' },
-          { display: '机器台数', name: 'netbaractivationterminal', width: 100, align: 'left' },
-          { display: '所属分组', name: 'groupname', width: 120, isSort: true, align: 'left' },
+          { display: '机器台数', name: 'netbaractivationterminal', width: 100, align: 'left' }, {
+            display: '所属分组',
+            name: 'groupname',
+            width: 120,
+            isSort: true,
+            align: 'left',
+            render: function(rowdata, rowindex, value) {
+              var v = rowdata.groupid == 0 ? '未分组' : value;
+              return v;
+            }
+          },
           remoteNetbar(),
           downloadGame(),
           detailsView()
