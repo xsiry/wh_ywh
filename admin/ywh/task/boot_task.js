@@ -270,7 +270,7 @@
         { name: "btdownfile", attr: { id: "btdownfile_id" }, type: "hidden" },
         { name: "filemd5", attr: { id: "filemd5_id" }, type: "hidden" },
         { display: "任务名称", name: "btname", validate: { required: true }, newline: true, type: "text" },
-        { display: "延时", name: "bttimeout", validate: { required: false, isInteger: true }, value: 0, newline: true, type: "int", afterContent: "秒）" }, {
+        { display: "延时", name: "bttimeout", validate: { required: true, isInteger: true }, newline: true, type: "int", afterContent: "(秒)" }, {
           label: "执行系统",
           name: "btsystem",
           newline: true,
@@ -297,6 +297,7 @@
         });
       }
     });
+    modelForm.setData({'bttimeout':0});
     if (btid > 0) {
       $("#btid").val(btid);
       $.getJSON('ywh_queryTableList/?source=' + _qsource, { "sourceid": btid },
