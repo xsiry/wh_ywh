@@ -53,6 +53,12 @@
               </div>
             </span>
           </div>
+          <div class="form-group">
+            <div class="checkcode" style="display: none;">
+              <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="form-control opacity_text" style="width:150px;padding-left: 10px;">
+              <canvas id="myCanvas" onclick="createCode()">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
+            </div>
+          </div>
           <a class="btn btn-block" id='loginbtn'>登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
         </form>
         <div id="loginmsg">
@@ -69,10 +75,10 @@
   </footer>
   <script src="js/libs/jquery-2.1.1.min.js"></script>
   <script src="js/appall.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/verifcationNum/verificationNumbers.js" type="text/javascript"></script>
   <script type="text/javascript">
   window.addEventListener("resize", setRemSize, false);
   // function setRemSize(){ // var containerH=$(window).height(); // var containerW=$(window).width(); // $("#formbackground").css({"width":containerW}); // $("#formbackground").css({"height":containerH}); // $("img").css({"height":containerH}); // }
-
   window.addEventListener("resize", function() {
     fVericalAlignBody();
   }, false);
@@ -97,7 +103,7 @@
   }
 
   $(function() {
-
+    createCode();
     $(document).keydown(function(e) {
       if (e.keyCode == 13) {
         dologin();
@@ -109,8 +115,13 @@
 
     // 设置内容垂直居中
     fVericalAlignBody();
+    var login_count = 0;
 
     function dologin() {
+      if (!validateCode() && login_count >= 3) {
+        $('#loginmsg').html('<span style="color:#FF0000">验证码输入有误！</span>');
+        return false;
+      }
       $('#loginmsg').html('<span style="color:#FF0000">系统正在登陆中，请稍等........</span>');
       var uid = $("#lguser").val();
       var pwd = $("#lgpwd").val();
@@ -124,6 +135,7 @@
         $("#lgpwd").focus();
         return;
       }
+
       $('#loginbtn').attr('disabled', 'true');
       $.ajax({
         type: 'post',
@@ -140,6 +152,10 @@
           } else {
             $('#loginmsg').html('<span style="color:#FF0000">' + message.msg + '</span>');
             $('#loginbtn').removeAttr("disabled");
+            login_count += 1;
+            if (login_count == 3) {
+              $('div.checkcode').show();
+            }
           }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
