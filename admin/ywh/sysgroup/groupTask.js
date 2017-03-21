@@ -73,7 +73,7 @@
     $root.on("click", '.group_set_task', function(actionobj) {
       var rowobj = $(this);
       var btn = $('div a.group_set_task');
-      if (btn.text() == '添加新任务') {
+      if (btn.text() == '修改配置') {
         $('div.set_task_list').show();
         btn.text('确认设置');
       } else {
@@ -93,7 +93,7 @@
             $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction", actionparam, '', function() {
               showDbInfo();
               $('div.set_task_list').hide();
-              btn.text('添加新任务');
+              btn.text('修改配置');
             });
           }
         });
@@ -121,7 +121,7 @@
             $.getJSON(_hostaddr + 'ywh_queryTableList', { "source": 'boot_task', "qtype": "one", "sourceid": data.btid },
               function(jsondata) {
                 $("#gt_boot_task_lid").append("<li style='padding-right:50px;'>" + jsondata.btname + "</li>");
-                $("#setTaskComboBoxId input[value=" + jsondata.btid + "]").click();
+                $(".set_task_list input[value="+ jsondata.btid +"]").click();
               });
           }
           if (data.spid) {
