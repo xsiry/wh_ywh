@@ -45,13 +45,13 @@ tr td {
 <div class="groupTaskpage_clsf" style="padding-top:10px;">
   <div class="col-sm-12 gtdivrow" style="height:35px;background-color: #f4f5f9;font-size: 18px;text-align: center;">
     <div class="col-sm-2" style="padding-top:4px;">
-    类别
+      类别
     </div>
     <div class="col-sm-6" style="padding-top:4px;height:180px;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
-    配置
+      配置
     </div>
     <div class="col-sm-4" style="padding-top:4px;height:180px;">
-    操作
+      操作
     </div>
   </div>
   <div class="col-sm-12 gtdivrow" style="height:180px;">
@@ -66,7 +66,9 @@ tr td {
     </div>
     <div class="col-sm-4" style="height:180px;">
       <div class="col-sm-8" style="padding-top:3px;">
-        <div id="setTaskComboBoxId"></div>
+        <div class="set_task_list" style="display:none;">
+          <div id="setTaskComboBoxId"></div>
+        </div>
       </div>
       <div class="col-sm-4" style="padding-top:2px;">
         <a class="btn btn-primary group_set_task" href="javascript:void(0);">添加新任务</a>
@@ -104,7 +106,7 @@ tr td {
     </div>
     <div class="col-sm-6 netbar_list" style="padding-top:3px;display: none;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
       <div class="col-sm-12">
-      <div class="fl total">本分组共有<span class="number"></span>个网吧（<a class="netbar_list_hide" href="javascript:void(0)">收起</a>）</div>
+        <div class="fl total">本分组共有<span class="number"></span>个网吧（<a class="netbar_list_hide" href="javascript:void(0)">收起</a>）</div>
       </div>
       <div class="col-sm-12 mg-tp-5" style="padding-bottom:20px;">
         <div id="gt_netbarlistid"></div>
@@ -112,7 +114,7 @@ tr td {
     </div>
     <div class="col-sm-4 netbar_list_btn" style="display: none;">
       <div class="col-sm-8" style="padding-top:3px;">
-        <input id="gt_GroupComboBoxId" style="display: none"/>
+        <input id="gt_GroupComboBoxId" style="display: none" />
       </div>
       <div class="col-sm-4" style="padding-top:2px;">
         <a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a>

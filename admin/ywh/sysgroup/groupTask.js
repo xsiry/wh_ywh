@@ -72,24 +72,32 @@
 
     $root.on("click", '.group_set_task', function(actionobj) {
       var rowobj = $(this);
-      var _JsonArr = [];
-      var _btidsStr = $("#setTaskComboBoxId").ligerGetComboBoxManager().getValue();
+      var btn = $('div a.group_set_task');
+      if (btn.text() == '添加新任务') {
+        $('div.set_task_list').show();
+        btn.text('确认设置');
+      } else {
+        var _JsonArr = [];
+        var _btidsStr = $("#setTaskComboBoxId").ligerGetComboBoxManager().getValue();
 
-      var _btids = _btidsStr.split(';');
-      $.each(_btids, function(index, btid) {
-        _JsonArr.push({ "groupid": a_groupid, "btid": btid });
-      });
+        var _btids = _btidsStr.split(';');
+        $.each(_btids, function(index, btid) {
+          _JsonArr.push({ "groupid": a_groupid, "btid": btid });
+        });
 
-      $.ligerDialog.confirm('确认修改任务配置？', function(yes) {
-        if (yes) {
-          var actionparam = { "actionname": _qsource_detail }
-          actionparam.datajson = JSON.stringify(_JsonArr);
-          actionparam.operjson = JSON.stringify({ opertype: ["updateGroupBootTask"] });
-          $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction", actionparam, '', function() {
-            showDbInfo();
-          });
-        }
-      });
+        $.ligerDialog.confirm('确认修改任务配置？', function(yes) {
+          if (yes) {
+            var actionparam = { "actionname": _qsource_detail }
+            actionparam.datajson = JSON.stringify(_JsonArr);
+            actionparam.operjson = JSON.stringify({ opertype: ["updateGroupBootTask"] });
+            $sHelper.AjaxSendData(_hostaddr + "ywh_saveAction", actionparam, '', function() {
+              showDbInfo();
+              $('div.set_task_list').hide();
+              btn.text('添加新任务');
+            });
+          }
+        });
+      }
 
       actionobj.preventDefault();
       rowobj = null;
@@ -112,7 +120,7 @@
           if (data.btid) {
             $.getJSON(_hostaddr + 'ywh_queryTableList', { "source": 'boot_task', "qtype": "one", "sourceid": data.btid },
               function(jsondata) {
-                $("#gt_boot_task_lid").append("<li style='padding-right:20px;'>" + jsondata.btname + "</li>");
+                $("#gt_boot_task_lid").append("<li style='padding-right:50px;'>" + jsondata.btname + "</li>");
                 $("#setTaskComboBoxId input[value=" + jsondata.btid + "]").click();
               });
           }
