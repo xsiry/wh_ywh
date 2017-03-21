@@ -27,7 +27,7 @@ var _netbar_info_param = {};
     $root.on("click", '.ycdesktopimg_abtn', function(actionobj) {
       var rowobj = $(this);
       var netbarid = rowobj.data("netbarid");
-      $ssoftDialog.openSsoftDialog("远程信息", "如果点击没有反应,请确定安装了<a href='resources/FgzClentAuto.exe' target='_blank'>远程客户端工具</a>!如果安装了360卫士，请设置FgzClent.exe白名单！",
+      $ssoftDialog.openSsoftDialog("远程信息", "点击没有反应,请确定安装了<a href='resources/FgzClentAuto.exe' target='_blank'>远程客户端工具</a>!如果安装了360卫士，请设置FgzClent.exe白名单！",
         "admin/ywh/netbar/netbar_remote_dialog.html",
         620, 160, 350,
         function() {}, { "netbarid": netbarid });
