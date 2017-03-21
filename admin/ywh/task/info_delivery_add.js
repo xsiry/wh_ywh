@@ -43,13 +43,13 @@
         }
       }
 
-      var idcontent = $('.summernote').code();
+      var idcontent = $('div.summernote').summernote('code');
       param.idcontent = idcontent;
 
       var type = param.idseltype;
       var bool = true;
       if (type == 1) {
-        param.send_netbarlist = liger.get("send_netbar_lstid").data;
+        param.send_netbarlist = sendNetbarListGrid.grid.getData();
         bool = !param.send_netbarlist;
         if (_admin) { param.idselname = 1 };
       } else if (type == 2) {
@@ -60,7 +60,6 @@
         bool = !param.idselname;
       }
 
-      console.log(JSON.stringify(param));
       if ((!param.idtitle) || (!param.idcontent) ||
         (!param.idfixedtime) || bool) {
         $.ligerDialog.error('所有添加不能有为空的项？');
@@ -258,13 +257,12 @@
         js2form(document.getElementById('info_deliveryaddpage_clsfid'), param_data);
 
         console.log("---begin----");
-
-        $('.summernote').code(param_data.idcontent);
+        $('div.summernote').summernote('code', param_data.idcontent);
         $('input[name="idseltype"]:checked').change();
+        $('input[name="addType"]').get(0).click();
         var type = param_data.idseltype;
         if (type == 1) {
-          var netbarlistbox = liger.get("send_netbar_lstid");
-          netbarlistbox.addItems(jsondata.send_netbar_list);
+          sendNetbarListGrid.grid.addRows(jsondata.send_netbar_list);
         } else if (type == 2) {
           $('select.route').val(param_data.idselname);
         } else if (type == 3) {
