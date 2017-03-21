@@ -229,5 +229,13 @@ function authorityManage(pagename){
 			$("#authority_WbGroupComboBoxId").css('display','block');
 		}
 	}
+
+	if (pagename=='group_task'){
+		if (userAccInfo_authority=='ALL') {
+			$(".authority_boot_task").css('display','block');
+			$(".authority_security_policy").css('display','block');
+			$(".authority_netbar_list").css('display','block');
+		}
+	}
 }
 
