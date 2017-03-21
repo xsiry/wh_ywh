@@ -47,50 +47,54 @@ tr td {
     <div class="col-sm-2" style="padding-top:4px;">
       类别
     </div>
-    <div class="col-sm-6" style="padding-top:4px;height:180px;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
+    <div class="col-sm-6" style="padding-top:4px;height:35px;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
       当前应用配置
     </div>
     <div class="col-sm-4" style="padding-top:4px;height:180px;">
       操作
     </div>
   </div>
-  <div class="col-sm-12 gtdivrow" style="height:180px;">
-    <div class="col-sm-2">
-      <div class="gtspantitle">
-        开机任务：
-      </div>
-    </div>
-    <div class="col-sm-6" style="height:180px;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;overflow-y: auto;">
-      <ul class="gturlcontent" id="gt_boot_task_lid" style="height:180px">
-      </ul>
-    </div>
-    <div class="col-sm-4" style="height:180px;">
-      <div class="col-sm-8" style="padding-top:3px;">
-        <div class="set_task_list" style="display:none;">
-          <div id="setTaskComboBoxId"></div>
+  <div class="authority_boot_task" style="display:none;">
+    <div class="col-sm-12 gtdivrow " style="height:180px;">
+      <div class="col-sm-2">
+        <div class="gtspantitle">
+          开机任务：
         </div>
       </div>
-      <div class="col-sm-4" style="padding-top:2px;">
-        <a class="btn btn-primary group_set_task" href="javascript:void(0);">修改配置</a>
+      <div class="col-sm-6" style="height:180px;border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;overflow-y: auto;">
+        <ul class="gturlcontent" id="gt_boot_task_lid" style="height:180px">
+        </ul>
+      </div>
+      <div class="col-sm-4" style="height:180px;">
+        <div class="col-sm-8" style="padding-top:3px;">
+          <div class="set_task_list" style="display:none;">
+            <div id="setTaskComboBoxId"></div>
+          </div>
+        </div>
+        <div class="col-sm-4" style="padding-top:2px;">
+          <a class="btn btn-primary group_set_task" href="javascript:void(0);">修改配置</a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-12 gtdivrow">
-    <div class="col-sm-2">
-      <div class="gtspantitle">
-        安全策略：
+  <div class="authority_security_policy" style="display: none;">
+    <div class="col-sm-12 gtdivrow">
+      <div class="col-sm-2">
+        <div class="gtspantitle">
+          安全策略：
+        </div>
       </div>
-    </div>
-    <div class="col-sm-6" style="height:35px; border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
-      <ul class="gturlcontent" id="gt_security_policy_lid">
-      </ul>
-    </div>
-    <div class="col-sm-4">
-      <div class="col-sm-8" style="padding-top:3px;">
-        <input id="setSecurityComboBoxId" />
+      <div class="col-sm-6" style="height:35px; border-left: 1px solid #D9DADC;border-right: 1px solid #D9DADC;">
+        <ul class="gturlcontent" id="gt_security_policy_lid">
+        </ul>
       </div>
-      <div class="col-sm-4" style="padding-top:2px;">
-        <a class="btn btn-primary group_set_security_policy" href="javascript:void(0);">设置新策略</a>
+      <div class="col-sm-4">
+        <div class="col-sm-8" style="padding-top:3px;">
+          <input id="setSecurityComboBoxId" style="display:none;" />
+        </div>
+        <div class="col-sm-4" style="padding-top:2px;">
+          <a class="btn btn-primary group_set_security_policy" href="javascript:void(0);">设置新策略</a>
+        </div>
       </div>
     </div>
   </div>
@@ -112,12 +116,14 @@ tr td {
         <div id="gt_netbarlistid"></div>
       </div>
     </div>
-    <div class="col-sm-4 netbar_list_btn" style="display: none;">
-      <div class="col-sm-8" style="padding-top:3px;">
-        <input id="gt_GroupComboBoxId" style="display: none" />
-      </div>
-      <div class="col-sm-4" style="padding-top:2px;">
-        <a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a>
+    <div class="col-sm-4 netbar_list_btn " style="display: none;">
+      <div class="authority_netbar_list" style="display: none;">
+        <div class="col-sm-8" style="padding-top:3px;">
+          <input id="gt_GroupComboBoxId" style="display: none" />
+        </div>
+        <div class="col-sm-4" style="padding-top:2px;">
+          <a class="btn btn-primary grouptask_yydzm" href="javascript:void(0);">移动到分组</a>
+        </div>
       </div>
     </div>
   </div>

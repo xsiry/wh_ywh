@@ -7,13 +7,11 @@
   var a_groupid = $sHelper.GetUrlParms("groupid");
 
   var pageBindingAction = function() {
+    authorityManage('group_task');
     $root.on("click", '.grouptask_yydzm', function(actionobj) {
       var rowobj = $(this);
       var _groupid = $("#gt_GroupComboBoxId").ligerGetComboBoxManager().getValue();
-      if (!_groupid) {
-        $.ligerDialog.error('请选择分组！');
-        return;
-      }
+      if (!_groupid) { _groupid = 0; };
       var _JsonArr = [];
       var netbarlistbox = liger.get("gt_netbarlistid");
       var selecteds = netbarlistbox.getSelectedItems();
@@ -121,7 +119,7 @@
             $.getJSON(_hostaddr + 'ywh_queryTableList', { "source": 'boot_task', "qtype": "one", "sourceid": data.btid },
               function(jsondata) {
                 $("#gt_boot_task_lid").append("<li style='padding-right:50px;'>" + jsondata.btname + "</li>");
-                $(".set_task_list input[value="+ jsondata.btid +"]").click();
+                $(".set_task_list input[value=" + jsondata.btid + "]").click();
               });
           }
           if (data.spid) {
@@ -168,13 +166,15 @@
   }
 
   var createPageFunction = function() {
+    var qhkeyjson = { "qjson": [{ "groupid": a_groupid }], "qjsonkeytype": [{ "groupid": "NotEquery" }] };
     $("#gt_GroupComboBoxId").ligerComboBox({
       width: 200,
-      url: _hostaddr + 'ywh_queryTableList/?source=sys_user_group&qtype=select@online',
+      url: _hostaddr + 'ywh_queryTableList/?source=sys_user_group&qtype=select@online&qhstr=' + JSON.stringify(qhkeyjson),
       valueField: 'groupid',
       textField: 'groupname',
-      emptyText: '移动到分组'
+      emptyText: '未分组'
     });
+
     $("#gt_netbarlistid").ligerListBox({
       isShowCheckBox: true,
       isMultiSelect: true,
@@ -188,8 +188,7 @@
       width: 200,
       url: _hostaddr + 'ywh_queryTableList/?source=security_policy&qtype=select@online',
       valueField: 'spid',
-      textField: 'spname',
-      emptyText: '设置新策略'
+      textField: 'spname'
     });
 
     $("#setTaskComboBoxId").ligerListBox({
