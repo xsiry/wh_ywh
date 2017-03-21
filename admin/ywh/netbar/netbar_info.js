@@ -173,7 +173,7 @@ var _netbar_info_param = {};
           { display: '网吧名称', name: 'netbarname', align: 'left' },
           { display: '登录IP', name: 'netbarregip', width: 160, align: 'left' },
           { display: '机器台数', name: 'netbaractivationterminal', width: 100, align: 'left' },
-          { display: '所属分组', name: 'groupname', width: 120, isSort: false, align: 'left' },
+          { display: '所属分组', name: 'groupname', width: 120, isSort: true, align: 'left' },
           remoteNetbar(),
           downloadGame(),
           detailsView()

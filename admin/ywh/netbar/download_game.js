@@ -161,7 +161,7 @@
     pageSelectedNetBarListGrid.init();
 
     netbar_selectfm = $('#dg_netbar_selectfm').ligerForm({
-      inputWidth: 250,
+      inputWidth: 150,
       labelWidth: 0,
       space: 5,
       validate: true,
@@ -169,7 +169,7 @@
       width: "99%",
       fields: [{
         name: "netbarid",
-        width: 250,
+        width: 150,
         newline: false,
         slide: false,
         type: "select",
@@ -212,7 +212,7 @@
     });
 
     $("#group_combox").ligerComboBox({
-      width: 250,
+      width: 150,
       url: _hostaddr + 'ywh_queryTableList/?source=sys_group&qtype=select@online',
       valueField: 'groupid',
       textField: 'groupname'
@@ -320,7 +320,7 @@
         showTitle: false,
         enabledSort: true,
         width: '98%',
-        height: '43%'
+        height: '40%'
       });
     }
   };
@@ -353,7 +353,7 @@
         showTitle: false,
         enabledSort: true,
         width: '98%',
-        height: '55%'
+        height: '58%'
       });
     }
   };
