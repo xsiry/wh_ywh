@@ -6,6 +6,16 @@
 
   var dataparam = {};
   var setDataParam = function() {
+    sendNetbarListGrid.init();
+
+    $("#group_combox").ligerComboBox({
+      width: 200,
+      url: _hostaddr + 'ywh_queryTableList/?source=sys_group&qtype=select@online',
+      valueField: 'groupid',
+      textField: 'groupname',
+      emptyText: '所有网吧'
+    });
+
     delete dataparam["sysusid"];
     dataparam.sysusid = userAccInfo.sysusid;
   }
@@ -23,14 +33,14 @@
       };
 
       if ($('input.client_checkbox').prop('checked')) {
-          if (!param.timevalidity) {
-            $.ligerDialog.error('请选择客户端有效期！');
-            return false;
-          }
-          if (param.timevalidity < param.idfixedtime) {
-            $.ligerDialog.error('有效期必须大于定时发送时间！');
-            return false;
-          }
+        if (!param.timevalidity) {
+          $.ligerDialog.error('请选择客户端有效期！');
+          return false;
+        }
+        if (param.timevalidity < param.idfixedtime) {
+          $.ligerDialog.error('有效期必须大于定时发送时间！');
+          return false;
+        }
       }
 
       var idcontent = $('.summernote').code();
@@ -41,7 +51,7 @@
       if (type == 1) {
         param.send_netbarlist = liger.get("send_netbar_lstid").data;
         bool = !param.send_netbarlist;
-        if (_admin) {param.idselname = 1};
+        if (_admin) { param.idselname = 1 };
       } else if (type == 2) {
         param.idselname = $('select.route').val();
         bool = !param.idselname;
@@ -70,35 +80,62 @@
     });
     $root.on("click", '.infodv_addnetbar', function(actionobj) {
       var rowobj = $(this);
-      if ($("#q_add_netbarid").val() == '')
-        return false;
-      var netbarid = netbar_selectfm.getData().netbarid;
-      var netbarname = $("#q_add_netbarid").val();
-      var netbarlistbox = liger.get("send_netbar_lstid");
-      var isexists = false;
-      if (netbarlistbox.data) {
-        $.each(netbarlistbox.data, function(index, boxdata) {
-          if (boxdata.netbarid == netbarid) {
-            isexists = true;
-            return;
-          }
-        });
+
+      if ($('input[name="addType"]:checked').val() == 0) {
+        if ($("#q_add_netbarid").val() == '')
+          return false;
+        var netbarid = netbar_selectfm.getData().netbarid;
+        var netbarname = $("#q_add_netbarid").val();
+        var gridData = sendNetbarListGrid.grid.getData();
+        var isexists = false;
+        if (gridData) {
+          $.each(gridData, function(index, boxdata) {
+            if (boxdata.netbarid == netbarid) {
+              isexists = true;
+              return;
+            }
+          });
+        }
+        if (!isexists) {
+          sendNetbarListGrid.grid.addRows({ "netbarid": netbarid, "netbarname": netbarname });
+        }
+      } else {
+        var groupid = $('#group_combox').ligerGetComboBoxManager().getValue();
+        var queryParam = { "source": "netbar_info", "qtype": "select" };
+        var qjsonParam = { "groupid": groupid };
+        if (groupid == '') qjsonParam = {};
+        var qhkeyjson = { qjson: [qjsonParam] };
+        queryParam.qhstr = JSON.stringify(qhkeyjson);
+        $.getJSON(_hostaddr + 'ywh_queryTableList', queryParam, function(jsondata) {
+          $.each(jsondata, function(index, netbar) {
+            var gridData = sendNetbarListGrid.grid.getData();
+            var isexists = false;
+            if (gridData) {
+              $.each(gridData, function(index, boxdata) {
+                if (boxdata.netbarid == netbar.netbarid) {
+                  isexists = true;
+                  return;
+                }
+              });
+            }
+            if (!isexists) {
+              sendNetbarListGrid.grid.addRows({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
+            }
+          })
+        })
       }
-      if (!isexists) {
-        netbarlistbox.addItems({ "netbarid": netbarid, "netbarname": netbarname });
-      }
+
       $('#infodv_netbar_selectfm')[0].reset();
     });
 
-    $root.on("click", '.infodv_delnetbar', function(actionobj) {
+    $root.on("click", '.del_selected_netbar_btn', function(actionobj) {
       var rowobj = $(this);
-      var netbarlistbox = liger.get("send_netbar_lstid");
-      var selecteds = netbarlistbox.getSelectedItems();
-      if (!selecteds || !selecteds.length) return;
-      netbarlistbox.removeItems(selecteds);
+      var rowid = rowobj.data("rowid");
+      sendNetbarListGrid.grid.deleteRow(rowid);
       actionobj.preventDefault();
       rowobj = null;
     });
+
     $root.on("change", 'input[name="idseltype"]', function(actionobj) {
       var val = actionobj.currentTarget.value;
       var divObjs = $('div.idseltype_div').children();
@@ -106,8 +143,24 @@
         (val - 1) == index ? $(divObj).show() : $(divObj).hide();
       })
     });
+
+    $root.on("change", 'input[name="addType"]', function(actionobj) {
+      var obj = $(this);
+      if (obj.val() == 1) {
+        $('.infodv_netbar_selectfm').hide();
+        $('.group_combox').show();
+      } else {
+        $('.group_combox').hide();
+        $('.infodv_netbar_selectfm').show();
+      }
+      actionobj.preventDefault();
+      rowobj = null;
+    });
+
     if (_admin) {
       $('div.idseltype_radios').show();
+    } else {
+      $('div.group_div').show();
     };
     createFormInput();
     showDbInfo();
@@ -131,15 +184,9 @@
       timeFormat: 'hh:mm',
       numberOfMonths: 1
     });
-    $("#send_netbar_lstid").ligerListBox({
-      isShowCheckBox: true,
-      isMultiSelect: true,
-      width: 500,
-      height: 100,
-      valueFieldID: 'send_netbar_list_selvalue',
-      valueField: "netbarid",
-      textField: "netbarname"
-    });
+
+    $('#f_idfixedtime_id').val(getNowTime());
+
     netbar_selectfm = $('#infodv_netbar_selectfm').ligerForm({
       inputWidth: 180,
       labelWidth: 0,
@@ -158,16 +205,17 @@
         comboboxName: "netbarid",
         options: {
           split: ";",
-          selectBoxWidth: 320,
+          selectBoxWidth: 400,
           selectBoxHeight: 300,
           valueField: 'netbarid',
           textField: 'netbarname',
-          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 80, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
+          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 200, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
           grid: {
             columns: [
-              { display: '网吧账号', name: 'netbaracc', width: 110 },
-              { display: '网吧名称', name: 'netbarname', width: 130 }
+              { display: '网吧账号', name: 'netbaracc', width: '50%', align: 'left' },
+              { display: '网吧名称', name: 'netbarname', width: '50%', align: 'left' }
             ],
+            rownumbers: false,
             switchPageSizeApplyComboBox: false,
             url: _hostaddr + 'ywh_queryTableList/?source=netbar_info',
             pageSize: 20,
@@ -289,6 +337,61 @@
       }
     });
     $("input.city").ligerComboBox(cityOptions);
+  }
+
+  var sendNetbarListGrid = {
+    main: "#send_netbar_lstid",
+    init: function() {
+      var self = this;
+      this.grid = $(self.main).ligerGrid({
+        columns: [
+          { display: '网吧名称', name: 'netbarname', width: '50%', align: 'left' }, {
+            display: '',
+            width: '50%',
+            isSort: false,
+            render: function(rowdata, rowindex, value) {
+              return '<div class="mg-5"><a href="javascript:;" class="del_selected_netbar_btn" data-rowid="' + rowindex + '">删除</a></div>';
+
+            }
+          }
+        ],
+        fixedCellHeight: false,
+        headerRowHeight: 40,
+        isScroll: true,
+        frozen: false,
+        checkbox: false,
+        allowUnSelectRow: true,
+        alternatingRow: false,
+        usePager: false,
+        selectRowButtonOnly: true,
+        showTitle: false,
+        enabledSort: true,
+        width: 500,
+        height: 200
+      });
+    }
+  };
+
+  getNowTime = function() {
+
+    function p(s) {
+      return s < 10 ? '0' + s : s;
+    }
+
+    var myDate = new Date();
+    //获取当前年
+    var year = myDate.getFullYear();
+    //获取当前月
+    var month = myDate.getMonth() + 1;
+    //获取当前日
+    var date = myDate.getDate();
+
+    var h = myDate.getHours(); //获取当前小时数(0-23)
+    var m = myDate.getMinutes(); //获取当前分钟数(0-59)
+    var s = myDate.getSeconds();
+
+    var now = [year, p(month), p(date)].join('-') + " " + [p(h), p(m), p(s)].join(':');
+    return now;
   }
 
 }(jQuery));

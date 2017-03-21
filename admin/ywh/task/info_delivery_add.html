@@ -42,6 +42,11 @@
 .l-form {
   margin: 0px !important;
 }
+
+.note_s {
+  position: absolute;
+  right: 0;
+}
 </style>
 <div class="col-sm-12 " id="info_deliveryaddpage_clsfid">
   <div class="col-sm-12 divspanrow">
@@ -50,7 +55,7 @@
       <input type="hidden" name="infoid" />
     </div>
     <div class="col-sm-10">
-      <input type="text" name="idtitle" class="form-control" />
+      <input type="text" name="idtitle" class="form-control" style="width:500px !important" />
       <span class="l-star">*</span>
     </div>
   </div>
@@ -61,13 +66,15 @@
     <div class="col-sm-10">
       <div class="summernote">
       </div>
-      <span class="l-star">*</span>
+      <div class="note_s" style="margin-top: -35px;">
+        <span class="l-star">*</span>
+      </div>
     </div>
   </div>
   <div class="col-sm-12 divspanrow idseltype_radios" style="display: none;">
     <div class="col-sm-2">
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-10" style="margin-top: -20px;padding-bottom: 10px;">
       <label class="radio-inline">
         <input type="radio" name="idseltype" class="" value="1" checked="checked"> 按网吧投递
       </label>
@@ -85,12 +92,24 @@
         <div class="col-sm-2">
           投递网吧：
         </div>
-        <div class="col-sm-10">
-          <div class="fl mg-lf-5">
+        <div class="col-sm-10" style="margin-top: -15px;">
+          <div class="group_div" style="display:none;padding-right: 10px;">
+            <label class="radio radio-inline fl">
+              <input type="radio" name="addType" value="0" checked>
+              <span>网吧</span>
+            </label>
+            <label class="radio radio-inline fl" style="margin-top:9px;padding-right: 10px;">
+              <input type="radio" name="addType" value="1">
+              <span>分组</span>
+            </label>
+          </div>
+          <div class="fl infodv_netbar_selectfm" style="margin-left:-10px;">
             <form id="infodv_netbar_selectfm"></form>
           </div>
+          <div class="group_combox fl" style="display: none;margin-right: 5px; margin-top: 4px;padding-bottom: 7px;">
+            <input id="group_combox" style="display: none;" />
+          </div>
           <div class="fl" style="margin-top: 3px; margin-left: 10;"><a class="btn btn-primary btn-sm infodv_addnetbar" href="javascript:;">添加网吧</a> </div>
-          <div class="fl" style="margin-top: 3px;"><a class="btn btn-danger btn-sm infodv_delnetbar mg-lf-5" href="javascript:;">删除网吧</a></div>
         </div>
       </div>
       <div class="col-sm-12 divspanrow">
@@ -98,7 +117,9 @@
         </div>
         <div class="col-sm-10">
           <div id="send_netbar_lstid"></div>
-          <span class="l-star">*</span>
+          <div class="note_s" style="margin-top: -20px;">
+            <span class="l-star" style="margin-left: -240px;">*</span>
+          </div>
         </div>
       </div>
     </div>
@@ -124,7 +145,7 @@
       <div class="col-sm-5">
         <input type="text" class="province" style="display: none;" />
       </div>
-      <div class="col-sm-5">
+      <div class="col-sm-5" style="margin-left: -240px;">
         <input type="text" class="city" style="display: none;" />
       </div>
     </div>
