@@ -23,7 +23,6 @@
       };
 
       if ($('input.client_checkbox').prop('checked')) {
-          console.log()
           if (!param.timevalidity) {
             $.ligerDialog.error('请选择客户端有效期！');
             return false;

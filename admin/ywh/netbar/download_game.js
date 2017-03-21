@@ -37,7 +37,7 @@
         });
       }
       if (!isexists) {
-      	pageSelectedListGrid.grid.addRows({ "gameid": gameid, "gamename": gamename });
+        pageSelectedListGrid.grid.addRows({ "gameid": gameid, "gamename": gamename });
       }
       actionobj.preventDefault();
       rowobj = null;
@@ -45,24 +45,51 @@
 
     $root.on("click", '.dg_addnewnetbar', function(actionobj) {
       var rowobj = $(this);
-      if ($("#q_add_netbarid").val() == '')
-        return false;
-      var netbarid = netbar_selectfm.getData().netbarid;
-      var netbarname = $("#q_add_netbarid").val();
-      var gridData = pageSelectedNetBarListGrid.grid.getData();
-      var isexists = false;
-      if (gridData) {
-        $.each(gridData, function(index, boxdata) {
-          if (boxdata.netbarid == netbarid) {
-            isexists = true;
-            return;
-          }
-        });
+      if ($('input[name="addType"]:checked').val() == 0) {
+        if ($("#q_add_netbarid").val() == '')
+          return false;
+        var netbarid = netbar_selectfm.getData().netbarid;
+        var netbarname = $("#q_add_netbarid").val();
+        var gridData = pageSelectedNetBarListGrid.grid.getData();
+        var isexists = false;
+        if (gridData) {
+          $.each(gridData, function(index, boxdata) {
+            if (boxdata.netbarid == netbarid) {
+              isexists = true;
+              return;
+            }
+          });
+        }
+        if (!isexists) {
+          pageSelectedNetBarListGrid.grid.addRows({ "netbarid": netbarid, "netbarname": netbarname });
+        }
+        $('#dg_netbar_selectfm')[0].reset();
+      } else {
+        var groupid = $('#group_combox').ligerGetComboBoxManager().getValue();
+        if (groupid == '')
+          return false;
+        var queryParam = { "source": "netbar_info", "qtype": "select@online" };
+        var qhkeyjson = { qjson: [{ "groupid": groupid }] };
+        queryParam.qhstr = JSON.stringify(qhkeyjson);
+        $.getJSON(_hostaddr + 'ywh_queryTableList', queryParam, function(jsondata) {
+          $.each(jsondata, function(index, netbar) {
+            var gridData = pageSelectedNetBarListGrid.grid.getData();
+            var isexists = false;
+            if (gridData) {
+              $.each(gridData, function(index, boxdata) {
+                if (boxdata.netbarid == netbar.netbarid) {
+                  isexists = true;
+                  return;
+                }
+              });
+            }
+            if (!isexists) {
+              pageSelectedNetBarListGrid.grid.addRows({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
+            }
+          })
+        })
       }
-      if (!isexists) {
-      	pageSelectedNetBarListGrid.grid.addRows({ "netbarid": netbarid, "netbarname": netbarname });
-      }
-      $('#dg_netbar_selectfm')[0].reset();
+
       actionobj.preventDefault();
       rowobj = null;
     });
@@ -79,6 +106,20 @@
       var rowobj = $(this);
       var rowid = rowobj.data("rowid");
       pageSelectedNetBarListGrid.grid.deleteRow(rowid);
+      actionobj.preventDefault();
+      rowobj = null;
+    });
+
+
+    $root.on("change", 'input[name="addType"]', function(actionobj) {
+      var obj = $(this);
+      if (obj.val() == 1) {
+        $('.dg_netbar_selectfm').hide();
+        $('.group_combox').show();
+      } else {
+        $('.group_combox').hide();
+        $('.dg_netbar_selectfm').show();
+      }
       actionobj.preventDefault();
       rowobj = null;
     });
@@ -143,7 +184,7 @@
           condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 150, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
           grid: {
             columns: [
-              { display: '网吧账号', name: 'netbaracc', width: '40%', align: 'left'},
+              { display: '网吧账号', name: 'netbaracc', width: '40%', align: 'left' },
               { display: '网吧名称', name: 'netbarname', width: '60%', align: 'left' }
             ],
             rownumbers: false,
@@ -169,13 +210,19 @@
         }
       }]
     });
+
+    $("#group_combox").ligerComboBox({
+      width: 250,
+      url: _hostaddr + 'ywh_queryTableList/?source=sys_group&qtype=select@online',
+      valueField: 'groupid',
+      textField: 'groupname'
+    });
   }
 
   var showParamElement = function() {
     try {
       if ((_netbar_info_param) && (_netbar_info_param != "undefined") && (!$.isEmptyObject(_netbar_info_param))) {
-        var netbarlist = liger.get("netbarlistid");
-        netbarlist.addItems(_netbar_info_param);
+      	pageSelectedNetBarListGrid.grid.addRows(_netbar_info_param);
       }
     } catch (e) {
 
@@ -251,8 +298,8 @@
       var self = this;
       this.grid = $(self.main).ligerGrid({
         columns: [
-          { display: '游戏下载任务', name: 'gamename', width: '50%', align: 'left' },
-          { display: '',
+          { display: '游戏下载任务', name: 'gamename', width: '50%', align: 'left' }, {
+            display: '',
             width: '50%',
             isSort: false,
             render: function(rowdata, rowindex, value) {
@@ -274,7 +321,7 @@
         enabledSort: true,
         width: '98%',
         height: '43%'
-     });
+      });
     }
   };
 
@@ -284,8 +331,8 @@
       var self = this;
       this.grid = $(self.main).ligerGrid({
         columns: [
-          { display: '网吧名称', name: 'netbarname', width: '50%', align: 'left' },
-          { display: '',
+          { display: '网吧名称', name: 'netbarname', width: '50%', align: 'left' }, {
+            display: '',
             width: '50%',
             isSort: false,
             render: function(rowdata, rowindex, value) {
@@ -307,7 +354,7 @@
         enabledSort: true,
         width: '98%',
         height: '55%'
-     });
+      });
     }
   };
 
