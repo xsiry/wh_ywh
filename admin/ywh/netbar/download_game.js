@@ -177,11 +177,11 @@
         comboboxName: "netbarid",
         options: {
           split: ";",
-          selectBoxWidth: 310,
+          selectBoxWidth: 340,
           selectBoxHeight: 300,
           valueField: 'netbarid',
           textField: 'netbarname',
-          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 120, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
+          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 150, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
           grid: {
             columns: [
               { display: '网吧账号', name: 'netbaracc', width: '40%', align: 'left' },

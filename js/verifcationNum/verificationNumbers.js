@@ -47,7 +47,7 @@ function validateCode() {
 		createCode();
 		return false;
 	} else {
-		$("#J_codetext").val("");
+		// $("#J_codetext").val("");
 		// createCode();
 		return true;
 	}
