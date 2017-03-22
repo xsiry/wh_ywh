@@ -47,6 +47,9 @@
   position: absolute;
   right: 0;
 }
+.note-link-popover {
+  z-index: 1500;
+}
 </style>
 <div class="col-sm-12 " id="info_deliveryaddpage_clsfid">
   <div class="col-sm-12 divspanrow">
@@ -166,16 +169,16 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-4">
-      <span style="color: rgba(51, 51, 51, 0.498039215686275);">
-        注：有效期截止前，每次开机都会显示
-      </span>
+      <input type="checkbox" name="idtypes[]" value="2" class="wechat_checkbox" />网吧微信端
     </div>
   </div>
   <div class="col-sm-12 divspanrow">
     <div class="col-sm-2">
     </div>
-    <div class="col-sm-4">
-      <input type="checkbox" name="idtypes[]" value="2" class="wechat_checkbox" />网吧微信端
+    <div class="col-sm-9">
+      <span style="color: rgba(51, 51, 51, 0.498039215686275);">
+        说明：发到网吧客户机的公告，有效期截止前，每次开机都会显示，用于通知玩家英雄联盟维护时间等；发到网吧微信端的信息用于通知网吧管理人员，需手机登录微信网页查看，不在网吧显示。
+      </span>
     </div>
   </div>
   <div class="col-sm-12 divspanrow">

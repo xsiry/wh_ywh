@@ -74,6 +74,7 @@
         dialogRef.close();
         if (callback) {
           callback(message);
+          $('div.note-link-popover').hide();
         }
       });
     });
