@@ -40,6 +40,42 @@ canvas {
   height: 70px;
 }
 
+.reindex {
+  font-size: 14px;
+  font-weight: initial;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+}
+
+.reindex ul {
+  list-style-type: none;
+}
+
+.reindex ul li {
+  float: left;
+}
+
+.reindex .line {
+  display: inline;
+  width: 1px;
+  height: 12px;
+  overflow: hidden;
+  background: #999;
+  margin: 4px 6px 0 6px;
+  color: #999;
+}
+
+.reindex a {
+  color: #666666;
+}
+
+.reindex a:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+
 .main {
   height: 500px;
   background: #fff;
