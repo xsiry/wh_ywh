@@ -63,21 +63,9 @@
       $sHelper.deleteData(_hostaddr + "ywh_delAction/", delParam, pageListGrid, function(message) {
         if (message.success) {
           $("#user_sys_group_ul li a[href='ywh/sysgroup/groupTask?groupid=" + groupid + "']").remove();
-          $.smallBox({
-            title: "提示",
-            content: message.msg,
-            color: "#03a9f4",
-            iconSmall: "fa fa-thumbs-up bounce animated",
-            timeout: 3000
-          });
-        } else {
-          $.smallBox({
-            title: "提示",
-            content: message.msg,
-            color: "#f44336",
-            iconSmall: "fa fa-thumbs-up bounce animated",
-            timeout: 3000
-          });
+          $.ligerDialog.success(message.msg);
+        }else {
+          $.ligerDialog.error(message.msg);
         }
       }, "是否确认删除分组信息？");
       rowobj = null;
@@ -194,21 +182,9 @@
                   }
                 )
               }
-              $.smallBox({
-                title: "提示",
-                content: message.msg,
-                color: "#03a9f4",
-                iconSmall: "fa fa-thumbs-up bounce animated",
-                timeout: 3000
-              });
+              $.ligerDialog.success(message.msg);
             } else {
-              $.smallBox({
-                title: "提示",
-                content: message.msg,
-                color: "#f44336",
-                iconSmall: "fa fa-thumbs-down bounce animated",
-                timeout: 3000
-              });
+              $.ligerDialog.error(message.msg);
             }
           });
 

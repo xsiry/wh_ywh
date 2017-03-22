@@ -65,7 +65,7 @@ var _netbar_info_param = {};
       var netbarname = rowobj.data("netbarname");
       var netbarremarks = rowobj.data("netbarremarks");
       $ssoftDialog.openSsoftSaveDialog("网吧信息详情", "保存网吧信息", true, "admin/ywh/netbar/netbar_remote_save.html",
-        850, 600, 500,
+        1000, 600, 500,
         function(message) {
           if (message.success) {
             pageListGrid.reload();

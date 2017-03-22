@@ -75,20 +75,9 @@
         queryParam.qhstr = JSON.stringify(qhkeyjson);
         $.getJSON(_hostaddr + 'ywh_queryTableList', queryParam, function(jsondata) {
           $.each(jsondata, function(index, netbar) {
-            var isexists = false;
-            if (gridData) {
-              $.each(gridData, function(index, boxdata) {
-                if (boxdata.netbarid == netbar.netbarid) {
-                  isexists = true;
-                  return;
-                }
-              });
-            }
-            if (!isexists) {
-              addRows.push({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
-            }
+            addRows.push({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
           });
-          pageSelectedNetBarListGrid.grid.addRows(addRows);
+          pageSelectedNetBarListGrid.grid.loadData({Rows:addRows, Total:addRows.length});
         })
       }
 
