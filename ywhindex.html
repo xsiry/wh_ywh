@@ -558,20 +558,12 @@
   if ((userAuthority=='ALL') ||(userAuthority.indexOf('Information_Delivery')>-1)) {
   %>
               <li>
-                <a href="#">
+                <a href="ywh/task/info_delivery"> <!-- 管理员 ?admin=true -->
                   <svg class="svg_icon" viewBox="0 0 1024 1024">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#info_delivery_svg"></use>
                   </svg>
                   <span class="menu-item-parent">信息发布</span>
                 </a>
-                <ul>
-                  <li>
-                    <a href="ywh/task/info_delivery">维护商发布信息</a>
-                  </li>
-                  <li>
-                    <a href="ywh/task/info_delivery?admin=true">管理员发布信息</a>
-                  </li>
-                </ul>
               </li>
               <%
   }
