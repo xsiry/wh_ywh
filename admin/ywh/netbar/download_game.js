@@ -66,14 +66,15 @@
         $('#dg_netbar_selectfm')[0].reset();
       } else {
         var groupid = $('#group_combox').ligerGetComboBoxManager().getValue();
-        if (groupid == '')
-          return false;
-        var queryParam = { "source": "netbar_info", "qtype": "select@online" };
-        var qhkeyjson = { qjson: [{ "groupid": groupid }] };
+        var queryParam = { "source": "netbar_info", "qtype": "select" };
+        var qjsonParam = { "groupid": groupid };
+        if (groupid == '') qjsonParam = {};
+        var qhkeyjson = { qjson: [qjsonParam] };
+        var addRows = [];
+        var gridData = pageSelectedNetBarListGrid.grid.getData();
         queryParam.qhstr = JSON.stringify(qhkeyjson);
         $.getJSON(_hostaddr + 'ywh_queryTableList', queryParam, function(jsondata) {
           $.each(jsondata, function(index, netbar) {
-            var gridData = pageSelectedNetBarListGrid.grid.getData();
             var isexists = false;
             if (gridData) {
               $.each(gridData, function(index, boxdata) {
@@ -84,9 +85,10 @@
               });
             }
             if (!isexists) {
-              pageSelectedNetBarListGrid.grid.addRows({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
+              addRows.push({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
             }
-          })
+          });
+          pageSelectedNetBarListGrid.grid.addRows(addRows);
         })
       }
 
@@ -161,7 +163,7 @@
     pageSelectedNetBarListGrid.init();
 
     netbar_selectfm = $('#dg_netbar_selectfm').ligerForm({
-      inputWidth: 250,
+      inputWidth: 230,
       labelWidth: 0,
       space: 5,
       validate: true,
@@ -169,7 +171,7 @@
       width: "99%",
       fields: [{
         name: "netbarid",
-        width: 250,
+        width: 230,
         newline: false,
         slide: false,
         type: "select",
@@ -177,11 +179,11 @@
         comboboxName: "netbarid",
         options: {
           split: ";",
-          selectBoxWidth: 340,
+          selectBoxWidth: 315,
           selectBoxHeight: 300,
           valueField: 'netbarid',
           textField: 'netbarname',
-          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 150, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
+          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 125, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
           grid: {
             columns: [
               { display: '网吧账号', name: 'netbaracc', width: '40%', align: 'left' },
@@ -212,10 +214,11 @@
     });
 
     $("#group_combox").ligerComboBox({
-      width: 250,
+      width: 230,
       url: _hostaddr + 'ywh_queryTableList/?source=sys_group&qtype=select@online',
       valueField: 'groupid',
-      textField: 'groupname'
+      textField: 'groupname',
+      emptyText: '所有网吧'
     });
   }
 
@@ -301,7 +304,6 @@
           { display: '游戏下载任务', name: 'gamename', width: '50%', align: 'left' }, {
             display: '',
             width: '50%',
-            isSort: false,
             render: function(rowdata, rowindex, value) {
               return '<div class="mg-5"><a href="javascript:;" class="del_selected_game_btn" data-rowid="' + rowindex + '">删除</a></div>';
 
@@ -334,7 +336,6 @@
           { display: '网吧名称', name: 'netbarname', width: '50%', align: 'left' }, {
             display: '',
             width: '50%',
-            isSort: false,
             render: function(rowdata, rowindex, value) {
               return '<div class="mg-5"><a href="javascript:;" class="del_selected_netbar_btn" data-rowid="' + rowindex + '">删除</a></div>';
 
