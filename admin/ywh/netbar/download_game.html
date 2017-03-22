@@ -15,37 +15,41 @@
 </style>
 <div class="games_downpage_clsf mg-tp-10" style="padding: 0px 5px 0px 5px;">
   <div class="col-xs-12" style="padding-bottom: 4px;padding-left: 0px;">
-    <div class="fl">
-      <div class="margin-top-5" style="padding-left: 10px;padding-top: 3px;">
-        游戏查询：
-      </div>
-    </div>
-    <div class="col-xs-6">
-      <div class="form-group">
-        <input id="games_down_name" type="text" class="form-control fl" style="width: 250px;" placeholder="输入游戏名称，支持模糊查询">
-        <a class="btn btn-success games_down_querybtn fl mg-lf-5" href="javascript:void(0);">搜索</a>
-      </div>
-    </div>
-    <div class="fr">
+    <div class="col-xs-8">
       <div class="fl">
-        <label class="radio radio-inline">
-          <input type="radio" name="addType" value="0" checked>
-          <span>网吧</span>
-        </label>
-        <label class="radio radio-inline" style="margin-top:9px;">
-          <input type="radio" name="addType" value="1">
-          <span>分组</span>
-        </label>
-      </div>
-      <div class="fl mg-lf-5">
-        <div class="dg_netbar_selectfm">
-        <form id="dg_netbar_selectfm"></form>
-        </div>
-        <div class="group_combox" style="display: none;margin-right: 5px;margin-top: 3px;padding-bottom: 8px;">
-          <input id="group_combox" style="display: none;" />
+        <div class="margin-top-5" style="padding-left: 10px;padding-top: 3px;">
+          游戏查询：
         </div>
       </div>
-      <div class="fl" style="margin-top: 3px;"><a class="btn btn-primary btn-sm dg_addnewnetbar" href="javascript:void(0);">添加网吧</a>
+      <div class="col-xs-6">
+        <div class="form-group">
+          <input id="games_down_name" type="text" class="form-control fl" style="width: 250px;" placeholder="输入游戏名称，支持模糊查询">
+          <a class="btn btn-success games_down_querybtn fl mg-lf-5" href="javascript:void(0);">搜索</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="fr">
+        <div class="fl" style="margin-top: -13px;">
+          <label class="radio">
+            <input type="radio" name="addType" value="0" checked>
+            <span>网吧</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="addType" value="1">
+            <span>分组</span>
+          </label>
+        </div>
+        <div class="fl mg-lf-5">
+          <div class="dg_netbar_selectfm">
+            <form id="dg_netbar_selectfm"></form>
+          </div>
+          <div class="group_combox" style="display: none;margin-right: 5px;margin-top: 3px;padding-bottom: 8px;">
+            <input id="group_combox" style="display: none;" />
+          </div>
+        </div>
+        <div class="fl" style="margin-top: 3px;"><a class="btn btn-primary btn-sm dg_addnewnetbar" href="javascript:void(0);">添加</a>
+        </div>
       </div>
     </div>
   </div>

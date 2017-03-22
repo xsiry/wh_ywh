@@ -161,7 +161,7 @@
     pageSelectedNetBarListGrid.init();
 
     netbar_selectfm = $('#dg_netbar_selectfm').ligerForm({
-      inputWidth: 150,
+      inputWidth: 250,
       labelWidth: 0,
       space: 5,
       validate: true,
@@ -169,7 +169,7 @@
       width: "99%",
       fields: [{
         name: "netbarid",
-        width: 150,
+        width: 250,
         newline: false,
         slide: false,
         type: "select",
@@ -177,11 +177,11 @@
         comboboxName: "netbarid",
         options: {
           split: ";",
-          selectBoxWidth: 400,
+          selectBoxWidth: 310,
           selectBoxHeight: 300,
           valueField: 'netbarid',
           textField: 'netbarname',
-          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 150, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
+          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 120, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
           grid: {
             columns: [
               { display: '网吧账号', name: 'netbaracc', width: '40%', align: 'left' },
@@ -212,7 +212,7 @@
     });
 
     $("#group_combox").ligerComboBox({
-      width: 150,
+      width: 250,
       url: _hostaddr + 'ywh_queryTableList/?source=sys_group&qtype=select@online',
       valueField: 'groupid',
       textField: 'groupname'
