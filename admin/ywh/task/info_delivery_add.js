@@ -104,10 +104,11 @@
         var qjsonParam = { "groupid": groupid };
         if (groupid == '') qjsonParam = {};
         var qhkeyjson = { qjson: [qjsonParam] };
+        var addRows = [];
+        var gridData = sendNetbarListGrid.grid.getData();
         queryParam.qhstr = JSON.stringify(qhkeyjson);
         $.getJSON(_hostaddr + 'ywh_queryTableList', queryParam, function(jsondata) {
           $.each(jsondata, function(index, netbar) {
-            var gridData = sendNetbarListGrid.grid.getData();
             var isexists = false;
             if (gridData) {
               $.each(gridData, function(index, boxdata) {
@@ -118,9 +119,10 @@
               });
             }
             if (!isexists) {
-              sendNetbarListGrid.grid.addRows({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
+              addRows.push({ "netbarid": netbar.netbarid, "netbarname": netbar.netbarname });
             }
           })
+          sendNetbarListGrid.grid.addRows(addRows);
         })
       }
 
