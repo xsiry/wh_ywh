@@ -133,8 +133,8 @@
 
       $sHelper.AjaxSendData("ywh_saveAction", actionparam, pageListGrid, function(message) {
         if (message.success) {
-          liger.get("gamenamelistid").removeItems(gamenamelist_data);
-          liger.get("netbarlistid").removeItems(netbarlist_data);
+          $('#gamenamelistid').find("tbody").children().remove();
+          $('#netbarlistid').find("tbody").children().remove();
           $.ligerDialog.success('执行游戏下载任务成功！');
         } else
           $.ligerDialog.error(message.msg);

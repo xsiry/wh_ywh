@@ -78,7 +78,7 @@
   </section>
   <footer class="footer">
     <p><span>©Shanghai Netho Culture Communication Co., Ltd. </span></p>
-    <p><span>上海网恒文化传播有限公司&nbsp; 版权所有</span></p>
+    <p><span>上海网恒文化传播有限公司&nbsp; 版权所有&nbsp; 黔ICP备16007325号-2</span></p>
   </footer>
   <script src="js/libs/jquery-2.1.1.min.js"></script>
   <script src="js/appall.js" type="text/javascript" charset="utf-8"></script>
@@ -174,6 +174,23 @@
     }
 
   });
+
+  (function() {
+    var method;
+    var noop = function() {};
+    var methods = [
+      'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+    while (length--) {
+      method = methods[length];
+      // Only stub undefined methods.
+      if (!console[method]) {
+        console[method] = noop;
+      }
+    }
+  }());
   </script>
 </body>
 

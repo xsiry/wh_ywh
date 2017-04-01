@@ -104,7 +104,7 @@
         var queryParam = { "source": "netbar_info", "qtype": "select" };
         var qjsonParam = { "groupid": groupid };
         if (groupid == '') qjsonParam = {};
-        var qhkeyjson = { qjson: [qjsonParam] };
+        var qhkeyjson = { qjson: qjsonParam };
         var addRows = [];
         var gridData = sendNetbarListGrid.grid.getData();
         queryParam.qhstr = JSON.stringify(qhkeyjson);
@@ -200,7 +200,7 @@
           selectBoxHeight: 300,
           valueField: 'netbarid',
           textField: 'netbarname',
-          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 200, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
+          condition: { fields: [{ name: 'q_combo_netbarname', label: '网吧名称', width: 180, type: 'text', attr: { placeholder: "支持模糊查询" } }] },
           grid: {
             columns: [
               { display: '网吧账号', name: 'netbaracc', width: '50%', align: 'left' },
@@ -314,13 +314,13 @@
       emptyText: '选择城市..'
     }
     $("input.province").ligerComboBox({
-      url: _hostaddr + 'ywh_queryTableList/?source=dictcity&qtype=select&qhstr={"qjson":[{"dict_city_type":3}]}',
+      url: _hostaddr + 'ywh_queryTableList/?source=dictcity&qtype=select&qhstr=' + JSON.stringify({"qjson":[{"dict_city_type":3}]}),
       valueField: 'dict_city_id',
       textField: 'dict_city',
       emptyText: '选择省..',
       onSelected: function(value) {
         if (value != '') {
-          cityOptions.url = _hostaddr + 'ywh_queryTableList/?source=dictcity&qtype=select&qhstr={qjson:[{dict_city_parentid:' + value + '}]}';
+          cityOptions.url = _hostaddr + 'ywh_queryTableList/?source=dictcity&qtype=select&qhstr=' + JSON.stringify({qjson:[{dict_city_parentid: value}]});
         }
         $("input.city").ligerComboBox(cityOptions).reload()
 

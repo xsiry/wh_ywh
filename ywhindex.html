@@ -23,7 +23,24 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="stylesheet" type="text/css" href="css/ywhindex.css">
-
+  <script type="text/javascript">
+  (function() {
+    var method;
+    var noop = function() {};
+    var methods = [
+      'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'
+    ];
+    var length = methods.length;
+    var console = (window.console = window.console || {});
+    while (length--) {
+      method = methods[length];
+      // Only stub undefined methods.
+      if (!console[method]) {
+        console[method] = noop;
+      }
+    }
+  }());
+  </script>
   <svg class="txp_svg_sprite txp_svg_sprite_head" display="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <symbol id="netbar_info_svg">
       <path d="M935.757748 274.382161 346.219791 274.382161c-14.010085 0-25.368784-11.359722-25.368784-25.369807 0-14.010085 11.358699-25.369807 25.368784-25.369807l589.537957 0c14.010085 0 25.370831 11.359722 25.370831 25.369807C961.128579 263.022439 949.768857 274.382161 935.757748 274.382161z" p-id="2021" fill="#959da8"></path>
@@ -80,18 +97,18 @@
   </div>
   <!-- #HEADER -->
   <header id="header" style="height: auto !important;">
-    <div id="logo-group" class="col-xs-12 col-sm-6" style="width:600px !important;">
+    <div id="logo-group" class="col-xs-8 col-md-8" style="width:800px !important;">
       <!-- PLACE YOUR LOGO HERE -->
-      <span style=" margin-left: 2px;margin-top: 10px;">
+      <div style="float: left;margin-left: 2px;margin-top: 10px;padding-right:10px;">
         <h1 style="color: #eee">方格子网吧云维护平台</h1>
-        </span>
-      <span style=" margin-left: 20px;margin-top: 15px;display: block; color: white; font-size:12pt;"> 尊敬的
-          <span id="show-shortcut" style="color: #eee;">管理员</span> 欢迎使用方格子网吧云维护 </span>
+        </div>
+      <div style="margin-top: 15px;display: block;color: white;font-size:12pt;"> 尊敬的
+          <span id="show-shortcut" style="color: #eee;">管理员</span> 欢迎使用方格子网吧云维护 </div>
       <!-- END LOGO PLACEHOLDER -->
     </div>
     <!-- #TOGGLE LAYOUT BUTTONS -->
     <!-- pulled right: nav area -->
-    <div class="pull-right  col-sm-6">
+    <div class="pull-right col-xs-4 col-md-4">
       <!--
          <div id="login-info" class="btn-header transparent pull-right hidden-xs btn-group">
             <span type="button" class="btn dropdown-toggle mg-tp-10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -171,126 +188,6 @@
     <!-- END #MAIN CONTENT -->
   </div>
   <!-- END #MAIN PANEL -->
-  <script id="user_authority_menu_tpl" type="text/html">
-  <%
-      if (userAuthority!='ADMIN') {
-     %>
-    <li>
-      <a href="#">
-        <svg class="svg_icon" viewBox="0 0 1024 1024">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#netbar_info_svg"></use>
-        </svg>
-        <span class="menu-item-parent">网吧列表</span>
-      </a>
-      <ul id="user_sys_group_ul" style="display: block;">
-        <li>
-          <a href="ywh/netbar/netbar_info?groupid=all">所有网吧</a>
-        </li>
-      </ul>
-    </li>
-    <%
-    }
-      if (userAuthority=='ALL') {
-     %>
-      <li>
-        <a href="ywh/sysgroup/sysgroup">
-          <svg class="svg_icon" viewBox="0 0 1024 1024">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sysgroup_svg"></use>
-          </svg>
-          <span class="menu-item-parent">分组管理</span>
-        </a>
-      </li>
-      <%
-  }
-  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Download_Game')>-1)) {
-  %>
-        <li>
-          <a href="ywh/netbar/download_game">
-            <svg class="svg_icon" viewBox="0 0 1024 1024">
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#download_game_svg"></use>
-            </svg>
-            <span class="menu-item-parent">游戏下载</span>
-          </a>
-        </li>
-        <%
-  }
-  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Boot_Task')>-1)) {
-  %>
-          <li>
-            <a href="ywh/task/boot_task">
-              <svg class="svg_icon" viewBox="0 0 1024 1024">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#boot_task_svg"></use>
-              </svg>
-              <span class="menu-item-parent">开机任务</span>
-            </a>
-          </li>
-          <%
-  }
-  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Security_Policy')>-1)) {
-  %>
-            <li>
-              <a href="ywh/task/security_policy">
-                <svg class="svg_icon" viewBox="0 0 1024 1024">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#security_policy_svg"></use>
-                </svg>
-                <span class="menu-item-parent">安全策略</span>
-              </a>
-            </li>
-            <%
-  }
-  if ((userAuthority=='ALL') ||(userAuthority.indexOf('Information_Delivery')>-1)) {
-  %>
-              <li>
-                <a href="ywh/task/info_delivery">
-                  <!-- 管理员 ?admin=true -->
-                  <svg class="svg_icon" viewBox="0 0 1024 1024">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#info_delivery_svg"></use>
-                  </svg>
-                  <span class="menu-item-parent">信息发布</span>
-                </a>
-              </li>
-              <%
-  }
-  if (userAuthority=='ADMIN') {
-  %>
-              <li>
-                <a href="ywh/task/info_delivery?admin=true">
-                  <!-- 管理员 ?admin=true -->
-                  <svg class="svg_icon" viewBox="0 0 1024 1024">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#info_delivery_svg"></use>
-                  </svg>
-                  <span class="menu-item-parent">信息发布</span>
-                </a>
-              </li>
-              <%
-  }
-  if (userAuthority!='ADMIN') {
-  %>
-                <li>
-                  <a href="ywh/log/view_task_state">
-                    <svg class="svg_icon" viewBox="0 0 1024 1024">
-                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#view_task_state_svg"></use>
-                    </svg>
-                    <span class="menu-item-parent">任务日志</span>
-                  </a>
-                </li>
-                <%
-  }
-    if (userAuthority=='ALL') {
-  %>
-                  <li>
-                    <a href="ywh/sysuser/sys_user">
-                      <svg class="svg_icon" viewBox="0 0 1024 1024">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#sys_user_svg"></use>
-                      </svg>
-                      <span class="menu-item-parent">员工账号</span>
-                    </a>
-                  </li>
-                  <%
-  }
-  %>
-  </script>
-  <!-- END #MAIN PANEL -->
   <div id="var_ssschool_userimg_cache" style="display: none;">
     <span data-userid="sfdsf"> img </span>
   </div>
@@ -320,15 +217,19 @@
 <script src="js/template.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/wu.tmpl.js" type="text/javascript"></script>
 <script type="text/javascript">
-var _interval;
+$(document).ready(function() {
+  var _interval = window.setInterval(keepOnline, 48000);
+  $('#keepOnline').change(function(o) {
+    if ($(o.currentTarget)[0].checked) {
+      window.clearInterval(_interval);
+      _interval = window.setInterval(keepOnline, 120000);
+    } else {
+      window.clearInterval(_interval);
+      window.setInterval(keepOnline, 480000);
+    }
 
-$('#keepOnline').change(function(o) {
 
-  if ($(o.currentTarget)[0].checked) {
-    _interval = window.setInterval(keepOnline, 120000);
-  } else {
-    window.clearInterval(_interval);
-  }
+  })
 
   function keepOnline() {
     $.ajax({
@@ -340,8 +241,14 @@ $('#keepOnline').change(function(o) {
         qtype: "online"
       },
       cache: false,
-      dataType: 'json',
-      success: function(json) {}
+      success: function(text) {
+        if (text == '') {
+          location.href = "/wh_ywh/login.html";
+        }
+      },
+      error: function(text) {
+        location.href = "/wh_ywh/login.html";
+      }
     });
   }
 })

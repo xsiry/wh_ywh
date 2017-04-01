@@ -52,7 +52,7 @@
     $root.on("click", '.info_delivery_querybtn', function(actionobj) {
       var rowobj = $(this);
       var ifname = $("#info_delivery_name").val();
-      var infodv_info = { qjson: [dataparam], qjsonkeytype: [] };
+      var infodv_info = { qjson: dataparam, qjsonkeytype: [] };
       if (ifname) {
         infodv_info.qjson.push({ "idtitle": ifname });
         infodv_info.qjsonkeytype.push({ "idtitle": "LIKE_ALL" });
@@ -66,7 +66,7 @@
     $root.on("click", '[data-action="info_delivery_psedit"]', function(actionobj) {
       var rowobj = $(this);
       var infoid = rowobj.data("infoid");
-      $ssoftDialog.openSsoftSaveDialog("安全策略管理", "保存为模板", true, "admin/ywh/task/info_delivery_add.html?6",
+      $ssoftDialog.openSsoftSaveDialog("信息发布管理", "保存为模板", true, "admin/ywh/task/info_delivery_add.html?6",
         980, 520, 480,
         function(message) {
           if (message.success) {
