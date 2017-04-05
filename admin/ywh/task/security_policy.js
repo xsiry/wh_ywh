@@ -9,6 +9,7 @@
     delete dataparam["sysusid"];
     dataparam.sysusid = userAccInfo.sysusid;
     pageListGrid.init();
+    $($('.l-grid-hd-cell-inner').children()[1]).hide();
   }
 
 
@@ -187,6 +188,7 @@
         allowUnSelectRow: true,
         pageSize: 20,
         usePager: true,
+        checkbox: true,
         selectRowButtonOnly: false,
         showTitle: false,
         pageSizeOptions: [20, 30, 50],
@@ -200,6 +202,7 @@
         onAfterShowData: function(currentData) {
 
         },
+        isSingleCheck: true,
         onSuccess: function(data, grid) {
 
         },
