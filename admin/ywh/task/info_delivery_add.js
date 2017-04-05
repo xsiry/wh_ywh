@@ -18,6 +18,7 @@
 
     delete dataparam["sysusid"];
     dataparam.sysusid = userAccInfo.sysusid;
+    $('.bootstrap-dialog').removeAttr('tabindex');
   }
   var dialog_param = $ssoftDialog.dialog.getData("paramjson");
   var pageBindingAction = function() {
